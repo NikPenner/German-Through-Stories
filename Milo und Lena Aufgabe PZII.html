@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag & Drop Exercise</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    h2 {
+      color: #2a6592;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: left;
+    }
+    .dropzone {
+      display: inline-block;
+      width: 150px; /* Increased width to 1.5 times */
+      height: 25px;
+      margin: 0 5px;
+      border-bottom: 2px solid #2a6592;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 1rem;
+      background-color: #e6f2ff;
+      border-radius: 5px;
+    }
+    .draggable {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 5px;
+      border: 1px solid #333;
+      background-color: #b0c4de;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+      color: #fff;
+    }
+    .draggable:hover {
+      background-color: #2a6592;
+    }
+    .sentence {
+      text-align: left;
+      margin-bottom: 10pt; /* 12pt space between each sentence */
+      font-size: 1rem;
+      line-height: 2.5; /* Increased line spacing */
+    }
+    #feedback {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      color: #2a6592;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #2a6592;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #174573;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Füllen Sie die Lücken mit den passenden Wörtern:</h2>
+
+    <h3>Ziehen Sie die Wörter in die passenden Lücken:</h3>
+    <div>
+      <div class="draggable" draggable="true" id="gelesen">gelesen</div>
+      <div class="draggable" draggable="true" id="herumgerannt">herumgerannt</div>
+      <div class="draggable" draggable="true" id="herumgelaufen">herumgelaufen</div>
+      <div class="draggable" draggable="true" id="zugehört">zugehört</div>
+      <div class="draggable" draggable="true" id="gelaufen">gelaufen</div>
+      <div class="draggable" draggable="true" id="gerannt">gerannt</div>
+      <div class="draggable" draggable="true" id="genommen">genommen</div>
+      <div class="draggable" draggable="true" id="gesagt">gesagt</div>
+      <div class="draggable" draggable="true" id="gefragt">gefragt</div>
+      <div class="draggable" draggable="true" id="gesprungen">gesprungen</div>
+      <div class="draggable" draggable="true" id="zugemacht">zugemacht</div>
+      <div class="draggable" draggable="true" id="gehabt">gehabt</div>
+      <div class="draggable" draggable="true" id="bekommen">bekommen</div>
+    </div>
+
+    <div class="sentence">1. Julia war brav und hat ein Buch <span class="dropzone" id="drop1" data-answer="gelesen"></span>.</div>
+    <div class="sentence">2. Milo ist wie wild <span class="dropzone" id="drop2" data-answer="herumgerannt"></span> und hat nicht <span class="dropzone" id="drop3" data-answer="zugehört"></span>.</div>
+    <div class="sentence">3. Milo ist zum Tisch <span class="dropzone" id="drop4" data-answer="gelaufen"></span> und hat die Schere <span class="dropzone" id="drop5" data-answer="genommen"></span>.</div>
+    <div class="sentence">4. Frau L. hat <span class="dropzone" id="drop6" data-answer="gesagt"></span>, dass es gefährlich ist, mit einer Schere herumzulaufen.</div>
+    <div class="sentence">5. Milo ist mit der Schere <span class="dropzone" id="drop7" data-answer="herumgerannt"></span>.</div>
+    <div class="sentence">6. Milo hat <span class="dropzone" id="drop8" data-answer="gefragt"></span>, warum er nicht rennen soll, und Frau L. hat <span class="dropzone" id="drop9" data-answer="gesagt"></span>, dass es gefährlich ist.</div>
+    <div class="sentence">7. Am Ende ist Milo aus dem Fenster <span class="dropzone" id="drop10" data-answer="gesprungen"></span>. Frau L. hat das Fenster <span class="dropzone" id="drop11" data-answer="zugemacht"></span>, und dann hat Frau L. endlich ihre Ruhe <span class="dropzone" id="drop12" data-answer="bekommen"></span>.</div>
+
+    <button onclick="checkAnswers()">Überprüfen</button>
+    <div id="feedback"></div>
+  </div>
+
+  <script>
+    // Add drag and drop event listeners to draggable items
+    document.querySelectorAll('.draggable').forEach(item => {
+      item.addEventListener('dragstart', dragStart);
+    });
+
+    // Add drag and drop event listeners to dropzones
+    document.querySelectorAll('.dropzone').forEach(zone => {
+      zone.addEventListener('dragover', allowDrop);
+      zone.addEventListener('drop', drop);
+    });
+
+    function dragStart(event) {
+      event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      const data = event.dataTransfer.getData("text");
+      const draggedElement = document.getElementById(data);
+
+      // Only allow one answer per dropzone
+      if (event.target.classList.contains('dropzone') && !event.target.firstChild) {
+        const clone = draggedElement.cloneNode(true);
+        event.target.appendChild(clone);
+
+        // Allow removal of an answer by clicking and dragging it away
+        clone.setAttribute("draggable", "true");
+        clone.addEventListener('dragstart', () => {
+          clone.parentNode.removeChild(clone);
+        });
+      }
+    }
+
+    function checkAnswers() {
+      let score = 0;
+      const total = document.querySelectorAll('.dropzone').length;
+
+      document.querySelectorAll('.dropzone').forEach(zone => {
+        const answer = zone.getAttribute('data-answer');
+        const userAnswer = zone.firstChild ? zone.firstChild.id : "";
+
+        // Check if user answer matches answer or interchangeable options
+        if (
+          (answer === "herumgerannt" && (userAnswer === "herumgerannt" || userAnswer === "herumgelaufen")) ||
+          (answer === "gelaufen" && (userAnswer === "gelaufen" || userAnswer === "gerannt")) ||
+          userAnswer === answer
+        ) {
+          score++;
+          zone.style.backgroundColor = '#a8e6cf';
+        } else {
+          zone.style.backgroundColor = '#ff8b94';
+        }
+      });
+
+      document.getElementById('feedback').innerText = `Sie haben ${score} von ${total} Punkten erreicht.`;
+    }
+  </script>
+</body>
+</html>
