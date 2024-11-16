@@ -63,9 +63,17 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             background-color: #e6f2ff;
+            display: flex; /* Flexbox for alignment */
+            align-items: flex-start; /* Align items to the start */
         }
-        .book-part p {
-            color: #666;
+        .book-part img {
+            width: 200px;
+            margin-right: 20px; /* Space between image and buttons */
+            border-radius: 5px;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
         }
         .book-part a {
             display: inline-block;
@@ -79,11 +87,6 @@
         }
         .book-part a:hover {
             background-color: #174573;
-        }
-        .book-part img {
-            width: 100%;
-            margin-top: 10px;
-            border-radius: 5px;
         }
         footer {
             text-align: center;
@@ -108,9 +111,12 @@
         <section class="book-part">
             <h2>Kapitel B: Blut ist dicker als Wasser</h2>
             <img src="B/Kapitel B Illustrations.png" style="width: 200px;">
-            <a href="part2index.html">Kapitel lesen</a>
+            <div class="button-group">
+                <a href="part2index.html">Kapitel lesen</a>
+                <a href="part2index.html">Übungen machen</a>
+                <a href="part2index.html">Quiz starten</a>
+            </div>
         </section>
-    <!inserted section-->
         <section class="book-part">
             <h2>Kapitel C: Zu viele Köche verderben den Brei</h2>
             <img src="C/Kapitel C Illustrations.png" style="width: 200px;">
