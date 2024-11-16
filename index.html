@@ -1,79 +1,130 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-header {
-    background-color: #2a6592;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-}
-nav {
-    background-color: #333;
-    overflow: hidden;
-    width: 100%;
-}
-nav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-nav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-.container {
-    max-width: 800px;
-    width: 100%;
-    text-align: left;
-    background-color: white;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-h1, h2 {
-    color: #2a6592;
-}
-.book-part {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #e6f2ff;
-}
-.book-part p {
-    color: #666;
-}
-.book-part a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #2a6592;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-.book-part a:hover {
-    background-color: #174573;
-}
-.book-part img {
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #666;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Through Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, #000000 33%, #DD0000 33%, #DD0000 66%, #FFCC00 66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            width: 100%;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: black;
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .book-part {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #e6f2ff;
+        }
+        .book-part p {
+            color: #666;
+        }
+        .book-part a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .book-part a:hover {
+            background-color: #174573;
+        }
+        .book-part img {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to German Through Stories!</h1>
+    </header>
+    <nav>
+        <a href="about.html">About the Project</a>
+        <a href="index.html">Main Page</a>
+        <a href="part1.html">Part 1</a>
+        <a href="part2.html">Part 2</a>
+        <a href="part3.html">Part III</a>
+    </nav>
+    <div class="container">
+        <section class="book-part">
+            <h2>Part 1: Bits & Pieces</h2>
+            <p>Explore the foundational elements of the German language, including basic vocabulary and grammar concepts.</p>
+            <img src="https://example.com/german-landscape-1.jpg" alt="German Landscape">
+            <a href="part1.html">Read Part 1</a>
+        </section>
+        
+        <section class="book-part">
+            <h2>Part 2: Stories & Exercises</h2>
+            <p>Dive into engaging stories and exercises designed to improve your language skills in a fun and interactive way.</p>
+            <img src="https://example.com/german-landscape-2.jpg" alt="German Landscape">
+            <a href="part2.html">Read Part 2</a>
+        </section>
+        
+        <section class="book-part">
+            <h2>Part 3: Grammar, Word Lists & Similar</h2>
+            <p>Enhance your learning with comprehensive grammar guides, extensive word lists, and additional resources.</p>
+            <img src="https://example.com/german-map.jpg" alt="Map of Germany">
+            <a href="part3.html">Read Part 3</a>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+</body>
+</html>
