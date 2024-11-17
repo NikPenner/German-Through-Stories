@@ -50,9 +50,60 @@
     <header>
         <h1>About German Through Stories</h1>
     </header>
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
     <div class="container">
-        <h2>Our Mission</h2>
-        <p>German Through Stories aims to make learning German fun and engaging through the use of immersive stories and interactive exercises.</p>
+        <h2>About the Project German Through Stories (TPRS)</h2>
+        <style>
+           H2 {
+            text-align: center; 
+           }
+        </style>
+        <p class="subtitle">
+            These materials have been created by Dr. Nik Penner and his numerous students who contributed to this textbook throughout the years. I tried to list the names of the contributors to this project the best I could remember, but it is inevitable that a few names escaped my memory. If you contributed to this project and are not listed as a contributor, please contact me at <a href="mailto:pennern@mcmaster.ca">pennern@mcmaster.ca</a>.
+        </p>
+    <p>
+        Hello and welcome to German 1Z06! This course will be very different from any language course you have taken before. Unlike most language courses following the traditional approach which require students to complete countless grammar drills and to mechanically memorize phrases and grammar rules, we are going to imitate the way children learn languages and learn German in a fun and entertaining way. And there will be a lot less homework than in most other language courses. In fact, most homework will consist of reading short novels in German.
+    </p>
+    <p> We are going to use the TPRS method of language teaching to give you fluency in basic German. We will keep the grammar explanations and drills to a minimum but will concentrate on a several hundred most frequent words and grammar structures.
+    </p>
+    <p> At the end of the course, you should be able to fluently communicate  in basic German on a number of topics, write simple German and read texts of medium difficulty.
+    </p>
+    <p>
+        I hope that this textbook makes learning German an entertaining and fun experience for you. I know that most other textbooks say exactly the same thing, yet learning with them still implies a good deal of suffering, much like the Saturday German school to which my parents dragged me when I was a kid. Ultimately, you will be the judge of whether our endeavour was successful… 
+    </p>
+    <div class="section">
+        <h3>The book consists of 3 parts:</h3>
+        <h4>Part 1. Front Matter</h4>
+        <p>
+            This section is intended to be used as a quick reference tool to look up things as needed. 
+            It contains everything that doesn’t easily fall into Parts 2 and 3. Some sections there are absolutely crucial, 
+            some are recommended, and others optional, as indicated in the Table of Contents.
+        </p>
+        <h4>Part 2. Stories & Exercises</h4>
+        <p>
+            This section contains… you guessed it… stories and exercises for them. And an answer key at the end.
+        </p>
+        <h4>Part 3. Grammar and Word Lists</h4>
+        <p>
+            This part includes my explanations of grammatical topics covered in the course, 
+            accompanying exercises where necessary, as well as lists of words that are best presented by topic.
+        </p>
+    </div>
+    <div class="section disclaimer">
+        <p>
+            <b>Disclaimer:</b> this textbook is a living and breathing project that is regularly updated and expanded. 
+            If you notice a typo, an inaccuracy, have an idea about what could work well for it, or simply want to tell me 
+            what could be done better, please email me at <a href="mailto:pennern@mcmaster.ca">pennern@mcmaster.ca</a> and put 
+            ‘German through TPRS Feedback’ in the subject line of your email.
+        </p>
+    </div>
     </div>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
