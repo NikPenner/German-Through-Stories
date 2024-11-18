@@ -1,1 +1,8 @@
 baseurl: "/German-Through-Stories"
+markdown: kramdown
+theme: minima
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
