@@ -145,10 +145,71 @@ Andere Studenten sehen das und lachen. Sie fragen: “Was macht ihr da? Warum 
         8. Wohin werfen die Freunde Maroona?
     </ul>
 </div>
+            <div class="exercise">
+    <h2>Aufgabe 2. Dies und das / Bits and pieces</h2>
+    <ul>
+        <li>1. Wolfgang ______ an einem Projekt.
+            <ul>
+                <li><input type="radio" name="q1" value="a"> arbeitet</li>
+                <li><input type="radio" name="q1" value="b"> tritt auf</li>
+                <li><input type="radio" name="q1" value="c"> studiert</li>
+                <li><input type="radio" name="q1" value="d"> simst</li>
+            </ul>
+        </li>
+        <li>2. Wolfgang baut ______ für einen Ingenieurwesen-Kurs
+            <ul>
+                <li><input type="radio" name="q2" value="a"> ein Waschbär-Baby</li>
+                <li><input type="radio" name="q2" value="b"> einen Roboter</li>
+                <li><input type="radio" name="q2" value="c"> ein neues Handy</li>
+                <li><input type="radio" name="q2" value="d"> eine neue Freundin</li>
+            </ul>
+        </li>
+        <!-- Add more questions similarly -->
+    </ul>
+    <button onclick="checkAnswers()">Lösungen</button>
+    <button onclick="resetQuiz()">Neu starten</button>
+    <p id="score"></p>
+</div>
     </div>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
+<script>
+    const correctAnswers = {
+        q1: 'a',
+        q2: 'b',
+        // Add more correct answers here
+    };
+
+    function checkAnswers() {
+        let score = 0;
+        let total = Object.keys(correctAnswers).length;
+
+        Object.keys(correctAnswers).forEach((key) => {
+            const selected = document.querySelector(`input[name="${key}"]:checked`);
+            if (selected) {
+                if (selected.value === correctAnswers[key]) {
+                    selected.parentElement.style.color = 'green';
+                    score++;
+                } else {
+                    selected.parentElement.style.color = 'red';
+                }
+            } else {
+                document.querySelector(`input[name="${key}"]`).parentElement.style.color = 'grey';
+            }
+        });
+
+        document.getElementById('score').innerText = `Score: ${score} out of ${total}`;
+    }
+
+    function resetQuiz() {
+        document.querySelectorAll('input[type="radio"]').forEach((input) => {
+            input.checked = false;
+            input.parentElement.style.color = 'black';
+        });
+        document.getElementById('score').innerText = '';
+    }
+</script>
 </body>
 </html>
 
