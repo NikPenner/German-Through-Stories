@@ -230,7 +230,63 @@ Andere Studenten sehen das und lachen. Sie fragen: “Was macht ihr da? Warum 
         </li>
             </ul>
         </li>
-        <!-- Add more questions similarly -->
+    </ul>
+    <button onclick="checkAnswers()">Lösungen</button>
+    <button onclick="resetQuiz()">Neu starten</button>
+    <p id="score"></p>
+</div>
+            <div class="exercise">
+    <h2>Aufgabe 3. Fill in the Correct Answer</h2>
+    <ul>
+        <li>Fred ist ______ sehr cooler Bro!
+            <ul>
+                <li><input type="radio" name="q11" value="a"> eine</li>
+                <li><input type="radio" name="q11" value="b"> ein</li>
+                <li><input type="radio" name="q11" value="c"> die</li>
+                <li><input type="radio" name="q11" value="d"> das</li>
+            </ul>
+        </li>
+        <li>Maroona arbeitet in einem Restaurant. ________ Restaurant heißt Dreizehn-Neunzig.
+            <ul>
+                <li><input type="radio" name="q12" value="a"> ein</li>
+                <li><input type="radio" name="q12" value="b"> der</li>
+                <li><input type="radio" name="q12" value="c"> einer</li>
+                <li><input type="radio" name="q12" value="d"> das</li>
+            </ul>
+        </li>
+        <li>Rita trinkt Kaffee jeden Tag. Sie ist ________ Kaffeesüchtige (f)
+            <ul>
+                <li><input type="radio" name="q13" value="a"> eine</li>
+                <li><input type="radio" name="q13" value="b"> die</li>
+                <li><input type="radio" name="q13" value="c"> das</li>
+                <li><input type="radio" name="q13" value="d"> der</li>
+            </ul>
+        </li>
+        <li>Der Roboter ist ________ Ingenieurwesen-Projekt.
+            <ul>
+                <li><input type="radio" name="q14" value="a"> der</li>
+                <li><input type="radio" name="q14" value="b"> eine</li>
+                <li><input type="radio" name="q14" value="c"> das</li>
+                <li><input type="radio" name="q14" value="d"> ein</li>
+            </ul>
+        </li>
+        <li>Glückwunsch ist ________ Baby-Waschbär.
+            <ul>
+                <li><input type="radio" name="q15" value="a"> eine</li>
+                <li><input type="radio" name="q15" value="b"> der</li>
+                <li><input type="radio" name="q15" value="c"> ein</li>
+                <li><input type="radio" name="q15" value="d"> die</li>
+                <li><input type="radio" name="q15" value="e"> das</li>
+            </ul>
+        </li>
+        <li>Fred hat ________ OSAP Geld (neut.) mehr, weil er ________ neues Handy und neue Schuhe gekauft hat. Fred ist ________ Idiot (m)
+            <ul>
+                <li><input type="radio" name="q16" value="a"> kein, eine, eine</li>
+                <li><input type="radio" name="q16" value="b"> keine, der, eine</li>
+                <li><input type="radio" name="q16" value="c"> kein, ein, ein</li>
+                <li><input type="radio" name="q16" value="d"> kein, eine, das</li>
+            </ul>
+        </li>
     </ul>
     <button onclick="checkAnswers()">Lösungen</button>
     <button onclick="resetQuiz()">Neu starten</button>
@@ -283,6 +339,53 @@ Andere Studenten sehen das und lachen. Sie fragen: “Was macht ihr da? Warum 
         document.getElementById('score').innerText = '';
     }
 </script>
+const correctAnswers = {
+    q1: 'a',
+    q2: 'b',
+    q3: 'c',
+    q4: 'b',
+    q5: 'd',
+    q6: 'd',
+    q7: 'b',
+    q8: 'b',
+    q9: 'c',
+    q10: 'b',
+    q11: 'b',
+    q12: 'b',
+    q13: 'a',
+    q14: 'd',
+    q15: 'c',
+    q16: 'c'
+};
+
+function checkAnswers() {
+    let score = 0;
+    let total = Object.keys(correctAnswers).length;
+
+    Object.keys(correctAnswers).forEach((key) => {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected) {
+            if (selected.value === correctAnswers[key]) {
+                selected.parentElement.style.color = 'green';
+                score++;
+            } else {
+                selected.parentElement.style.color = 'red';
+            }
+        } else {
+            document.querySelector(`input[name="${key}"]`).parentElement.style.color = 'grey';
+        }
+    });
+
+    document.getElementById('score').innerText = `${score} von ${total} sind richtig`;
+}
+
+function resetQuiz() {
+    document.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.checked = false;
+        input.parentElement.style.color = 'black';
+    });
+    document.getElementById('score').innerText = '';
+}
 </body>
 </html>
 
