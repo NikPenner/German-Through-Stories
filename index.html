@@ -21,14 +21,14 @@
             text-align: center;
             width: 100%;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         nav {
             background-color: #333;
             overflow: hidden;
             width: 100%;
-            border-radius: 15px; /* Rounded edges */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         nav a {
             float: left;
@@ -88,7 +88,7 @@
         .inline-img {
             float: left;
             margin-right: 10px;
-            width: 200px;
+            width: 150px; /* Adjusted the width */
         }
         footer {
             text-align: center;
@@ -102,7 +102,7 @@
     <header>
         <h1>Welcome to German Through Stories!</h1>
     </header>
-   <div id="nav-placeholder"></div>
+    <div id="nav-placeholder"></div>
     <script>
         fetch('nav.html')
             .then(response => response.text())
@@ -113,10 +113,10 @@
     <div class="container">
        <section class="book-part">
             <h2>Part 1: Bits & Pieces</h2>
-                <img src="IMG_3454.jpeg" alt="German Landscape" class="inline-img">
-                    <p>This section is intended to be used as a quick reference tool to look up things as needed. It contains everything that is neither a story nor a grammar explanation or a word list.
-                    Some sections there are absolutely crucial, some are recommended, and others are optional.</p>
-                <a href="part1index.html">Read Part 1</a>
+            <img src="IMG_3454.jpeg" alt="German Landscape" class="inline-img">
+            <p>This section is intended to be used as a quick reference tool to look up things as needed. It contains everything that is neither a story nor a grammar explanation or a word list.
+            Some sections there are absolutely crucial, some are recommended, and others are optional.</p>
+            <a href="part1index.html">Read Part 1</a>
         </section>
         <section class="book-part">
             <h2>Part 2: Stories & Exercises</h2>
@@ -124,7 +124,6 @@
             <img src="https://example.com/german-landscape-2.jpg" alt="German Landscape">
             <a href="part2/index.html">Read Part 2</a>
         </section>
-        
         <section class="book-part">
             <h2>Part 3: Grammar, Word Lists & Similar</h2>
             <p>Enhance your learning with comprehensive grammar guides, extensive word lists, and additional resources.</p>
@@ -132,7 +131,6 @@
             <a href="part3.html">Read Part 3</a>
         </section>
     </div>
-    
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
