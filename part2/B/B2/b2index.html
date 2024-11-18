@@ -255,25 +255,25 @@ Andere Studenten sehen das und lachen. Sie fragen: “Was macht ihr da? Warum 
     };
 
     function checkAnswers() {
-        let score = 0;
-        let total = Object.keys(correctAnswers).length;
+    let score = 0;
+    let total = Object.keys(correctAnswers).length;
 
-        Object.keys(correctAnswers).forEach((key) => {
-            const selected = document.querySelector(`input[name="${key}"]:checked`);
-            if (selected) {
-                if (selected.value === correctAnswers[key]) {
-                    selected.parentElement.style.color = 'green';
-                    score++;
-                } else {
-                    selected.parentElement.style.color = 'red';
-                }
+    Object.keys(correctAnswers).forEach((key) => {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected) {
+            if (selected.value === correctAnswers[key]) {
+                selected.parentElement.style.color = 'green';
+                score++;
             } else {
-                document.querySelector(`input[name="${key}"]`).parentElement.style.color = 'grey';
+                selected.parentElement.style.color = 'red';
             }
-        });
+        } else {
+            document.querySelector(`input[name="${key}"]`).parentElement.style.color = 'grey';
+        }
+    });
 
-        document.getElementById('score').innerText = `Score: ${score} von  ${total}` sind richtig;
-    }
+    document.getElementById('score').innerText = `${score} von ${total} sind richtig`;
+}
 
     function resetQuiz() {
         document.querySelectorAll('input[type="radio"]').forEach((input) => {
