@@ -102,13 +102,14 @@
     <header>
         <h1>Welcome to German Through Stories - Part 2!</h1>
     </header>
-    <nav>
-        <a href="about.html">About the Project</a>
-        <a href="index.html">Main Page</a>
-        <a href="part1.html">Part 1</a>
-        <a href="part2index.html">Part 2</a>
-        <a href="part3.html">Part 3</a>
-    </nav>
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
     <div class="container">
         <section class="book-part">
             <h2>Kapitel B: Blut ist dicker als Wasser</h2>
