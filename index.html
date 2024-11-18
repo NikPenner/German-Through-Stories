@@ -81,9 +81,14 @@
     <header>
         <h1>Welcome to German Through Stories!</h1>
     </header>
-    <div id="nav-placeholder">
-        <!-- Navigation content will be injected here -->
-    </div>
+      <div id="nav-placeholder"></div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
     <div class="container">
         <section class="book-part">
             <h2>Part 1: Bits & Pieces</h2>
