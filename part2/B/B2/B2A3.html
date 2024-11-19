@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufgabe 3: Fill in the Correct Article</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #174573;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aufgabe 3: Fill in the Correct Article</h1>
+    </header>
+    <div class="container">
+        <h2>Complete the sentences below:</h2>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">1. Fred ist ______ sehr cooler Bro!</div>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> a) eine</label>
+                    <label><input type="radio" name="q1" value="b"> b) ein</label>
+                    <label><input type="radio" name="q1" value="c"> c) die</label>
+                    <label><input type="radio" name="q1" value="d"> d) das</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">2. Maroona arbeitet in einem Restaurant. ________ Restaurant heißt Dreizehn-Neunzig.</div>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> a) ein</label>
+                    <label><input type="radio" name="q2" value="b"> b) der</label>
+                    <label><input type="radio" name="q2" value="c"> c) einer</label>
+                    <label><input type="radio" name="q2" value="d"> d) das</label>
+                </div>
+            </div>
+            <!-- Add remaining questions here -->
+            <div class="button-group">
+                <button type="button" onclick="checkAnswers()">Lösungen anzeigen</button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+<script>
+    function checkAnswers() {
+        const correctAnswers = {
+            q1: "b",
+            q2: "d",
+            q3: "a",
+            q4: "d",
+            q5: "c",
+            q6: "d"
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        Object.keys(correctAnswers).forEach(question => {
+            const selected = document.querySelector(`input[name="${question}"]:checked`);
+            if (selected && selected.value === correctAnswers[question]) {
+                score++;
+            }
+        });
+
+        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+    }
+
+    function resetQuiz() {
+        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+        document.getElementById("feedback").innerText = "";
+    }
+</script>
+</body>
+</html>
