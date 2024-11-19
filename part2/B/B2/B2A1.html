@@ -43,16 +43,21 @@
             background-color: #ddd;
             color: black;
         }
-        .container {
-            max-width: 800px;
-            width: 100%;
-            text-align: left;
-            background-color: white;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+        .container-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
         h1 {
             color: black;
         }
@@ -113,14 +118,15 @@
         <span>Previous Exercise</span>
         <a href="B2A2.html">Next Exercise</a>
     </nav>
+<div class="container-wrapper">
     <div class="container">
         <section>
-            <h2>Aufgabe 1. Fragen zum Text. Answer these questions with short answers. </h2>
+            <h2>Aufgabe 1. Fragen zum Text. Answer these questions with short answers. </h2>
             <!-- Questions Section -->
             <div class="question">
-                <label for="q1">1.Welche Sportarten macht Maroona?</label>
+                <label for="q1">1. Was für Sport macht Maroona?</label>
                 <input type="text" id="q1" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a1" style="display: none;">Richtige Antwort: Sie joggt, boxt, macht Crossfit und spielt Fußball, Baseball, Eishockey.</p>
+                <p class="correct-answer" id="a1" style="display: none;">Richtige Antwort: Joggen, Boxen, Crossfit, Fußball, Baseball, Eishockey.</p>
             </div>
             <div class="question">
                 <label for="q2">2. Wo arbeitet Maroona?</label>
@@ -133,30 +139,40 @@
                 <p class="correct-answer" id="a3" style="display: none;">Richtige Antwort: Dreizehn-Neunzig.</p>
             </div>
             <div class="question">
-    <label for="q4">4. Was gibt es heute im Restaurant?</label>
-    <input type="text" id="q4" placeholder="Ihre Antwort">
-    <p class="correct-answer" id="a4" style="display: none;">Richtige Antwort: Speed-Dating.</p>
+                <label for="q4">4. Was gibt es heute im Restaurant?</label>
+                <input type="text" id="q4" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a4" style="display: none;">Richtige Antwort: Speed-Dating.</p>
+            </div>
+            <div class="question">
+                <label for="q5">5. Warum denken Siegfried und Wolfgang, dass Maroona komisch ist?</label>
+                <input type="text" id="q5" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a5" style="display: none;">Richtige Antwort: Weil Maroona sagt, sie sollen auf einem Fuß springen und auf dem Boden schwimmen.</p>
+            </div>
+            <div class="question">
+                <label for="q6">6. Wohin müssen Siegfried und Wolfgang schwimmen?</label>
+                <input type="text" id="q6" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a6" style="display: none;">Richtige Antwort: Zu Sternbocks und zurück.</p>
+            </div>
+            <div class="question">
+                <label for="q7">7. Was machen die anderen Studenten?</label>
+                <input type="text" id="q7" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a7" style="display: none;">Richtige Antwort: Sie lachen über Siegfried und Wolfgang.</p>
+            </div>
+            <div class="question">
+                <label for="q8">8. Wohin werfen die Freunde Maroona?</label>
+                <input type="text" id="q8" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a8" style="display: none;">Richtige Antwort: In eine Mülltonne.</p>
+            </div><!-- Add more questions as needed -->
+            <div class="button-group">
+                <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <h2>New Container</h2>
+        <p>This is the new container added to the left of the exercise.</p>
+    </div>
 </div>
-<div class="question">
-    <label for="q5">5. Warum denken Siegfried und Wolfgang, dass Maroona komisch ist?</label>
-    <input type="text" id="q5" placeholder="Ihre Antwort">
-    <p class="correct-answer" id="a5" style="display: none;">Richtige Antwort: Weil Maroona sagt, sie sollen auf einem Fuß springen und auf dem Boden schwimmen.</p>
-</div>
-<div class="question">
-    <label for="q6">6. Wohin müssen Siegfried und Wolfgang schwimmen?</label>
-    <input type="text" id="q6" placeholder="Ihre Antwort">
-    <p class="correct-answer" id="a6" style="display: none;">Richtige Antwort: Zu Sternbocks und zurück.</p>
-</div>
-<div class="question">
-    <label for="q7">7. Was machen die anderen Studenten?</label>
-    <input type="text" id="q7" placeholder="Ihre Antwort">
-    <p class="correct-answer" id="a7" style="display: none;">Richtige Antwort: Sie lachen über Siegfried und Wolfgang.</p>
-</div>
-<div class="question">
-    <label for="q8">8. Wohin werfen die Freunde Maroona?</label>
-    <input type="text" id="q8" placeholder="Ihre Antwort">
-    <p class="correct-answer" id="a8" style="display: none;">Richtige Antwort: In eine Mülltonne.</p>
-</div><!-- Add more questions as needed -->
             <div class="button-group">
                 <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
             </div>
