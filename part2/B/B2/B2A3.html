@@ -25,22 +25,19 @@
         }
         nav {
             background-color: #333;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px;
+            overflow: hidden;
+            display: inline-block;
             border-radius: 15px;
-            margin: 20px 0;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            max-width: 800px;
+            margin: 20px 0;
         }
         nav a {
+            float: left;
+            display: block;
             color: white;
             text-align: center;
-            padding: 10px 20px;
+            padding: 14px 16px;
             text-decoration: none;
-            border-radius: 5px;
         }
         nav a:hover {
             background-color: #ddd;
@@ -98,12 +95,14 @@
     <header>
         <h1>B2: Kontrollzwang Aufgaben</h1>
     </header>
-    <nav>
-        <a href="/German-Through-Stories/index.html">Main Page</a>
-        <a href="b2index.html">Story B2: Kontrollzwang</a>
-        <a href="B2A2.html">Previous Exercise</a>
-        <a href="B2A4.html">Next Exercise</a>
-    </nav>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b2index.html">Story B2: Kontrollzwang</a>
+            <a href="B2A2.html">Previous Exercise</a>
+            <a href="B2A4.html">Next Exercise</a>
+        </nav>
+    </div>
     <div class="container">
         <h2>Aufgabe 3: Fill in the Correct Article</h2>
         <form id="quiz-form">
