@@ -156,54 +156,53 @@
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
+<script>
+    function checkAnswers() {
+        const correctAnswers = {
+            q1: "a",
+            q2: "b",
+            q3: "b",
+            q4: "b",
+            q5: "b",
+            q6: "d",
+            q7: "b",
+            q8: "d",
+            q9: "c",
+            q10: "b"
+        };
 
-    <script>
-        function checkAnswers() {
-            const correctAnswers = {
-                q1: "a",
-                q2: "b",
-                q3: "b",
-                q4: "b",
-                q5: "b",
-                q6: "d",
-                q7: "b",
-                q8: "d",
-                q9: "c",
-                q10: "b"
-            };
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
 
-            let score = 0;
-            const totalQuestions = Object.keys(correctAnswers).length;
+        Object.keys(correctAnswers).forEach(question => {
+            const selected = document.querySelector(`input[name="${question}"]:checked`);
+            const options = document.querySelectorAll(`input[name="${question}"]`);
 
-            Object.keys(correctAnswers).forEach(question => {
-                const selected = document.querySelector(`input[name="${question}"]:checked`);
-                const options = document.querySelectorAll(`input[name="${question}"]`);
+            options.forEach(option => {
+                const label = option.parentNode;
+                label.classList.remove("correct", "incorrect");
 
-                options.forEach(option => {
-                    const label = option.parentNode;
-                    label.classList.remove("correct", "incorrect");
-
-                    if (selected && option === selected && option.value === correctAnswers[question]) {
-                        score++;
-                        label.style.color = "green";
-                    } else if (selected && option === selected && option.value !== correctAnswers[question]) {
-                        label.style.color = "red";
-                    } else {
-                        label.style.color = "";
-                    }
-                });
+                if (selected && option === selected && option.value === correctAnswers[question]) {
+                    score++;
+                    label.style.color = "green";
+                } else if (selected && option === selected && option.value !== correctAnswers[question]) {
+                    label.style.color = "red";
+                } else {
+                    label.style.color = "";
+                }
             });
+        });
 
-            document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
-        }
+        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+    }
 
-        function resetQuiz() {
-            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
-            document.querySelectorAll('.option').forEach(label => {
-                label.style.color = "";
-            });
-            document.getElementById("feedback").innerText = "";
-        }
-    </script>
+    function resetQuiz() {
+        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+        document.querySelectorAll('.option').forEach(label => {
+            label.style.color = "";
+        });
+        document.getElementById("feedback").innerText = "";
+    }
+</script>
 </body>
 </html>
