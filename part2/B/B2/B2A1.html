@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,15 +20,16 @@
             padding: 20px;
             text-align: center;
             width: 100%;
-            border-radius: 15px; /* Rounded edges */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         nav {
             background-color: #333;
             overflow: hidden;
             display: inline-block;
-            border-radius: 15px; /* Rounded edges */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         nav a {
             float: left;
@@ -49,6 +50,7 @@
             background-color: white;
             padding: 20px;
             margin: 20px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h1 {
@@ -57,37 +59,40 @@
         h2 {
             color: #2a6592;
         }
-        .book-part {
-            margin-top: 20px;
-            padding: 20px;
+        .question {
+            margin: 15px 0;
+        }
+        .question label {
+            font-weight: bold;
+        }
+        .question input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            background-color: #e6f2ff;
         }
-        .book-part .content {
-            display: flex; /* Flexbox for alignment */
-            align-items: flex-start; /* Align items to the start */
-        }
-        .book-part img {
-            width: 200px;
-            margin-right: 20px; /* Space between image and buttons */
-            border-radius: 5px;
+        .correct-answer {
+            margin-top: 10px;
+            color: #2a6592;
+            font-style: italic;
         }
         .button-group {
-            display: flex;
-            flex-direction: column;
+            text-align: center;
+            margin-top: 20px;
         }
-        .book-part a {
-            display: inline-block;
-            margin-top: 10px;
+        .button-group button {
             padding: 10px 20px;
+            font-size: 1em;
             background-color: #2a6592;
             color: white;
-            text-decoration: none;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .book-part a:hover {
+        .button-group button:hover {
             background-color: #174573;
         }
         footer {
@@ -102,19 +107,16 @@
     <header>
         <h1>Aufgaben zu B2: Kontrollzwang</h1>
     </header>
-    <div style="text-align: center;">
-        <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="b2index">Story B2: Kontrollzwang</a>
-            <span>Previous exercise</span>
-            <a href="B2A2.html">Next exercise</a>
-        </nav>
-    </div>
-<div class="container">
-    <section class="book-part">
-        <h2>Aufgabe 1</h2>
-        <div class="content">
-            <!-- Inserted Questions -->
+    <nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b2index">Story B2: Kontrollzwang</a>
+        <span>Previous Exercise</span>
+        <a href="B2A2.html">Next Exercise</a>
+    </nav>
+    <div class="container">
+        <section>
+            <h2>Aufgabe 1</h2>
+            <!-- Questions Section -->
             <div class="question">
                 <label for="q1">1. Was für Sport macht Maroona?</label>
                 <input type="text" id="q1" placeholder="Ihre Antwort">
@@ -130,49 +132,23 @@
                 <input type="text" id="q3" placeholder="Ihre Antwort">
                 <p class="correct-answer" id="a3" style="display: none;">Richtige Antwort: Dreizehn-Neunzig.</p>
             </div>
-            <div class="question">
-                <label for="q4">4. Was gibt es heute im Restaurant?</label>
-                <input type="text" id="q4" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a4" style="display: none;">Richtige Antwort: Speed-Dating.</p>
+            <!-- Add more questions as needed -->
+            <div class="button-group">
+                <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
             </div>
-            <div class="question">
-                <label for="q5">5. Warum denken Siegfried und Wolfgang, dass Maroona komisch ist?</label>
-                <input type="text" id="q5" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a5" style="display: none;">Richtige Antwort: Weil Maroona sagt, sie sollen auf einem Fuß springen und auf dem Boden schwimmen.</p>
-            </div>
-            <div class="question">
-                <label for="q6">6. Wohin müssen Siegfried und Wolfgang schwimmen?</label>
-                <input type="text" id="q6" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a6" style="display: none;">Richtige Antwort: Zu Sternbocks und zurück.</p>
-            </div>
-            <div class="question">
-                <label for="q7">7. Was machen die anderen Studenten?</label>
-                <input type="text" id="q7" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a7" style="display: none;">Richtige Antwort: Sie lachen über Siegfried und Wolfgang.</p>
-            </div>
-            <div class="question">
-                <label for="q8">8. Wohin werfen die Freunde Maroona?</label>
-                <input type="text" id="q8" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a8" style="display: none;">Richtige Antwort: In eine Mülltonne.</p>
-            </div>
-        </div>
-        <div class="button-group">
-            <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
-        </div>
-    </section>
-</div>
-
-<script>
-    function showCorrectAnswers() {
-        // Show correct answers for all questions
-        for (let i = 1; i <= 8; i++) {
-            document.getElementById('a' + i).style.display = 'block';
-        }
-    }
-</script>
-
+        </section>
+    </div>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
+
+    <script>
+        function showCorrectAnswers() {
+            // Show all correct answers
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('a' + i).style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
