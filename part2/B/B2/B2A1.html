@@ -184,6 +184,7 @@
 </div>
             <div class="button-group">
                 <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
+                <button onclick="resetQuiz()">Neu Starten</button>
             </div>
         </section>
     </div>
@@ -192,12 +193,24 @@
     </footer>
 
     <script>
-        function showCorrectAnswers() {
-            // Show all correct answers
-            for (let i = 1; i <= 8; i++) {
-                document.getElementById('a' + i).style.display = 'block';
-            }
+    function showCorrectAnswers() {
+        // Show all correct answers
+        for (let i = 1; i <= 8; i++) {
+            document.getElementById('a' + i).style.display = 'block';
         }
-    </script>
+    }
+
+    function resetQuiz() {
+        // Hide all correct answers
+        for (let i = 1; i <= 8; i++) {
+            document.getElementById('a' + i).style.display = 'none';
+        }
+        
+        // Clear all input fields
+        document.querySelectorAll('.question input').forEach(input => {
+            input.value = '';
+        });
+    }
+</script>
 </body>
 </html>
