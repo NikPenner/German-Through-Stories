@@ -81,11 +81,13 @@
             display: inline-block;
             margin-top: 10px;
             padding: 10px 20px;
+            width: 200px; /* Consistent width for all buttons */
             background-color: #2a6592;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            text-align: center;
         }
         .book-part a:hover {
             background-color: #174573;
@@ -116,9 +118,18 @@
             <div class="content">
                 <img src="part2/B/Kapitel B main theme.png" style="width: 200px;">
                 <div class="button-group">
-                    <a href="part2index.html">B1: Wolfgang und sein Projekt</a>
-                    <a href="part2/B/B2/b2index.html">B2: Kontrollzwang</a>
-                    <a href="part2index.html">B3: Die Liebe seines Lebens</a>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2index.html">B1: Wolfgang und sein Projekt</a>
+                        <a href="part2index.html">B1: Aufgaben</a>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2/B/B2/b2index.html">B2: Kontrollzwang</a>
+                        <a href="part2index.html">B2: Aufgaben</a>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2index.html">B3: Die Liebe seines Lebens</a>
+                        <a href="part2index.html">B3: Aufgaben</a>
+                    </div>
                 </div>
             </div>
         </section>
