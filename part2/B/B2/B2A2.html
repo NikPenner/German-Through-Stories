@@ -111,19 +111,85 @@
         </nav>
     </div>
     <div class="container">
-        <section class="book-part">
-            <h2>Aufgabe 1</h2>
-            <div class="content">
-                <div class="button-group">
-                    <div style="display: flex; gap: 10px;">
-                        <a href="part2index.html">Aufgabe 1. Fragen zum Text </a>
-                    </div>
+        <h2>Aufgabe 2: Dies und das</h2>
+
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">1. Wolfgang ______ an einem Projekt.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a"> a) arbeitet</label><br>
+                    <label class="option"><input type="radio" name="q1" value="b"> b) tritt auf</label><br>
+                    <label class="option"><input type="radio" name="q1" value="c"> c) studiert</label><br>
+                    <label class="option"><input type="radio" name="q1" value="d"> d) simst</label>
                 </div>
             </div>
-        </section>
+            <!-- Add similar blocks for other questions -->
+            <div class="question-container">
+                <div class="question">2. Wolfgang baut ______ für einen Ingenieurwesen-Kurs.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a"> a) ein Waschbär-Baby</label><br>
+                    <label class="option"><input type="radio" name="q2" value="b"> b) einen Roboter</label><br>
+                    <label class="option"><input type="radio" name="q2" value="c"> c) ein neues Handy</label><br>
+                    <label class="option"><input type="radio" name="q2" value="d"> d) eine neue Freundin</label>
+                </div>
+            </div>
+            <!-- Add all remaining questions here -->
+            <button type="button" onclick="checkAnswers()">Lösungen anzeigen</button>
+            <button type="button" onclick="resetQuiz()">Neu starten</button>
+            <div class="feedback" id="feedback"></div>
+        </form>
     </div>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: "a",
+                q2: "b",
+                q3: "b",
+                q4: "b",
+                q5: "b",
+                q6: "d",
+                q7: "b",
+                q8: "d",
+                q9: "c",
+                q10: "b"
+            };
+
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+
+            Object.keys(correctAnswers).forEach(question => {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                const options = document.querySelectorAll(`input[name="${question}"]`);
+
+                options.forEach(option => {
+                    const label = option.parentNode;
+                    label.classList.remove("correct", "incorrect");
+
+                    if (selected && option === selected && option.value === correctAnswers[question]) {
+                        score++;
+                        label.style.color = "green";
+                    } else if (selected && option === selected && option.value !== correctAnswers[question]) {
+                        label.style.color = "red";
+                    } else {
+                        label.style.color = "";
+                    }
+                });
+            });
+
+            document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+        }
+
+        function resetQuiz() {
+            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+            document.querySelectorAll('.option').forEach(label => {
+                label.style.color = "";
+            });
+            document.getElementById("feedback").innerText = "";
+        }
+    </script>
 </body>
 </html>
