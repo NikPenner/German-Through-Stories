@@ -74,9 +74,22 @@
             border-radius: 5px;
         }
         .button-group {
-            display: flex;
-            flex-direction: column;
-        }
+    text-align: center;
+    margin-top: 20px;
+}
+.button-group button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #2a6592;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button-group button:hover {
+    background-color: #174573;
+}
         .book-part a {
             display: inline-block;
             margin-top: 10px;
@@ -134,9 +147,9 @@
                 </div>
             </div>
             <div class="button-group">
-    <button type="button" onclick="checkAnswers()">Lösungen anzeigen</button>
-    <button type="button" onclick="resetQuiz()">Neu starten</button>
-</div>
+                <button type="button" onclick="checkAnswers()">Lösungen anzeigen</button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
             <div class="feedback" id="feedback"></div>
         </form>
     </div>
