@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aufgabe 3: Fill in the Correct Article</title>
+    <title>B2: Kontrollzwang Aufgaben</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,6 +22,29 @@
             width: 100%;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 800px;
+        }
+        nav a {
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
         }
         .container {
             max-width: 800px;
@@ -73,10 +96,16 @@
 </head>
 <body>
     <header>
-        <h1>Aufgabe 3: Fill in the Correct Article</h1>
+        <h1>B2: Kontrollzwang Aufgaben</h1>
     </header>
+    <nav>
+        <a href="B2A2.html">Previous Exercise</a>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b2index.html">Story B2: Kontrollzwang</a>
+        <a href="B2A4.html">Next Exercise</a>
+    </nav>
     <div class="container">
-        <h2>Complete the sentences below:</h2>
+        <h2>Aufgabe 3: Fill in the Correct Article</h2>
         <form id="quiz-form">
             <div class="question-container">
                 <div class="question">1. Fred ist ______ sehr cooler Bro!</div>
@@ -111,30 +140,3 @@
     function checkAnswers() {
         const correctAnswers = {
             q1: "b",
-            q2: "d",
-            q3: "a",
-            q4: "d",
-            q5: "c",
-            q6: "d"
-        };
-
-        let score = 0;
-        const totalQuestions = Object.keys(correctAnswers).length;
-
-        Object.keys(correctAnswers).forEach(question => {
-            const selected = document.querySelector(`input[name="${question}"]:checked`);
-            if (selected && selected.value === correctAnswers[question]) {
-                score++;
-            }
-        });
-
-        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
-    }
-
-    function resetQuiz() {
-        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
-        document.getElementById("feedback").innerText = "";
-    }
-</script>
-</body>
-</html>
