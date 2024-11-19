@@ -140,3 +140,30 @@
     function checkAnswers() {
         const correctAnswers = {
             q1: "b",
+            q2: "d",
+            q3: "a",
+            q4: "d",
+            q5: "c",
+            q6: "d"
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        Object.keys(correctAnswers).forEach(question => {
+            const selected = document.querySelector(`input[name="${question}"]:checked`);
+            if (selected && selected.value === correctAnswers[question]) {
+                score++;
+            }
+        });
+
+        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+    }
+
+    function resetQuiz() {
+        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+        document.getElementById("feedback").innerText = "";
+    }
+</script>
+</body>
+</html>
