@@ -1,89 +1,144 @@
-<h1>Aufgaben</h1>
-<div class="exercise">
-    <h2>Aufgabe 2. Dies und das / Bits and pieces</h2>
-    <ul>
-        <li>1. Wolfgang ______ an einem Projekt.
-            <ul>
-                <li><input type="radio" name="q1" value="a"> arbeitet</li>
-                <li><input type="radio" name="q1" value="b"> tritt auf</li>
-                <li><input type="radio" name="q1" value="c"> studiert</li>
-                <li><input type="radio" name="q1" value="d"> simst</li>
-            </ul>
-        </li>
-        <li>2. Wolfgang baut ______ für einen Ingenieurwesen-Kurs
-            <ul>
-                <li><input type="radio" name="q2" value="a"> ein Waschbär-Baby</li>
-                <li><input type="radio" name="q2" value="b"> einen Roboter</li>
-                <li><input type="radio" name="q2" value="c"> ein neues Handy</li>
-                <li><input type="radio" name="q2" value="d"> eine neue Freundin</li>
-            </ul>
-        </li>
-        <li>3. Wolfgangs Buch hat ______ gekostet.
-            <ul>
-                <li><input type="radio" name="q3" value="a"> nichts</li>
-                <li><input type="radio" name="q3" value="b"> zweihundertachtundzwanzig Dollar</li>
-                <li><input type="radio" name="q3" value="c"> hundertfünfzig Dollar</li>
-                <li><input type="radio" name="q3" value="d"> siebzig Cent</li>
-            </ul>
-        </li>
-        <li>4. Was studiert Maroona?
-            <ul>
-                <li><input type="radio" name="q4" value="a"> Ingenieurwesen</li>
-                <li><input type="radio" name="q4" value="b"> Kinesiologie</li>
-                <li><input type="radio" name="q4" value="c"> Sport-Geschichte</li>
-                <li><input type="radio" name="q4" value="d"> Waschbär-wissenschaft</li>
-            </ul>
-        </li>
-        <li>5. In welchem Semester studiert Wolfgang?
-            <ul>
-                <li><input type="radio" name="q5" value="a"> im ersten</li>
-                <li><input type="radio" name="q5" value="b"> im vierten</li>
-                <li><input type="radio" name="q5" value="c"> im siebten</li>
-                <li><input type="radio" name="q5" value="d"> im zweiten</li>
-            </ul>
-        </li>
-        <li>6. Wolfgang studiert ______.
-            <ul>
-                <li><input type="radio" name="q6" value="a"> Kommerz</li>
-                <li><input type="radio" name="q6" value="b"> Biologie</li>
-                <li><input type="radio" name="q6" value="c"> Philosophie</li>
-                <li><input type="radio" name="q6" value="d"> Ingenieurwesen</li>
-            </ul>
-        </li>
-        <li>7. Wolfgang denkt, dass der Roboter kaputt ist. Der Roboter geht nur ______.
-            <ul>
-                <li><input type="radio" name="q7" value="a"> vorwärts</li>
-                <li><input type="radio" name="q7" value="b"> rückwärts</li>
-                <li><input type="radio" name="q7" value="c"> zu Hause</li>
-                <li><input type="radio" name="q7" value="d"> nach Hause</li>
-            </ul>
-        </li>
-        <li>8. Der Roboter geht zum Tisch und ______.
-            <ul>
-                <li><input type="radio" name="q8" value="a"> liest das Buch und liebt es</li>
-                <li><input type="radio" name="q8" value="b"> tritt auf das Buch und macht es kaputt</li>
-                <li><input type="radio" name="q8" value="c"> kauft das Buch</li>
-                <li><input type="radio" name="q8" value="d"> nimmt das Buch und öffnet es</li>
-            </ul>
-        </li>
-        <li>9. Wohin schwimmen Siegfried und Wolfgang?
-            <ul>
-                <li><input type="radio" name="q9" value="a"> nach Hause</li>
-                <li><input type="radio" name="q9" value="b"> ins Studentenzentrum</li>
-                <li><input type="radio" name="q9" value="c"> zu Sternbocks und zurück</li>
-                <li><input type="radio" name="q9" value="d"> in eine Mülltonne</li>
-            </ul>
-        </li>
-        <li>10. Es gibt ein Restaurant auf dem Campus. Das Restaurant heißt ______.
-            <ul>
-                <li><input type="radio" name="q10" value="a"> Zwölf-Achtzig</li>
-                <li><input type="radio" name="q10" value="b"> Dreizehn-Neunzig</li>
-                <li><input type="radio" name="q10" value="c"> Campus Spaß</li>
-                <li><input type="radio" name="q10" value="d"> Oopsilon Café</li>
-            </ul>
-        </li>
-    </ul>
-    <button onclick="checkAnswers()">Lösungen</button>
-    <button onclick="resetQuiz()">Neu starten</button>
-    <p id="score"></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTS - Part 2: Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px; /* Rounded edges */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 15px; /* Rounded edges */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: black;
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .book-part {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #e6f2ff;
+        }
+        .book-part .content {
+            display: flex; /* Flexbox for alignment */
+            align-items: flex-start; /* Align items to the start */
+        }
+        .book-part img {
+            width: 200px;
+            margin-right: 20px; /* Space between image and buttons */
+            border-radius: 5px;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .book-part a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .book-part a:hover {
+            background-color: #174573;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>German Through Stories - Part 2</h1>
+    </header>
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch('../../../nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
+    <div class="container">
+        <section class="book-part">
+            <h2>Kapitel B: Blut ist dicker als Wasser</h2>
+            <div class="content">
+                <img src="part2/B/Kapitel B main theme.png" style="width: 200px;">
+                <div class="button-group">
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2index.html">B1: Wolfgang und sein Projekt</a>
+                        <button id="btnB2">B2: Another Exercise</button>
+                    </div>
+                    <a href="part2/B/B2/b2index.html">B2: Kontrollzwang</a>
+                    <a href="part2index.html">B3: Die Liebe seines Lebens</a>
+                </div>
+            </div>
+        </section>
+        <section class="book-part">
+            <h2>Kapitel C: Zu viele Köche verderben den Brei</h2>
+            <div class="content">
+                <img src="part2/C/Kapitel C main theme.png" style="width: 200px;">
+                <div class="button-group">
+                    <a href="part2index.html">C1: Maroona und MSAF</a>
+                    <a href="part2index.html">C2: Na, warte!</a>
+                    <a href="part2index.html">C3: Simsen in der Vorlesung</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+</body>
+</html>
