@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2: Kontrollzwang Aufgaben</title>
+    <title>Drag & Drop Exercise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,28 +23,8 @@
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
-        nav {
-            background-color: #333;
-            overflow: hidden;
-            display: inline-block;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            margin: 20px 0;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             text-align: left;
             background-color: white;
@@ -53,69 +33,115 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h2 {
-            color: #2a6592;
+        .dropzone {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 100px;
+            background-color: #f9f9f9;
         }
-        .question-container {
-            margin-bottom: 20px;
-        }
-        .question {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        select {
-            margin-left: 20px;
-            margin-bottom: 5px;
-            padding: 5px;
-            border-radius: 5px;
+        .item {
+            padding: 10px;
+            margin: 5px;
+            background-color: #eee;
             border: 1px solid #ccc;
-        }
-        button {
-            display: block;
-            margin: 10px auto;
-            padding: 10px 20px;
-            background-color: #2a6592;
-            color: white;
-            border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
         }
-        button:hover {
-            background-color: #174573;
+        .dropzone h3 {
+            margin: 0;
+            padding-bottom: 10px;
         }
-        .feedback {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #2a6592;
-            text-align: center;
+        .highlight-incorrect {
+            background-color: rgba(255, 0, 0, 0.4) !important;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>B2: Kontrollzwang Aufgaben</h1>
+        <h1>Drag & Drop Exercise</h1>
     </header>
-    <div style="text-align: center;">
-        <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="b2index.html">Story B2: Kontrollzwang</a>
-            <a href="B2A4.html">Previous Exercise</a>
-            <a href="B2A6.html">Next Exercise</a>
-        </nav>
-    </div>
     <div class="container">
-        <h2>Aufgabe 4: Insert the correct form of ein/eine or kein/keine.</h2>
+        <h2>Aufgabe 5: Reconstruct a dialogue</h2>
+        <p>Who says the following, Maroona or, Siegfried and Wolfgang? First match the phrases to the person saying them, then reconstruct the dialogue & practice reading it with a partner.</p>
+        <div id="phrases" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="phrase1" class="item" draggable="true" ondragstart="drag(event)">Na gut, wir schwimmen zu Sternbocks und zurück.</div>
+            <div id="phrase2" class="item" draggable="true" ondragstart="drag(event)">Warum nicht?</div>
+            <div id="phrase3" class="item" draggable="true" ondragstart="drag(event)">Hallo! Wir wollen beim Speeddating mitmachen!</div>
+            <div id="phrase4" class="item" draggable="true" ondragstart="drag(event)">Das ist total bescheuert! Wir schwimmen nicht!</div>
+            <div id="phrase5" class="item" draggable="true" ondragstart="drag(event)">Halt! Ihr dürft nicht rein!</div>
+            <div id="phrase6" class="item" draggable="true" ondragstart="drag(event)">Zack, fertig!</div>
+            <div id="phrase7" class="item" draggable="true" ondragstart="drag(event)">Na gut, wir springen auf einem Fuß dann.</div>
+            <div id="phrase8" class="item" draggable="true" ondragstart="drag(event)">Schwimmt!</div>
+            <div id="phrase9" class="item" draggable="true" ondragstart="drag(event)">Und jetzt sollt ihr zu Sternbocks und zurück schwimmen!</div>
+            <div id="phrase10" class="item" draggable="true" ondragstart="drag(event)">Du bist aber komisch! Nein!</div>
+            <div id="phrase11" class="item" draggable="true" ondragstart="drag(event)">Und jetzt… Nein, ich will nicht in die Mülltonne</div>
+            <div id="phrase12" class="item" draggable="true" ondragstart="drag(event)">Ihr sollt zuerst auf einem Fuß springen!</div>
+            <div id="phrase13" class="item" draggable="true" ondragstart="drag(event)">Springt!</div>
+        </div>
+        <div id="maroona" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Maroona</h3>
+        </div>
+        <div id="siegfried-wolfgang" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Siegfried & Wolfgang</h3>
+        </div>
+        <button onclick="checkAnswers()">Check Answers</button>
+        <div id="feedback"></div>
     </div>
-     <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="b2index.html">Story B2: Kontrollzwang</a>
-            <a href="B2A4.html">Previous Exercise</a>
-            <a href="B2A6.html">Next Exercise</a>
-        </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var dropzone = ev.target.closest('.dropzone');
+    if (dropzone) {
+        dropzone.appendChild(document.getElementById(data));
+    }
+}
+
+function checkAnswers() {
+    const correctAnswers = {
+        maroona: [
+            'phrase1', 'phrase4', 'phrase6', 'phrase7', 'phrase10', 'phrase11', 'phrase12'
+        ],
+        'siegfried-wolfgang': [
+            'phrase2', 'phrase3', 'phrase5', 'phrase8', 'phrase9', 'phrase13'
+        ]
+    };
+
+    let score = 0;
+    Object.keys(correctAnswers).forEach(person => {
+        const dropzone = document.getElementById(person);
+        const phrasesInZone = Array.from(dropzone.children).map(child => child.id);
+        phrasesInZone.forEach(phrase => {
+            if (!correctAnswers[person].includes(phrase)) {
+                const incorrectItem = document.getElementById(phrase);
+                incorrectItem.classList.add('highlight-incorrect');
+                setTimeout(() => {
+                    incorrectItem.classList.remove('highlight-incorrect');
+                }, 5000);
+            }
+        });
+        correctAnswers[person].forEach(correctPhrase => {
+            if (phrasesInZone.includes(correctPhrase)) {
+                score++;
+            }
+        });
+    });
+
+    document.getElementById('feedback').innerText = `You got ${score} correct answers.`;
+}
+</script>
 </body>
 </html>
