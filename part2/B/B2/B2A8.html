@@ -1,1 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTS - Part 2: Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: black;
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .options label {
+            display: block;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-group button:hover {
+            background-color: #174573;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aufgaben zu B2: Kontrollzwang</h1>
+    </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b2index">Story B2: Kontrollzwang</a>
+            <a href="B2A1.html">Previous exercise </a>
+            <a href="B2A3.html">Next exercise</a>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Aufgabe 9. Was ist logisch? What makes sense?</h2>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">1. Wolfgang steht allein an der Tür und sagt: “Was ________ ich jetzt ________?”</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a"> a) hebe auf</label>
+                    <label class="option"><input type="radio" name="q1" value="b"> b) höre zu</label>
+                    <label class="option"><input type="radio" name="q1" value="c"> c) drehe um</label>
+                    <label class="option"><input type="radio" name="q1" value="d"> d) reiche ein</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">2. Er ________ den Roboter ________, und der Roboter öffnet die Augen.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a"> a) hört zu</label>
+                    <label class="option"><input type="radio" name="q2" value="b"> b) schaltet ein</label>
+                    <label class="option"><input type="radio" name="q2" value="c"> c) tritt auf</label>
+                    <label class="option"><input type="radio" name="q2" value="d"> d) schaltet aus</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">3. Wolfgang und Siegfried sollen auf einem Fuss ________.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="a"> a) schlafen</label>
+                    <label class="option"><input type="radio" name="q3" value="b"> b) lesen</label>
+                    <label class="option"><input type="radio" name="q3" value="c"> c) springen</label>
+                    <label class="option"><input type="radio" name="q3" value="d"> d) machen</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">4. Maroona steht an der Tür und sagt, wer reinkommen ________ und wer nicht.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="a"> a) kann</label>
+                    <label class="option"><input type="radio" name="q4" value="b"> b) will</label>
+                    <label class="option"><input type="radio" name="q4" value="c"> c) darf</label>
+                    <label class="option"><input type="radio" name="q4" value="d"> d) muss</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">5. Siegfried und Wolfgang ________ auch beim Speed-dating mitmachen!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="a"> a) wollen</label>
+                    <label class="option"><input type="radio" name="q5" value="b"> b) sollen</label>
+                    <label class="option"><input type="radio" name="q5" value="c"> c) können</label>
+                    <label class="option"><input type="radio" name="q5" value="d"> d) dürfen</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">6. Maroona ________ nicht, das Wolfgang und Siegfried sie in die Mülltonne werfen.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="a"> a) kann</label>
+                    <label class="option"><input type="radio" name="q6" value="b"> b) darf</label>
+                    <label class="option"><input type="radio" name="q6" value="c"> c) muss</label>
+                    <label class="option"><input type="radio" name="q6" value="d"> d) mag</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">7. Fred ________ nicht aufhören zu weinen.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="a"> a) muss</label>
+                    <label class="option"><input type="radio" name="q7" value="b"> b) darf</label>
+                    <label class="option"><input type="radio" name="q7" value="c"> c) kann</label>
+                    <label class="option"><input type="radio" name="q7" value="d"> d) mag</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">8. Rita ________ Glückwunsch nicht finden.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a"> a) kannst</label>
+                    <label class="option"><input type="radio" name="q8" value="b"> b) kann</label>
+                    <label class="option"><input type="radio" name="q8" value="c"> c) willst</label>
+                    <label class="option"><input type="radio" name="q8" value="d"> d) will</label>
+                </div>
+            </div>
+            <div class="button-group">
+                <button type="button" onclick="checkAnswers()">Antworten überprüfen</button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
+    </div>
+    <nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b2index">Story B2: Kontrollzwang</a>
+        <a href="B2A1.html">Previous exercise </a>
+        <a href="B2A3.html">Next exercise</a>
+    </nav>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+<script>
+    function checkAnswers() {
+        const correctAnswers = {
+            q1: "c",
+            q2: "b",
+            q3: "c",
+            q4: "c",
+            q5: "a",
+            q6: "b",
+            q7: "c",
+            q8: "b"
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        Object.keys(correctAnswers).forEach(question => {
+            const selected = document.querySelector(`input[name="${question}"]:checked`);
+            const options = document.querySelectorAll(`input[name="${question}"]`);
+
+            options.forEach(option => {
+                const label = option.parentNode;
+                label.classList.remove("correct", "incorrect");
+
+                if (selected && option === selected && option.value === correctAnswers[question]) {
+                    score++;
+                    label.style.color = "green";
+                } else if (selected && option === selected && option.value !== correctAnswers[question]) {
+                    label.style.color = "red";
+                } else {
+                    label.style.color = "";
+                }
+            });
+        });
+
+        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+    }
+
+    function resetQuiz() {
+        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+        document.querySelectorAll('.option').forEach(label => {
+            label.style.color = "";
+        });
+        document.getElementById("feedback").innerText = "";
+    }
+</script>
+</body>
+</html>
 
