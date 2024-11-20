@@ -1,1 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2: Kontrollzwang Aufgaben</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            margin-left: 20px;
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 5%;
+        }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .button-group button:hover {
+            background-color: #174573;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
+            text-align: center;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>B2: Kontrollzwang Aufgaben</h1>
+    </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b2index.html">Story B2: Kontrollzwang</a>
+            <a href="B2A5b.html">Previous Exercise</a>
+            <a href="B2A7.html">Next Exercise</a>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Aufgabe 6. Talking to and about others.</h2>
+        <h3>Replace the bolded words with a corresponding personal pronoun.</h3>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">Ist <b>Rita</b> eine Kaffeesüchtige? > Ja, <input type="text" name="q1"> ist eine Kaffeesüchtige.</div>
+                <div class="correct-answer" id="answer-q1">sie</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Ist <b>Fred</b> jetzt pleite? > Ja, <input type="text" name="q2"> ist jetzt pleite.</div>
+                <div class="correct-answer" id="answer-q2">er</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Ist <b>das Waschbärbaby</b> echt süß? > Nein, <input type="text" name="q3"> ist nicht so süß.</div>
+                <div class="correct-answer" id="answer-q3">es</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Sind <b>Fred und Rita </b>gute Freunde? > Nein, <input type="text" name="q4"> sind keine guten Freunde.</div>
+                <div class="correct-answer" id="answer-q4">sie</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Maroona: “<b>Wolfgang und Siegfried</b>, <input type="text" name="q5_1"> dürft nicht reinkommen!”</div>
+                <div class="correct-answer" id="answer-q5_1">ihr</div>
+                <div class="question"><b>Wolfgang und Siegfried</b>: “Was?! <input type="text" name="q5_2"> dürfen nicht reinkommen?!”</div>
+                <div class="correct-answer" id="answer-q5_2">wir</div>
+                <div class="question">Maroona: “Ja, <input type="text" name="q5_3"> dürft nicht reinkommen!”</div>
+                <div class="correct-answer" id="answer-q5_3">ihr</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Will <b>Professor Oopsilon</b> Fred kicken? > Ja, <input type="text" name="q6"> will bestimmt Fred kicken.</div>
+                <div class="correct-answer" id="answer-q6">er</div>
+            </div>
+            <div class="button-group">
+                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
+    </div>
+    <nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b2index.html">Story B2: Kontrollzwang</a>
+        <a href="B2A5b.html">Previous Exercise</a>
+        <a href="B2A7.html">Next Exercise</a>
+    </nav>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+<script>
+const correctAnswers = {
+    q1: "sie",
+    q2: "er",
+    q3: "es",
+    q4: "sie",
+    q5_1: "ihr",
+    q5_2: "wir",
+    q5_3: "ihr",
+    q6: "er"
+};
 
+function showAnswers() {
+    Object.keys(correctAnswers).forEach(question => {
+        const answerElement = document.getElementById(`answer-${question}`);
+        answerElement.style.display = "block";
+    });
+}
+
+function checkAnswers() {
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
+
+    Object.keys(correctAnswers).forEach(question => {
+        const inputElement = document.querySelector(`input[name="${question}"]`);
+        const answer = inputElement.value.trim().toLowerCase();
+
+        if (answer !== "") {
+            if (answer === correctAnswers[question]) {
+                score++;
+                inputElement.style.borderColor = "green";
+            } else {
+                inputElement.style.borderColor = "red";
+            }
+        } else {
+            inputElement.style.borderColor = "";
+        }
+    });
+
+    document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+}
+
+function resetQuiz() {
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+        input.value = "";
+        input.style.borderColor = "";
+    });
+    document.querySelectorAll('.correct-answer').forEach(answer => {
+        answer.style.display = "none";
+    });
+    document.getElementById("feedback").innerText = "";
+}
+</script>
+</body>
+</html>
