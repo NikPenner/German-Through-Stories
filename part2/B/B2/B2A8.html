@@ -107,6 +107,31 @@
             color: #2a6592;
             text-align: center;
         }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -128,8 +153,24 @@
         <p>Model: “Roboter, steh auf und geh vorwärts!”</p>
         <p>get up! → steh auf!</p>
         <p>turn on! → schalte ein!</p>
-        <p>Actions: trinken, denken an, kaufen, schließen, einreichen, aufmachen</p>
-        <p>Nouns: die Aufgabe, das Auto, die Milch, die Hausaufgabe, der Film, die Tür</p>
+        <p>
+            Actions: 
+            <span class="tooltip">trinken<span class="tooltiptext">drink</span></span>, 
+            <span class="tooltip">denken an<span class="tooltiptext">think of</span></span>, 
+            <span class="tooltip">kaufen<span class="tooltiptext">buy</span></span>, 
+            <span class="tooltip">schließen<span class="tooltiptext">close</span></span>, 
+            <span class="tooltip">einreichen<span class="tooltiptext">submit</span></span>, 
+            <span class="tooltip">aufmachen<span class="tooltiptext">open</span></span>
+        </p>
+        <p>
+            Nouns: 
+            <span class="tooltip">die Aufgabe<span class="tooltiptext">the task</span></span>, 
+            <span class="tooltip">das Auto<span class="tooltiptext">the car</span></span>, 
+            <span class="tooltip">die Milch<span class="tooltiptext">the milk</span></span>, 
+            <span class="tooltip">die Hausaufgabe<span class="tooltiptext">the homework</span></span>, 
+            <span class="tooltip">der Film<span class="tooltiptext">the movie</span></span>, 
+            <span class="tooltip">die Tür<span class="tooltiptext">the door</span></span>
+        </p>
         <p>Hint: Don't forget to mark the object for being the object (use the second line from the rese-nese chart), e.g. Trink den Tee! </p>
         <form id="quiz-form">
             <div class="question-container">
