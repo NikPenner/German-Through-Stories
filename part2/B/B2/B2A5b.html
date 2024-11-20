@@ -103,6 +103,11 @@
             color: #2a6592;
             text-align: center;
         }
+        .correct-sequence {
+            color: green;
+            font-style: italic;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -135,6 +140,7 @@
             <h3>Ordnen Sie die Sätze hier ein:</h3>
         </div>
         <div class="feedback" id="feedback"></div>
+        <div class="correct-sequence" id="correct-sequence"></div>
     </div>
     <div class="button-group">
         <button onclick="showanswers()">Lösungen anzeigen</button>
@@ -202,6 +208,26 @@ function resetQuiz() {
     });
 
     document.getElementById('feedback').innerText = '';
+    document.getElementById('correct-sequence').innerText = '';
+}
+
+function showanswers() {
+    const correctOrderText = [
+        "S&W: Hallo! Wir wollen beim Speeddating mitmachen!",
+        "M: Halt! Ihr dürft nicht rein!",
+        "M: Ihr sollt zuerst auf einem Fuß springen!",
+        "S&W: Du bist aber komisch! Nein!",
+        "M: Springt!",
+        "S&W: Na gut, wir springen auf einem Fuß dann.",
+        "M: Und jetzt sollt ihr zu Sternbocks und zurück schwimmen!",
+        "S&W: Das ist total bescheuert! Wir schwimmen nicht!",
+        "M: Schwimmt!",
+        "S&W: Na gut, wir schwimmen zu Sternbocks und zurück.",
+        "M: Und jetzt... Nein, ich will nicht in die Mülltonne.",
+        "S&W: Zack, fertig!"
+    ];
+
+    document.getElementById('correct-sequence').innerText = correctOrderText.join('\n');
 }
 </script>
 </body>
