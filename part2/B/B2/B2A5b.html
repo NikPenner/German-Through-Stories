@@ -77,20 +77,26 @@
             cursor: grab;
             display: inline-block;
         }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+        }
         button {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #2a6592;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-button:hover {
-    background-color: #174573;
-}
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #174573;
+        }
         .feedback {
             margin-top: 20px;
             font-size: 1.2rem;
@@ -105,11 +111,11 @@ button:hover {
         <h1>B2: Kontrollzwang Aufgaben</h1>
     </header>
     <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="b2index.html">Story B2: Kontrollzwang</a>
-            <a href="B2A5a.html">Previous Exercise</a>
-            <a href="B2A6.html">Next Exercise</a>
-        </nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b2index.html">Story B2: Kontrollzwang</a>
+        <a href="B2A5a.html">Previous Exercise</a>
+        <a href="B2A6.html">Next Exercise</a>
+    </nav>
     <div class="container">
         <h2>Aufgabe 5a: Reconstruct the dialogue & practice reading it with a partner.</h2>
         <div id="phrases" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -128,16 +134,19 @@ button:hover {
         </div>
         <div id="order-zone" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h3>Ordnen Sie die Sätze hier ein:</h3>
-       <div class="button-group">
-        <button onclick="checkOrder()">Lösungen anzeigen</button>
-        <button onclick="resetQuiz()">Neu starten</button>
-        <div id="feedback" class="feedback"></div>
+        </div>
+        <div class="button-group">
+            <button onclick="checkOrder()">Lösungen anzeigen</button>
+            <button onclick="resetQuiz()">Neu starten</button>
+            <div id="feedback" class="feedback"></div>
+        </div>
     </div>
+
     <nav>
-      <a href="/German-Through-Stories/index.html">Main Page</a>
-      <a href="b2index.html">Story B2: Kontrollzwang</a>
-      <a href="B2A5a.html">Previous Exercise</a>
-      <a href="B2A6.html">Next Exercise</a>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b2index.html">Story B2: Kontrollzwang</a>
+        <a href="B2A5a.html">Previous Exercise</a>
+        <a href="B2A6.html">Next Exercise</a>
     </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. Alle Rechte vorbehalten.</p>
