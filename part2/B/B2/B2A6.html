@@ -147,30 +147,36 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe  6. Talking to and about others. </h2>
+        <h2>Aufgabe  6. Talking to and about others.</h2>
         <h3>Replace the bolded words with a corresponding personal pronoun.</h3>
         <form id="quiz-form">
             <div class="question-container">
-                <div class="question">Ist Rita eine Kaffeesüchtige? > Ja, <input type="text" name="q1"> ist eine Kaffeesüchtige.</div>
+                <div class="question">Ist Rita eine <span class="tooltip">Kaffeesüchtige<span class="tooltiptext">coffee addict</span></span>? > Ja, <input type="text" name="q1"> ist eine <span class="tooltip">Kaffeesüchtige<span class="tooltiptext">coffee addict</span></span>.</div>
             </div>
             <div class="question-container">
                 <div class="question">Ist Fred jetzt pleite? > Ja, <input type="text" name="q2"> ist jetzt pleite.</div>
             </div>
             <div class="question-container">
-                <div class="question">Ist das Babywaschbär echt süß? > Nein, <input type="text" name="q3"> ist nicht so süß.</div>
+                <div class="question">Ist das Babywaschbär <span class="tooltip">echt<span class="tooltiptext">really</span></span> süß? > Nein, <input type="text" name="q3"> ist nicht so süß.</div>
             </div>
             <div class="question-container">
                 <div class="question">Sind Fred und Rita gute Freunde? > Nein, <input type="text" name="q4"> sind keine guten Freunde.</div>
             </div>
             <div class="question-container">
-                <div class="question">Maroona: “Wolfgang und Siegfried, <input type="text" name="q5_1"> dürft nicht reinkommen!” Wolfgang und Siegfried: “Was?! <input type="text" name="q5_2"> d[...]
+                <div class="question">Maroona: “Wolfgang und Siegfried, <input type="text" name="q5_1"> dürft nicht reinkommen!”</div>
             </div>
             <div class="question-container">
-                <div class="question">Will Professor Oopsilon Fred kicken? > Ja, <input type="text" name="q6"> will bestimmt Fred kicken.</div>
+                <div class="question">Wolfgang und Siegfried: “Was?! <input type="text" name="q5_2"> dürfen nicht reinkommen?!”</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Maroona: “Ja, <input type="text" name="q5_3"> dürft nicht reinkommen!”</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Will Professor Oopsilon Fred kicken? > Ja, <input type="text" name="q6"> will <span class="tooltip">bestimmt<span class="tooltiptext">definitely</span></span> Fred kicken.</div>
             </div>
             <div class="button-group">
-                <button type="button" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen</button>
-                <button type="button" title="Check Answers" onclick="checkAnswers()">Lösungen überpfüfen</button>
+                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Lösungen überpfüfen<span class="tooltiptext">Check Answers</span></button>
                 <button type="button" onclick="resetQuiz()">Neu starten</button>
             </div>
             <div class="feedback" id="feedback"></div>
