@@ -96,6 +96,41 @@
             color: #2a6592;
             text-align: center;
         }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -121,6 +156,8 @@
                     <option value="a">ein</option>
                     <option value="b">eine</option>
                     <option value="c">das</option>
+                    <option value="d">der</option>
+                    <option value="e">die</option>
                 </select> neues Handy (neut.) gekauft”.</div>
             </div>
             <div class="question-container">
@@ -129,6 +166,8 @@
                     <option value="a">eine</option>
                     <option value="b">ein</option>
                     <option value="c">das</option>
+                    <option value="d">der</option>
+                    <option value="e">die</option>
                 </select> Android (neut.)?”</div>
             </div>
             <div class="question-container">
@@ -138,19 +177,28 @@
                     <option value="b">ein</option>
                     <option value="c">das</option>
                     <option value="d">kein</option>
+                    <option value="e">der</option>
                 </select> Android, es ist <select name="q9_2">
                     <option value="____">____</option>
                     <option value="a">ein</option>
                     <option value="b">kein</option>
+                    <option value="c">das</option>
+                    <option value="d">der</option>
+                    <option value="e">die</option>
                 </select> iPhone (neut.)! Es hat <select name="q9_3">
                     <option value="____">____</option>
                     <option value="a">eine</option>
                     <option value="b">die</option>
                     <option value="c">der</option>
+                    <option value="d">das</option>
+                    <option value="e">kein</option>
                 </select> tolle Kamera (fem.)! Und auch <select name="q9_4">
                     <option value="____">____</option>
                     <option value="a">eine</option>
                     <option value="b">die</option>
+                    <option value="c">der</option>
+                    <option value="d">das</option>
+                    <option value="e">kein</option>
                 </select> gute Garantie (fem.).</div>
             </div>
             <div class="question-container">
@@ -159,6 +207,8 @@
                     <option value="a">ein</option>
                     <option value="b">kein</option>
                     <option value="c">das</option>
+                    <option value="d">der</option>
+                    <option value="e">die</option>
                 </select> Spielzeug!”</div>
             </div>
             <div class="question-container">
@@ -166,25 +216,40 @@
                     <option value="____">____</option>
                     <option value="a">keine</option>
                     <option value="b">ein</option>
-                </select> Sorge! Aber nimm das Handy zurück – ich bin <select name="q11_2">
+                    <option value="c">das</option>
+                    <option value="d">der</option>
+                    <option value="e">die</option>
+                </select> <span class="tooltip">Sorge<span class="tooltiptext">problem</span></span>! Aber nimm das Handy zurück – ich bin <select name="q11_2">
                     <option value="____">____</option>
                     <option value="a">ein</option>
                     <option value="b">eine</option>
-                </select> Tollpatch!</div>
+                    <option value="c">das</option>
+                    <option value="d">der</option>
+                    <option value="e">die</option>
+                </select> <span class="tooltip">Tollpatsch<span class="tooltiptext">klutz</span></span>!</div>
             </div>
             <div class="question-container">
-                <div class="question">Fred: “Naja! Jetzt habe ich <select name="q12_1">
+                <div class="question">Fred: “<span class="tooltip">Naja<span class="tooltiptext">oh well</span></span>! Jetzt habe ich <select name="q12_1">
                     <option value="____">____</option>
                     <option value="a">kein</option>
                     <option value="b">keine</option>
+                    <option value="c">das</option>
+                    <option value="d">der</option>
+                    <option value="e">die</option>
                 </select> OSAP Geld (neut.) mehr, aber es ist <select name="q12_2">
                     <option value="____">____</option>
                     <option value="a">eine</option>
                     <option value="b">die</option>
+                    <option value="c">das</option>
+                    <option value="d">der</option>
+                    <option value="e">kein</option>
                 </select> große Sache. Ich habe neue Schuhe und <select name="q12_3">
                     <option value="____">____</option>
                     <option value="a">ein</option>
                     <option value="b">der</option>
+                    <option value="c">das</option>
+                    <option value="d">kein</option>
+                    <option value="e">die</option>
                 </select> neues, schönes, tolles Handy (neut.)!</div>
             </div>
             <div class="button-group">
@@ -243,12 +308,4 @@ function checkAnswers() {
 }
 
 function resetQuiz() {
-    document.querySelectorAll('select').forEach(select => {
-        select.value = "____";
-        select.style.borderColor = "";
-    });
-    document.getElementById("feedback").innerText = "";
-}
-</script>
-</body>
-</html>
+    document.querySelectorAll('select').forEach
