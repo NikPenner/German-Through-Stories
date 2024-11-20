@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2: Kontrollzwang Aufgaben</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        select {
+            margin-left: 20px;
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .dropzone {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 100px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .dropzone h3 {
+            margin: 0;
+        }
+        .item {
+            padding: 10px;
+            margin: 5px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: grab;
+            display: inline-block;
+        }
+        .highlight-incorrect {
+            background-color: rgba(255, 0, 0, 0.4) !important;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #174573;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>B2: Kontrollzwang Aufgaben</h1>
+    </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b2index.html">Story B2: Kontrollzwang</a>
+            <a href="B2A3.html">Previous Exercise</a>
+            <a href="B2A5.html">Next Exercise</a>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Drag & Drop Exercise</h2>
+        <p>Drag the items into the correct drop zones.</p>
+        <div id="phrases" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="answer1" class="item" draggable="true" ondragstart="drag(event)">Answer 1</div>
+            <div id="answer2" class="item" draggable="true" ondragstart="drag(event)">Answer 2</div>
+        </div>
+        <div id="dropzone1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Dropzone 1</h3>
+        </div>
+        <div id="dropzone2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Dropzone 2</h3>
+        </div>
+        <button onclick="checkAnswers()">Check Answers</button>
+        <button onclick="resetQuiz()">Reset</button>
+        <div id="feedback"></div>
+    </div>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var dropzone = ev.target.closest('.dropzone');
+    if (dropzone) {
+        dropzone.appendChild(document.getElementById(data));
+    }
+}
+
+function checkAnswers() {
+    const correctAnswers = {
+        dropzone1: ['answer1'],
+        dropzone2: ['answer2']
+    };
+
+    let score = 0;
+    const totalAnswers = Object.values(correctAnswers).flat().length;
+
+    // Reset all items' highlights
+    document.querySelectorAll('.item').forEach(item => {
+        item.classList.remove('highlight-incorrect');
+    });
+
+    // Check each dropzone
+    Object.keys(correctAnswers).forEach(zoneId => {
+        const dropzone = document.getElementById(zoneId);
+        const children = Array.from(dropzone.children);
+
+        children.forEach(child => {
+            if (child.classList.contains('item')) {
+                const isCorrect = correctAnswers[zoneId].includes(child.id);
+                if (isCorrect) {
+                    score++;
+                } else {
+                    child.classList.add('highlight-incorrect');
+                }
+            }
+        });
+    });
+
+    document.getElementById('feedback').innerText = `${score} von ${totalAnswers} sind richtig`;
+}
+
+function resetQuiz() {
+    const phrasesContainer = document.getElementById('phrases');
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        Array.from(zone.children).forEach(child => {
+            if (child.classList.contains('item')) {
+                phrasesContainer.appendChild(child);
+            }
+        });
+    });
+
+    document.getElementById('feedback').innerText = '';
+    document.querySelectorAll('.item').forEach(item => {
+        item.classList.remove('highlight-incorrect');
+    });
+}
+</script>
+</body>
+</html>
