@@ -61,15 +61,12 @@
             border-radius: 10px;
             padding: 20px;
             margin: 20px 0;
-            min-height: 100px;
+            min-height: 300px;
             background-color: #f9f9f9;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .dropzone h3 {
-            margin: 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
         .item {
             padding: 10px;
@@ -80,26 +77,18 @@
             cursor: grab;
             display: inline-block;
         }
-        .highlight-incorrect {
-            background-color: rgba(255, 0, 0, 0.4) !important;
-        }
-        .button-group {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .button-group button {
+        button {
+            display: block;
+            margin: 10px auto;
             padding: 10px 20px;
-            font-size: 1em;
             background-color: #2a6592;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-            margin: 0 10px;
+            font-size: 1rem;
         }
-        .button-group button:hover {
+        button:hover {
             background-color: #174573;
         }
         .feedback {
@@ -115,52 +104,32 @@
     <header>
         <h1>B2: Kontrollzwang Aufgaben</h1>
     </header>
-    <div style="text-align: center;">
-        <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="b2index.html">Story B2: Kontrollzwang</a>
-            <a href="B2A5b.html">Previous Exercise</a>
-            <a href="B2A6.html">Next Exercise</a>
-        </nav>
-    </div>
     <div class="container">
-        <h2>Aufgabe 5a: Reconstruct a dialogue</h2>
-        <p>Drag the phrases to the correct speaker (Maroona or Siegfried und Wolfgang).</p>
+        <h2>Aufgabe: Ordne die Sätze in die richtige Reihenfolge</h2>
+        <p>Ziehen Sie die folgenden Sätze in die richtige Reihenfolge.</p>
         <div id="phrases" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div id="phrase1" class="item" draggable="true" ondragstart="drag(event)">Na gut, wir schwimmen zu Sternbocks und zurück.</div>
-            <div id="phrase2" class="item" draggable="true" ondragstart="drag(event)">Warum nicht?</div>
-            <div id="phrase3" class="item" draggable="true" ondragstart="drag(event)">Hallo! Wir wollen beim Speeddating mitmachen!</div>
-            <div id="phrase4" class="item" draggable="true" ondragstart="drag(event)">Das ist total bescheuert! Wir schwimmen nicht!</div>
-            <div id="phrase5" class="item" draggable="true" ondragstart="drag(event)">Halt! Ihr dürft nicht rein!</div>
-            <div id="phrase6" class="item" draggable="true" ondragstart="drag(event)">Zack, fertig!</div>
-            <div id="phrase7" class="item" draggable="true" ondragstart="drag(event)">Na gut, wir springen auf einem Fuß dann.</div>
-            <div id="phrase8" class="item" draggable="true" ondragstart="drag(event)">Schwimmt!</div>
-            <div id="phrase9" class="item" draggable="true" ondragstart="drag(event)">Und jetzt sollt ihr zu Sternbocks und zurück schwimmen!</div>
-            <div id="phrase10" class="item" draggable="true" ondragstart="drag(event)">Du bist aber komisch! Nein!</div>
-            <div id="phrase11" class="item" draggable="true" ondragstart="drag(event)">Und jetzt... Nein, ich will nicht in die Mülltonne</div>
-            <div id="phrase12" class="item" draggable="true" ondragstart="drag(event)">Ihr sollt zuerst auf einem Fuß springen!</div>
-            <div id="phrase13" class="item" draggable="true" ondragstart="drag(event)">Springt!</div>
+            <div id="phrase1" class="item" draggable="true" ondragstart="drag(event)">S&W: Hallo! Wir wollen beim Speeddating mitmachen!</div>
+            <div id="phrase2" class="item" draggable="true" ondragstart="drag(event)">M: Halt! Ihr dürft nicht rein!</div>
+            <div id="phrase3" class="item" draggable="true" ondragstart="drag(event)">M: Ihr sollt zuerst auf einem Fuß springen!</div>
+            <div id="phrase4" class="item" draggable="true" ondragstart="drag(event)">S&W: Du bist aber komisch! Nein!</div>
+            <div id="phrase5" class="item" draggable="true" ondragstart="drag(event)">M: Springt!</div>
+            <div id="phrase6" class="item" draggable="true" ondragstart="drag(event)">S&W: Na gut, wir springen auf einem Fuß dann.</div>
+            <div id="phrase7" class="item" draggable="true" ondragstart="drag(event)">M: Und jetzt sollt ihr zu Sternbocks und zurück schwimmen!</div>
+            <div id="phrase8" class="item" draggable="true" ondragstart="drag(event)">S&W: Das ist total bescheuert! Wir schwimmen nicht!</div>
+            <div id="phrase9" class="item" draggable="true" ondragstart="drag(event)">M: Schwimmt!</div>
+            <div id="phrase10" class="item" draggable="true" ondragstart="drag(event)">S&W: Na gut, wir schwimmen zu Sternbocks und zurück.</div>
+            <div id="phrase11" class="item" draggable="true" ondragstart="drag(event)">M: Und jetzt... Nein, ich will nicht in die Mülltonne.</div>
+            <div id="phrase12" class="item" draggable="true" ondragstart="drag(event)">S&W: Zack, fertig!</div>
         </div>
-        <div id="dropzone1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <h3>Maroona</h3>
+        <div id="order-zone" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Ordnen Sie die Sätze hier ein:</h3>
         </div>
-        <div id="dropzone2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <h3>Siegfried und Wolfgang</h3>
-        </div>
-        <div class="button-group">
-            <button onclick="checkAnswers()">Lösungen</button>
-            <button onclick="resetQuiz()">Neu starten</button>
-        </div>
+        <button onclick="checkOrder()">Überprüfen</button>
+        <button onclick="resetQuiz()">Zurücksetzen</button>
         <div id="feedback" class="feedback"></div>
     </div>
-     <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="b2index.html">Story B2: Kontrollzwang</a>
-            <a href="B2A5b.html">Previous Exercise</a>
-            <a href="B2A6.html">Next Exercise</a>
-        </nav>
     <footer>
-        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+        <p>&copy; 2024 German Through Stories. Alle Rechte vorbehalten.</p>
     </footer>
 <script>
 function allowDrop(ev) {
@@ -173,61 +142,54 @@ function drag(ev) {
 
 function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    var dropzone = ev.target.closest('.dropzone');
-    if (dropzone) {
-        dropzone.appendChild(document.getElementById(data));
+    const data = ev.dataTransfer.getData("text");
+    const target = ev.target.closest('.dropzone');
+    if (target) {
+        target.appendChild(document.getElementById(data));
     }
 }
 
-function checkAnswers() {
-    const correctAnswers = {
-        dropzone1: ['phrase2', 'phrase5', 'phrase8', 'phrase9', 'phrase11', 'phrase12', 'phrase13'],
-        dropzone2: ['phrase1', 'phrase3', 'phrase4', 'phrase6', 'phrase7', 'phrase10']
-    };
+function checkOrder() {
+    const correctOrders = [
+        // Sequence 1
+        [
+            'phrase1', 'phrase2', 'phrase3', 'phrase4', 'phrase5',
+            'phrase6', 'phrase7', 'phrase8', 'phrase9', 'phrase10',
+            'phrase11', 'phrase12'
+        ],
+        // Sequence 2
+        [
+            'phrase2', 'phrase1', 'phrase3', 'phrase4', 'phrase5',
+            'phrase6', 'phrase7', 'phrase8', 'phrase9', 'phrase10',
+            'phrase11', 'phrase12'
+        ]
+    ];
 
-    let score = 0;
-    const totalAnswers = Object.values(correctAnswers).flat().length;
+    const userOrder = Array.from(document.getElementById('order-zone').children)
+        .filter(item => item.classList.contains('item'))
+        .map(item => item.id);
 
-    // Reset all items' highlights
-    document.querySelectorAll('.item').forEach(item => {
-        item.classList.remove('highlight-incorrect');
-    });
+    const isCorrect = correctOrders.some(order =>
+        order.length === userOrder.length && order.every((id, index) => id === userOrder[index])
+    );
 
-    // Check each dropzone
-    Object.keys(correctAnswers).forEach(zoneId => {
-        const dropzone = document.getElementById(zoneId);
-        const children = Array.from(dropzone.children);
-
-        children.forEach(child => {
-            if (child.classList.contains('item')) {
-                const isCorrect = correctAnswers[zoneId].includes(child.id);
-                if (isCorrect) {
-                    score++;
-                } else {
-                    child.classList.add('highlight-incorrect');
-                }
-            }
-        });
-    });
-
-    document.getElementById('feedback').innerText = `${score} von ${totalAnswers} sind richtig`;
+    if (isCorrect) {
+        document.getElementById('feedback').innerText = `Richtig! Sie haben eine korrekte Reihenfolge gefunden.`;
+    } else {
+        document.getElementById('feedback').innerText = `Falsch. Versuchen Sie es erneut.`;
+    }
 }
 
 function resetQuiz() {
     const phrasesContainer = document.getElementById('phrases');
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        Array.from(zone.children).forEach(child => {
-            if (child.classList.contains('item')) {
-                phrasesContainer.appendChild(child);
-            }
-        });
+    const orderZone = document.getElementById('order-zone');
+    Array.from(orderZone.children).forEach(child => {
+        if (child.classList.contains('item')) {
+            phrasesContainer.appendChild(child);
+        }
     });
 
     document.getElementById('feedback').innerText = '';
-    document.querySelectorAll('.item').forEach(item => {
-        item.classList.remove('highlight-incorrect');
-    });
 }
 </script>
 </body>
