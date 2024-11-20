@@ -60,6 +60,11 @@
         .question-container {
             margin-bottom: 20px;
         }
+        .sample-answer {
+            color: green;
+            font-style: italic;
+            margin-top: 5px;
+        }
         .button-group {
             text-align: center;
             margin-top: 20px;
@@ -73,9 +78,27 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            position: relative;
         }
         .button-group button:hover {
             background-color: #174573;
+        }
+        .button-group button::after {
+            content: "Show solutions";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+        .button-group button:hover::after {
+            opacity: 1;
         }
         .feedback {
             margin-top: 20px;
@@ -106,30 +129,35 @@
         <p>get up! → steh auf!</p>
         <p>turn on! → schalte ein!</p>
         <p>Actions: trinken, gehen, denken an (to think about), kaufen, schließen, zuhören, aufhören, einreichen, machen (to do)</p>
-        <p>Hint: Don't forget to mark the object for beign the object (use the second line from the rese-nese chart), e.g. Trink den Tee! </p>
+        <p>Hint: Don't forget to mark the object for being the object (use the second line from the rese-nese chart), e.g. Trink den Tee! </p>
         <form id="quiz-form">
             <div class="question-container">
                 <div class="question">1. </div>
                 <input type="text" name="q1" style="width:100%">
+                <div class="sample-answer" id="sample1"></div>
             </div>
             <div class="question-container">
                 <div class="question">2. </div>
                 <input type="text" name="q2" style="width:100%">
+                <div class="sample-answer" id="sample2"></div>
             </div>
             <div class="question-container">
                 <div class="question">3. </div>
                 <input type="text" name="q3" style="width:100%">
+                <div class="sample-answer" id="sample3"></div>
             </div>
             <div class="question-container">
                 <div class="question">4. </div>
                 <input type="text" name="q4" style="width:100%">
+                <div class="sample-answer" id="sample4"></div>
             </div>
             <div class="question-container">
                 <div class="question">5. </div>
                 <input type="text" name="q5" style="width:100%">
+                <div class="sample-answer" id="sample5"></div>
             </div>
             <div class="button-group">
-                <button type="button" onclick="checkAnswers()">Antworten überprüfen</button>
+                <button type="button" onclick="showAnswers()">Lösungen anzeigen</button>
                 <button type="button" onclick="resetQuiz()">Neu starten</button>
             </div>
             <div class="feedback" id="feedback"></div>
@@ -145,12 +173,30 @@
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
 <script>
-    function checkAnswers() {
-        // Implement answer checking logic if needed
+    function showAnswers() {
+        const answers = [
+            "Sample answer: Trink den Tee!",
+            "Sample answer: Geh nach Hause!",
+            "Sample answer: Denk an die Aufgabe!",
+            "Sample answer: Kauf das Buch!",
+            "Sample answer: Schließ die Tür!",
+            "Sample answer: Hör mir zu!",
+            "Sample answer: Hör auf zu spielen!",
+            "Sample answer: Reich den Bericht ein!"
+        ];
+
+        document.getElementById("sample1").innerText = answers[0];
+        document.getElementById("sample2").innerText = answers[1];
+        document.getElementById("sample3").innerText = answers[2];
+        document.getElementById("sample4").innerText = answers[3];
+        document.getElementById("sample5").innerText = answers[4];
+
+        document.getElementById("feedback").innerText = "Lösungen wurden angezeigt.";
     }
 
     function resetQuiz() {
         document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
+        document.querySelectorAll('.sample-answer').forEach(answer => answer.innerText = '');
         document.getElementById("feedback").innerText = '';
     }
 </script>
