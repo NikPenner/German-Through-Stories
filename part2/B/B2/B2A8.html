@@ -128,7 +128,8 @@
         <p>Model: “Roboter, steh auf und geh vorwärts!”</p>
         <p>get up! → steh auf!</p>
         <p>turn on! → schalte ein!</p>
-        <p>Actions: trinken, gehen, denken an (to think about), kaufen, schließen, zuhören, aufhören, einreichen, machen (to do)</p>
+        <p>Actions: trinken, denken an, kaufen, schließen, einreichen, aufmachen</p>
+        <p>Nouns: die Aufgabe, das Auto, die Milch, die Hausaufgabe, der Film, die Tür</p>
         <p>Hint: Don't forget to mark the object for being the object (use the second line from the rese-nese chart), e.g. Trink den Tee! </p>
         <form id="quiz-form">
             <div class="question-container">
@@ -173,16 +174,22 @@
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
 <script>
+    const possibleAnswers = [
+        "Trink die Aufgabe!", "Trink das Auto!", "Trink die Milch!", "Trink die Hausaufgabe!", "Trink den Film!", "Trink die Tür!",
+        "Denk an die Aufgabe!", "Denk an das Auto!", "Denk an die Milch!", "Denk an die Hausaufgabe!", "Denk an den Film!", "Denk an die Tür!",
+        "Kauf die Aufgabe!", "Kauf das Auto!", "Kauf die Milch!", "Kauf die Hausaufgabe!", "Kauf den Film!", "Kauf die Tür!",
+        "Schließ die Aufgabe!", "Schließ das Auto!", "Schließ die Milch!", "Schließ die Hausaufgabe!", "Schließ den Film!", "Schließ die Tür!",
+        "Reich die Aufgabe ein!", "Reich das Auto ein!", "Reich die Milch ein!", "Reich die Hausaufgabe ein!", "Reich den Film ein!", "Reich die Tür ein!",
+        "Mach die Aufgabe auf!", "Mach das Auto auf!", "Mach die Milch auf!", "Mach die Hausaufgabe auf!", "Mach den Film auf!", "Mach die Tür auf!"
+    ];
+    
     function showAnswers() {
         const answers = [
-            "Sample answer: Trink den Tee!",
-            "Sample answer: Geh nach Hause!",
+            "Sample answer: Trink die Milch!",
             "Sample answer: Denk an die Aufgabe!",
-            "Sample answer: Kauf das Buch!",
+            "Sample answer: Kauf das Auto!",
             "Sample answer: Schließ die Tür!",
-            "Sample answer: Hör mir zu!",
-            "Sample answer: Hör auf zu spielen!",
-            "Sample answer: Reich den Bericht ein!"
+            "Sample answer: Reich die Hausaufgabe ein!",
         ];
 
         document.getElementById("sample1").innerText = answers[0];
@@ -198,6 +205,18 @@
         document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
         document.querySelectorAll('.sample-answer').forEach(answer => answer.innerText = '');
         document.getElementById("feedback").innerText = '';
+    }
+
+    function checkAnswers() {
+        let correct = true;
+        for (let i = 1; i <= 5; i++) {
+            const userInput = document.querySelector(`input[name="q${i}"]`).value.trim();
+            if (!possibleAnswers.includes(userInput)) {
+                correct = false;
+                break;
+            }
+        }
+        document.getElementById("feedback").innerText = correct ? "Alle Antworten sind korrekt!" : "Einige Antworten sind falsch. Bitte versuchen Sie es erneut.";
     }
 </script>
 </body>
