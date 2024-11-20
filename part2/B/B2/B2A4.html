@@ -224,13 +224,18 @@ function checkAnswers() {
     const totalQuestions = Object.keys(correctAnswers).length;
 
     Object.keys(correctAnswers).forEach(question => {
-        const selected = document.querySelector(`select[name="${question}"]`).value;
+        const selectElement = document.querySelector(`select[name="${question}"]`);
+        const selected = selectElement.value;
 
-        if (selected && selected === correctAnswers[question]) {
-            score++;
-            document.querySelector(`select[name="${question}"]`).style.borderColor = "green";
+        if (selected !== "____") {
+            if (selected === correctAnswers[question]) {
+                score++;
+                selectElement.style.borderColor = "green";
+            } else {
+                selectElement.style.borderColor = "red";
+            }
         } else {
-            document.querySelector(`select[name="${question}"]`).style.borderColor = "red";
+            selectElement.style.borderColor = "";
         }
     });
 
@@ -238,8 +243,10 @@ function checkAnswers() {
 }
 
 function resetQuiz() {
-    document.querySelectorAll('select').forEach(select => select.value = "____");
-    document.querySelectorAll('select').forEach(select => select.style.borderColor = "");
+    document.querySelectorAll('select').forEach(select => {
+        select.value = "____";
+        select.style.borderColor = "";
+    });
     document.getElementById("feedback").innerText = "";
 }
 </script>
