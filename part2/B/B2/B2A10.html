@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,10 +60,9 @@
         .question-container {
             margin-bottom: 20px;
         }
-        .sample-answer {
-            color: green;
-            font-style: italic;
-            margin-top: 5px;
+        .question-container textarea {
+            width: 100%;
+            height: 40px;
         }
         .button-group {
             text-align: center;
@@ -79,27 +77,9 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            position: relative;
         }
         .button-group button:hover {
             background-color: #174573;
-        }
-        .button-group button::after {
-            content: "Show solutions";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #333;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            white-space: nowrap;
-        }
-        .button-group button:hover::after {
-            opacity: 1;
         }
         .feedback {
             margin-top: 20px;
@@ -107,31 +87,6 @@
             font-weight: bold;
             color: #2a6592;
             text-align: center;
-        }
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
         }
     </style>
 </head>
@@ -143,64 +98,43 @@
         <nav>
             <a href="/German-Through-Stories/index.html">Main Page</a>
             <a href="b2index">Story B2: Kontrollzwang</a>
-            <a href="B2A7.html">Previous exercise </a>
-            <a href="B2A9.html">Next exercise</a>
+            <a href="B2A9.html">Previous exercise </a>
+            <a href="B2A11.html">Next exercise</a>
         </nav>
     </div>
     <div class="container">
-        <h2>Use the following actions to give commands to Wolfgang’s Roboter</h2>
-        <p>What would you like him to do?</p>
-        <p>Although separable prefixes are in front of the verb in the infinitive (e.g., aufstehen - to get up), the imperative with them works just like in English:</p>
-        <p>Model: “Roboter, steh auf und geh vorwärts!”</p>
-        <p>get up! → steh auf!</p>
-        <p>turn on! → schalte ein!</p>
-        <p>
-            Actions: 
-            <span class="tooltip">trinken<span class="tooltiptext">drink</span></span>, 
-            <span class="tooltip">denken an<span class="tooltiptext">think of</span></span>, 
-            <span class="tooltip">kaufen<span class="tooltiptext">buy</span></span>, 
-            <span class="tooltip">schließen<span class="tooltiptext">close</span></span>, 
-            <span class="tooltip">einreichen<span class="tooltiptext">submit</span></span>, 
-            <span class="tooltip">aufmachen<span class="tooltiptext">open</span></span>
-        </p>
-        <p>
-            Nouns: 
-            <span class="tooltip">die Aufgabe<span class="tooltiptext">the task</span></span>, 
-            <span class="tooltip">das Auto<span class="tooltiptext">the car</span></span>, 
-            <span class="tooltip">die Milch<span class="tooltiptext">the milk</span></span>, 
-            <span class="tooltip">die Hausaufgabe<span class="tooltiptext">the homework</span></span>, 
-            <span class="tooltip">der Film<span class="tooltiptext">the movie</span></span>, 
-            <span class="tooltip">die Tür<span class="tooltiptext">the door</span></span>
-        </p>
-        <p>Hint: Don't forget to mark the object for being the object (use the second line from the rese-nese chart), e.g. Trink den Tee! </p>
+        <h2>Aufgabe 10. Persönliche Fragen. Beantworte die Fragen mit kurzen Antworten. Answer these questions with short answers.</h2>
         <form id="quiz-form">
             <div class="question-container">
-                <div class="question">1. </div>
-                <input type="text" name="q1" style="width:100%">
-                <div class="sample-answer" id="sample1"></div>
+                <label for="q1">1. Sind Türsteher normalerweise süß?</label>
+                <textarea id="q1" name="q1"></textarea>
             </div>
             <div class="question-container">
-                <div class="question">2. </div>
-                <input type="text" name="q2" style="width:100%">
-                <div class="sample-answer" id="sample2"></div>
+                <label for="q2">2. Kann man auf dem Fußboden schwimmen, wenn es kein Wasser gibt?</label>
+                <textarea id="q2" name="q2"></textarea>
             </div>
             <div class="question-container">
-                <div class="question">3. </div>
-                <input type="text" name="q3" style="width:100%">
-                <div class="sample-answer" id="sample3"></div>
+                <label for="q3">3. Wollen Sie einen Waschbär als Haustier?</label>
+                <textarea id="q3" name="q3"></textarea>
             </div>
             <div class="question-container">
-                <div class="question">4. </div>
-                <input type="text" name="q4" style="width:100%">
-                <div class="sample-answer" id="sample4"></div>
+                <label for="q4">4. Weinen Sie, wenn jemand (someone) auf Ihre neuen Schuhe tritt?</label>
+                <textarea id="q4" name="q4"></textarea>
             </div>
             <div class="question-container">
-                <div class="question">5. </div>
-                <input type="text" name="q5" style="width:100%">
-                <div class="sample-answer" id="sample5"></div>
+                <label for="q5">5. Wollen Sie beim Speeddating mitmachen?</label>
+                <textarea id="q5" name="q5"></textarea>
+            </div>
+            <div class="question-container">
+                <label for="q6">6. Ist es umweltfreundlich (environmentally-friendly), dass Siegfried und Wolfgang Maroona in eine Mülltonne werfen, statt ins Recycling?</label>
+                <textarea id="q6" name="q6"></textarea>
+            </div>
+            <div class="question-container">
+                <label for="q7">7. Muss man “Speed-essen-und-trinken” beim “Speed-dating”?</label>
+                <textarea id="q7" name="q7"></textarea>
             </div>
             <div class="button-group">
-                <button type="button" onclick="showAnswers()">Lösungen anzeigen</button>
+                <button type="button" onclick="submitAnswers()">Antworten einreichen</button>
                 <button type="button" onclick="resetQuiz()">Neu starten</button>
             </div>
             <div class="feedback" id="feedback"></div>
@@ -209,58 +143,22 @@
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
         <a href="b2index">Story B2: Kontrollzwang</a>
-        <a href="B2A7.html">Previous exercise </a>
-        <a href="B2A9.html">Next exercise</a>
+        <a href="B2A9.html">Previous exercise </a>
+        <a href="B2A11.html">Next exercise</a>
     </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
 <script>
-    const possibleAnswers = [
-        "Trink die Aufgabe!", "Trink das Auto!", "Trink die Milch!", "Trink die Hausaufgabe!", "Trink den Film!", "Trink die Tür!",
-        "Denk an die Aufgabe!", "Denk an das Auto!", "Denk an die Milch!", "Denk an die Hausaufgabe!", "Denk an den Film!", "Denk an die Tür!",
-        "Kauf die Aufgabe!", "Kauf das Auto!", "Kauf die Milch!", "Kauf die Hausaufgabe!", "Kauf den Film!", "Kauf die Tür!",
-        "Schließ die Aufgabe!", "Schließ das Auto!", "Schließ die Milch!", "Schließ die Hausaufgabe!", "Schließ den Film!", "Schließ die Tür!",
-        "Reich die Aufgabe ein!", "Reich das Auto ein!", "Reich die Milch ein!", "Reich die Hausaufgabe ein!", "Reich den Film ein!", "Reich die Tür ein!",
-        "Mach die Aufgabe auf!", "Mach das Auto auf!", "Mach die Milch auf!", "Mach die Hausaufgabe auf!", "Mach den Film auf!", "Mach die Tür auf!"
-    ];
-    
-    function showAnswers() {
-        const answers = [
-            "Sample answer: Trink die Milch!",
-            "Sample answer: Denk an die Aufgabe!",
-            "Sample answer: Kauf das Auto!",
-            "Sample answer: Schließ die Tür!",
-            "Sample answer: Reich die Hausaufgabe ein!",
-        ];
-
-        document.getElementById("sample1").innerText = answers[0];
-        document.getElementById("sample2").innerText = answers[1];
-        document.getElementById("sample3").innerText = answers[2];
-        document.getElementById("sample4").innerText = answers[3];
-        document.getElementById("sample5").innerText = answers[4];
-
-        document.getElementById("feedback").innerText = "Lösungen wurden angezeigt.";
+    function submitAnswers() {
+        // Function to handle the submission of answers
+        document.getElementById("feedback").innerText = "Antworten wurden eingereicht.";
     }
 
     function resetQuiz() {
-        document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
-        document.querySelectorAll('.sample-answer').forEach(answer => answer.innerText = '');
+        document.querySelectorAll('textarea').forEach(textarea => textarea.value = '');
         document.getElementById("feedback").innerText = '';
-    }
-
-    function checkAnswers() {
-        let correct = true;
-        for (let i = 1; i <= 5; i++) {
-            const userInput = document.querySelector(`input[name="q${i}"]`).value.trim();
-            if (!possibleAnswers.includes(userInput)) {
-                correct = false;
-                break;
-            }
-        }
-        document.getElementById("feedback").innerText = correct ? "Alle Antworten sind korrekt!" : "Einige Antworten sind falsch. Bitte versuchen Sie es erneut.";
     }
 </script>
 </body>
 </html>
-
