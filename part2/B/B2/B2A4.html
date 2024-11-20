@@ -104,9 +104,9 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 4: Insert the correct form of ein/eine or kein/keine. </h2>
+        <h2>Aufgabe 4: Insert the correct form of ein/eine or kein/keine.</h2>
         <h3>Fred ist sehr stolz auf sein Handy und will es allen seinen Freunden zeigen. Ergänzen Sie die richtigen Formen. / Fred is very proud of his new cell phone and wants to show it to all his friends.</h3>
-        <h6>Noun gender is indicated in brackets where needed.</h6>
+        <h6>Noun gender is indicated in brackets where needed.</h6>
         <form id="quiz-form">
             <div class="question-container">
                 <div class="question">1. Fred ist ______ sehr cooler Bro!</div>
@@ -163,6 +163,55 @@
                     <label><input type="radio" name="q6" value="d"> d) kein, eine, das</label>
                 </div>
             </div>
+            <div class="question-container">
+                <div class="question">7. Fred: “Guck ma! Ich habe _______ neues Handy (neut.) gekauft”.</div>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="a"> a) ein</label>
+                    <label><input type="radio" name="q7" value="b"> b) eine</label>
+                    <label><input type="radio" name="q7" value="c"> c) das</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">8. Bro#1: “Ist das _______ Android (neut.)?”</div>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="a"> a) eine</label>
+                    <label><input type="radio" name="q8" value="b"> b) ein</label>
+                    <label><input type="radio" name="q8" value="c"> c) das</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">9. Fred: “Natürlich nicht! Es ist _______ Android, es ist _______ iPhone (neut.)! Es hat _______ tolle Kamera (fem.)! Und auch _______ gute Garantie (fem.)!</div>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="a"> a) keine, ein, eine, eine</label>
+                    <label><input type="radio" name="q9" value="b"> b) ein, kein, eine, eine</label>
+                    <label><input type="radio" name="q9" value="c"> c) kein, das, die, der</label>
+                    <label><input type="radio" name="q9" value="d"> d) kein, ein, eine, eine</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">10. Bro#2 takes the cell-phone and almost drops it. Fred: “Pass auf! – das ist _______ Spielzeug!”</div>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="a"> a) ein</label>
+                    <label><input type="radio" name="q10" value="b"> b) kein</label>
+                    <label><input type="radio" name="q10" value="c"> c) das</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">11. Bro #2: “________ Sorge! Aber nimm das Handy zurück – ich bin _______ Tollpatch!”</div>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="a"> a) keine, ein</label>
+                    <label><input type="radio" name="q11" value="b"> b) keine, eine</label>
+                    <label><input type="radio" name="q11" value="c"> c) ein, eine</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">12. Fred: “Naja! Jetzt habe ich _______ OSAP Geld (neut.) mehr, aber es ist _______ große Sache. Ich habe neue Schuhe und _______ neues, schönes, tolles Handy (neut.)!”</div>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="a"> a) kein, eine, ein</label>
+                    <label><input type="radio" name="q12" value="b"> b) keine, eine, ein</label>
+                    <label><input type="radio" name="q12" value="c"> c) kein, die, der</label>
+                </div>
+            </div>
             <div class="button-group">
                 <button type="button" onclick="checkAnswers()">Lösungen anzeigen</button>
                 <button type="button" onclick="resetQuiz()">Neu starten</button>
@@ -181,7 +230,13 @@ function checkAnswers() {
         q3: "a",
         q4: "c",
         q5: "c",
-        q6: "c"
+        q6: "c",
+        q7: "a",
+        q8: "b",
+        q9: "d",
+        q10: "a",
+        q11: "a",
+        q12: "a"
     };
 
     let score = 0;
@@ -209,10 +264,10 @@ function checkAnswers() {
     document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
 }
 
-    function resetQuiz() {
-        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
-        document.getElementById("feedback").innerText = "";
-    }
+function resetQuiz() {
+    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+    document.getElementById("feedback").innerText = "";
+}
 </script>
 </body>
 </html>
