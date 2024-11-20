@@ -26,14 +26,13 @@
         nav {
             background-color: #333;
             overflow: hidden;
-            display: inline-block;
+            display: flex;
+            justify-content: center;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             margin: 20px 0;
         }
         nav a {
-            float: left;
-            display: block;
             color: white;
             text-align: center;
             padding: 14px 16px;
@@ -80,8 +79,7 @@
         .button-group {
             display: flex;
             justify-content: center;
-            width: 100%;
-            margin-top: 20px;
+            margin: 20px 0;
         }
         button {
             display: inline-block;
@@ -93,6 +91,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
+            transition: background-color 0.3s ease;
         }
         button:hover {
             background-color: #174573;
@@ -135,13 +134,11 @@
         <div id="order-zone" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h3>Ordnen Sie die Sätze hier ein:</h3>
         </div>
-        <div class="button-group">
-            <button onclick="checkOrder()">Lösungen anzeigen</button>
-            <button onclick="resetQuiz()">Neu starten</button>
-            <div id="feedback" class="feedback"></div>
-        </div>
     </div>
-
+    <div class="button-group">
+        <button onclick="checkOrder()">Lösungen anzeigen</button>
+        <button onclick="resetQuiz()">Neu starten</button>
+    </div>
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
         <a href="b2index.html">Story B2: Kontrollzwang</a>
@@ -171,15 +168,8 @@ function drop(ev) {
 
 function checkOrder() {
     const correctOrders = [
-        // Sequence 1
         [
             'phrase1', 'phrase2', 'phrase3', 'phrase4', 'phrase5',
-            'phrase6', 'phrase7', 'phrase8', 'phrase9', 'phrase10',
-            'phrase11', 'phrase12'
-        ],
-        // Sequence 2
-        [
-            'phrase2', 'phrase1', 'phrase3', 'phrase4', 'phrase5',
             'phrase6', 'phrase7', 'phrase8', 'phrase9', 'phrase10',
             'phrase11', 'phrase12'
         ]
