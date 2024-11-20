@@ -59,10 +59,17 @@
         }
         .question-container {
             margin-bottom: 20px;
+            position: relative;
         }
         .question-container textarea {
             width: 100%;
             height: 40px;
+        }
+        .correct-answer {
+            color: green;
+            font-style: italic;
+            margin-top: 5px;
+            display: none;
         }
         .button-group {
             text-align: center;
@@ -108,33 +115,40 @@
             <div class="question-container">
                 <label for="q1">1. Sind Türsteher normalerweise süß?</label>
                 <textarea id="q1" name="q1"></textarea>
+                <div class="correct-answer" id="correct-q1">Sample answer: Nein, sie sind normalerweise nicht süß.</div>
             </div>
             <div class="question-container">
                 <label for="q2">2. Kann man auf dem Fußboden schwimmen, wenn es kein Wasser gibt?</label>
                 <textarea id="q2" name="q2"></textarea>
+                <div class="correct-answer" id="correct-q2">Sample answer: Nein, das kann man nicht.</div>
             </div>
             <div class="question-container">
                 <label for="q3">3. Wollen Sie einen Waschbär als Haustier?</label>
                 <textarea id="q3" name="q3"></textarea>
+                <div class="correct-answer" id="correct-q3">Sample answer: Ja, Waschbären sind niedlich!</div>
             </div>
             <div class="question-container">
                 <label for="q4">4. Weinen Sie, wenn jemand (someone) auf Ihre neuen Schuhe tritt?</label>
                 <textarea id="q4" name="q4"></textarea>
+                <div class="correct-answer" id="correct-q4">Sample answer: Ja, natürlich weine ich!</div>
             </div>
             <div class="question-container">
                 <label for="q5">5. Wollen Sie beim Speeddating mitmachen?</label>
                 <textarea id="q5" name="q5"></textarea>
+                <div class="correct-answer" id="correct-q5">Sample answer: Ja, ich will auch beim Speedating mitchachen!</div>
             </div>
             <div class="question-container">
                 <label for="q6">6. Ist es umweltfreundlich (environmentally-friendly), dass Siegfried und Wolfgang Maroona in eine Mülltonne werfen, statt ins Recycling?</label>
                 <textarea id="q6" name="q6"></textarea>
+                <div class="correct-answer" id="correct-q6">Sample answer: Nein, das ist nicht umweltfreundlich.</div>
             </div>
             <div class="question-container">
                 <label for="q7">7. Muss man “Speed-essen-und-trinken” beim “Speed-dating”?</label>
                 <textarea id="q7" name="q7"></textarea>
+                <div class="correct-answer" id="correct-q7">Sample answer: Ja, natürlich muss man beim Speeddating auch speed-eesen und speed-trinken!</div>
             </div>
             <div class="button-group">
-                <button type="button" onclick="submitAnswers()">Antworten einreichen</button>
+                <button type="button" onclick="showCorrectAnswers()">Lösungen anzeigen</button>
                 <button type="button" onclick="resetQuiz()">Neu starten</button>
             </div>
             <div class="feedback" id="feedback"></div>
@@ -150,13 +164,18 @@
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
 <script>
-    function submitAnswers() {
-        // Function to handle the submission of answers
-        document.getElementById("feedback").innerText = "Antworten wurden eingereicht.";
+    function showCorrectAnswers() {
+        document.querySelectorAll('.correct-answer').forEach(answer => {
+            answer.style.display = 'block';
+        });
+        document.getElementById("feedback").innerText = "Die Lösungen wurden angezeigt.";
     }
 
     function resetQuiz() {
         document.querySelectorAll('textarea').forEach(textarea => textarea.value = '');
+        document.querySelectorAll('.correct-answer').forEach(answer => {
+            answer.style.display = 'none';
+        });
         document.getElementById("feedback").innerText = '';
     }
 </script>
