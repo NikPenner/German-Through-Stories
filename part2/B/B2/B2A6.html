@@ -71,6 +71,11 @@
             border: 1px solid #ccc;
             width: 5%;
         }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
         .button-group {
             text-align: center;
             margin-top: 20px;
@@ -147,36 +152,40 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe  6. Talking to and about others.</h2>
+        <h2>Aufgabe 6. Talking to and about others.</h2>
         <h3>Replace the bolded words with a corresponding personal pronoun.</h3>
         <form id="quiz-form">
             <div class="question-container">
-                <div class="question">Ist Rita eine <span class="tooltip">Kaffeesüchtige<span class="tooltiptext">coffee addict</span></span>? > Ja, <input type="text" name="q1"> ist eine <span class="tooltip">Kaffeesüchtige<span class="tooltiptext">coffee addict</span></span>.</div>
+                <div class="question">Ist Rita eine Kaffeesüchtige? > Ja, <input type="text" name="q1"> ist eine Kaffeesüchtige.</div>
+                <div class="correct-answer" id="answer-q1">sie</div>
             </div>
             <div class="question-container">
                 <div class="question">Ist Fred jetzt pleite? > Ja, <input type="text" name="q2"> ist jetzt pleite.</div>
+                <div class="correct-answer" id="answer-q2">er</div>
             </div>
             <div class="question-container">
-                <div class="question">Ist das Babywaschbär <span class="tooltip">echt<span class="tooltiptext">really</span></span> süß? > Nein, <input type="text" name="q3"> ist nicht so süß.</div>
+                <div class="question">Ist das Babywaschbär echt süß? > Nein, <input type="text" name="q3"> ist nicht so süß.</div>
+                <div class="correct-answer" id="answer-q3">es</div>
             </div>
             <div class="question-container">
                 <div class="question">Sind Fred und Rita gute Freunde? > Nein, <input type="text" name="q4"> sind keine guten Freunde.</div>
+                <div class="correct-answer" id="answer-q4">sie</div>
             </div>
             <div class="question-container">
                 <div class="question">Maroona: “Wolfgang und Siegfried, <input type="text" name="q5_1"> dürft nicht reinkommen!”</div>
-            </div>
-            <div class="question-container">
+                <div class="correct-answer" id="answer-q5_1">ihr</div>
                 <div class="question">Wolfgang und Siegfried: “Was?! <input type="text" name="q5_2"> dürfen nicht reinkommen?!”</div>
-            </div>
-            <div class="question-container">
+                <div class="correct-answer" id="answer-q5_2">wir</div>
                 <div class="question">Maroona: “Ja, <input type="text" name="q5_3"> dürft nicht reinkommen!”</div>
+                <div class="correct-answer" id="answer-q5_3">ihr</div>
             </div>
             <div class="question-container">
-                <div class="question">Will Professor Oopsilon Fred kicken? > Ja, <input type="text" name="q6"> will <span class="tooltip">bestimmt<span class="tooltiptext">definitely</span></span> Fred kicken.</div>
+                <div class="question">Will Professor Oopsilon Fred kicken? > Ja, <input type="text" name="q6"> will bestimmt Fred kicken.</div>
+                <div class="correct-answer" id="answer-q6">er</div>
             </div>
             <div class="button-group">
                 <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
-                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Lösungen überpfüfen<span class="tooltiptext">Check Answers</span></button>
+                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
                 <button type="button" onclick="resetQuiz()">Neu starten</button>
             </div>
             <div class="feedback" id="feedback"></div>
@@ -192,18 +201,25 @@
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
 <script>
-function checkAnswers() {
-    const correctAnswers = {
-        q1: "sie",
-        q2: "er",
-        q3: "es",
-        q4: "sie",
-        q5_1: "ihr",
-        q5_2: "wir",
-        q5_3: "ihr",
-        q6: "er"
-    };
+const correctAnswers = {
+    q1: "sie",
+    q2: "er",
+    q3: "es",
+    q4: "sie",
+    q5_1: "ihr",
+    q5_2: "wir",
+    q5_3: "ihr",
+    q6: "er"
+};
 
+function showAnswers() {
+    Object.keys(correctAnswers).forEach(question => {
+        const answerElement = document.getElementById(`answer-${question}`);
+        answerElement.style.display = "block";
+    });
+}
+
+function checkAnswers() {
     let score = 0;
     const totalQuestions = Object.keys(correctAnswers).length;
 
@@ -230,6 +246,9 @@ function resetQuiz() {
     document.querySelectorAll('input[type="text"]').forEach(input => {
         input.value = "";
         input.style.borderColor = "";
+    });
+    document.querySelectorAll('.correct-answer').forEach(answer => {
+        answer.style.display = "none";
     });
     document.getElementById("feedback").innerText = "";
 }
