@@ -172,28 +172,40 @@
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
 <script>
-    function checkAnswers() {
-        const correctAnswers = {
-            q1: "b",
-            q2: "d",
-            q3: "a",
-            q4: "c",
-            q5: "c",
-            q6: "c"
-        };
+function checkAnswers() {
+    const correctAnswers = {
+        q1: "b",
+        q2: "d",
+        q3: "a",
+        q4: "c",
+        q5: "c",
+        q6: "c"
+    };
 
-        let score = 0;
-        const totalQuestions = Object.keys(correctAnswers).length;
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
 
-        Object.keys(correctAnswers).forEach(question => {
-            const selected = document.querySelector(`input[name="${question}"]:checked`);
-            if (selected && selected.value === correctAnswers[question]) {
+    Object.keys(correctAnswers).forEach(question => {
+        const selected = document.querySelector(`input[name="${question}"]:checked`);
+        const options = document.querySelectorAll(`input[name="${question}"]`);
+
+        options.forEach(option => {
+            const label = option.parentNode;
+            label.classList.remove("correct", "incorrect");
+
+            if (selected && option === selected && option.value === correctAnswers[question]) {
                 score++;
+                label.style.color = "green";
+            } else if (selected && option === selected && option.value !== correctAnswers[question]) {
+                label.style.color = "red";
+            } else {
+                label.style.color = "";
             }
         });
+    });
 
-        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
-    }
+    document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+}
 
     function resetQuiz() {
         document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
