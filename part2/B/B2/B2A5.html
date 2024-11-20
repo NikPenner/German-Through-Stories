@@ -128,6 +128,7 @@ function checkAnswers() {
             if (!correctAnswers[person].includes(phrase)) {
                 const incorrectItem = document.getElementById(phrase);
                 incorrectItem.classList.add('highlight-incorrect');
+                console.log(`Incorrect: ${phrase}`); // Debug log
                 setTimeout(() => {
                     incorrectItem.classList.remove('highlight-incorrect');
                 }, 5000);
