@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTS - Part 2: Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px; /* Rounded edges */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px; /* Rounded edges */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: black;
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .book-part {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #e6f2ff;
+        }
+        .book-part .content {
+            display: flex; /* Flexbox for alignment */
+            align-items: flex-start; /* Align items to the start */
+        }
+        .book-part img {
+            width: 200px;
+            margin-right: 20px; /* Space between image and buttons */
+            border-radius: 5px;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-group button:hover {
+            background-color: #174573;
+        }
+        .book-part a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .book-part a:hover {
+            background-color: #174573;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aufgaben zu B2: Kontrollzwang</h1>
+    </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b2index">Story B2: Kontrollzwang</a>
+            <a href="B2A1.html">Previous exercise </a>
+            <a href="B2A3.html">Next exercise</a>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Aufgabe 2: Dies und das</h2>
+        <p>This exercise is meant to refresh your memory about what happened in this story as well as in the previous stories and to activate vocabulary from those stories in your mind.</p>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">1. Wolfgang ______ an einem Projekt.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a"> a) arbeitet</label><br>
+                    <label class="option"><input type="radio" name="q1" value="b"> b) tritt auf</label><br>
+                    <label class="option"><input type="radio" name="q1" value="c"> c) studiert</label><br>
+                    <label class="option"><input type="radio" name="q1" value="d"> d) simst</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">2. Wolfgang baut ______ für einen Ingenieurwesen-Kurs.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a"> a) ein Waschbär-Baby</label><br>
+                    <label class="option"><input type="radio" name="q2" value="b"> b) einen Roboter</label><br>
+                    <label class="option"><input type="radio" name="q2" value="c"> c) ein neues Handy</label><br>
+                    <label class="option"><input type="radio" name="q2" value="d"> d) eine neue Freundin</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">4. Was studiert Maroona?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="a"> a) Ingenieurwesen</label><br>
+                    <label class="option"><input type="radio" name="q4" value="b"> b) Kinesiologie</label><br>
+                    <label class="option"><input type="radio" name="q4" value="c"> c) Sport-Geschichte</label><br>
+                    <label class="option"><input type="radio" name="q4" value="d"> d) Waschbär-wissenschaft</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">5. In welchem Semester studiert Wolfgang?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="a"> a) im ersten</label><br>
+                    <label class="option"><input type="radio" name="q5" value="b"> b) im vierten</label><br>
+                    <label class="option"><input type="radio" name="q5" value="c"> c) im siebten</label><br>
+                    <label class="option"><input type="radio" name="q5" value="d"> d) im zweiten</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">6. Wolfgang studiert ______.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="a"> a) Kommerz</label><br>
+                    <label class="option"><input type="radio" name="q6" value="b"> b) Biologie</label><br>
+                    <label class="option"><input type="radio" name="q6" value="c"> c) Philosophie</label><br>
+                    <label class="option"><input type="radio" name="q6" value="d"> d) Ingenieurwesen</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">7. Wolfgang denkt, dass der Roboter kaputt ist. Der Roboter geht nur ______.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="a"> a) vorwärts</label><br>
+                    <label class="option"><input type="radio" name="q7" value="b"> b) rückwärts</label><br>
+                    <label class="option"><input type="radio" name="q7" value="c"> c) zu Hause</label><br>
+                    <label class="option"><input type="radio" name="q7" value="d"> d) nach Hause</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">8. Der Roboter geht zum Tisch und ______.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a"> a) liest das Buch und liest es</label><br>
+                    <label class="option"><input type="radio" name="q8" value="b"> b) tritt auf das Buch und macht es kaputt</label><br>
+                    <label class="option"><input type="radio" name="q8" value="c"> c) kauft das Buch</label><br>
+                    <label class="option"><input type="radio" name="q8" value="d"> d) nimmt das Buch und öffnet es</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">9. Wohin schwimmen Siegfried und Wolfgang?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q9" value="a"> a) nach Hause</label><br>
+                    <label class="option"><input type="radio" name="q9" value="b"> b) ins Studentenzentrum</label><br>
+                    <label class="option"><input type="radio" name="q9" value="c"> c) zu Sternbocks und zurück</label><br>
+                    <label class="option"><input type="radio" name="q9" value="d"> d) in eine Mülltonne</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">10. Es gibt ein Restaurant auf dem Campus. Das Restaurant heißt ______.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q10" value="a"> a) Zwölf-Achtzig</label><br>
+                    <label class="option"><input type="radio" name="q10" value="b"> b) Dreizehn-Neunzig</label><br>
+                    <label class="option"><input type="radio" name="q10" value="c"> c) Campus Spaß</label><br>
+                    <label class="option"><input type="radio" name="q10" value="d"> d) Oopsilon Café</label>
+                </div>
+            </div>
+            <br>
+            <div class="button-group">
+                <button type="button" onclick="checkAnswers()">Antworten überprüfen</button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
+    </div>
+    <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b2index">Story B2: Kontrollzwang</a>
+            <a href="B2A1.html">Previous exercise </a>
+            <a href="B2A3.html">Next exercise</a>
+        </nav>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+<script>
+    function checkAnswers() {
+        const correctAnswers = {
+            q1: "a",
+            q2: "b",
+            q3: "b",
+            q4: "b",
+            q5: "b",
+            q6: "d",
+            q7: "b",
+            q8: "d",
+            q9: "c",
+            q10: "b"
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        Object.keys(correctAnswers).forEach(question => {
+            const selected = document.querySelector(`input[name="${question}"]:checked`);
+            const options = document.querySelectorAll(`input[name="${question}"]`);
+
+            options.forEach(option => {
+                const label = option.parentNode;
+                label.classList.remove("correct", "incorrect");
+
+                if (selected && option === selected && option.value === correctAnswers[question]) {
+                    score++;
+                    label.style.color = "green";
+                } else if (selected && option === selected && option.value !== correctAnswers[question]) {
+                    label.style.color = "red";
+                } else {
+                    label.style.color = "";
+                }
+            });
+        });
+
+        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+    }
+
+    function resetQuiz() {
+        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+        document.querySelectorAll('.option').forEach(label => {
+            label.style.color = "";
+        });
+        document.getElementById("feedback").innerText = "";
+    }
+</script>
+</body>
+</html>
