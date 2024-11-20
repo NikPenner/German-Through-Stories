@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag & Drop Exercise</title>
+    <title>B2: Kontrollzwang Aufgaben</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,8 +23,28 @@
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             width: 100%;
             text-align: left;
             background-color: white;
@@ -33,6 +53,9 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        h2 {
+            color: #2a6592;
+        }
         .dropzone {
             border: 2px dashed #ccc;
             border-radius: 10px;
@@ -40,6 +63,13 @@
             margin: 20px 0;
             min-height: 100px;
             background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .dropzone h3 {
+            margin: 0;
         }
         .item {
             padding: 10px;
@@ -47,24 +77,50 @@
             background-color: #eee;
             border: 1px solid #ccc;
             border-radius: 5px;
-            cursor: pointer;
-        }
-        .dropzone h3 {
-            margin: 0;
-            padding-bottom: 10px;
+            cursor: grab;
+            display: inline-block;
         }
         .highlight-incorrect {
             background-color: rgba(255, 0, 0, 0.4) !important;
+        }
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #174573;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Drag & Drop Exercise</h1>
+        <h1>B2: Kontrollzwang Aufgaben</h1>
     </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b2index.html">Story B2: Kontrollzwang</a>
+            <a href="B2A3.html">Previous Exercise</a>
+            <a href="B2A5.html">Next Exercise</a>
+        </nav>
+    </div>
     <div class="container">
         <h2>Aufgabe 5: Reconstruct a dialogue</h2>
-        <p>Who says the following, Maroona or, Siegfried and Wolfgang? First match the phrases to the person saying them, then reconstruct the dialogue & practice reading it with a partner.</p>
+        <p>Drag the phrases to the correct speaker (Maroona or Siegfried und Wolfgang).</p>
         <div id="phrases" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div id="phrase1" class="item" draggable="true" ondragstart="drag(event)">Na gut, wir schwimmen zu Sternbocks und zurück.</div>
             <div id="phrase2" class="item" draggable="true" ondragstart="drag(event)">Warum nicht?</div>
@@ -76,18 +132,19 @@
             <div id="phrase8" class="item" draggable="true" ondragstart="drag(event)">Schwimmt!</div>
             <div id="phrase9" class="item" draggable="true" ondragstart="drag(event)">Und jetzt sollt ihr zu Sternbocks und zurück schwimmen!</div>
             <div id="phrase10" class="item" draggable="true" ondragstart="drag(event)">Du bist aber komisch! Nein!</div>
-            <div id="phrase11" class="item" draggable="true" ondragstart="drag(event)">Und jetzt… Nein, ich will nicht in die Mülltonne</div>
+            <div id="phrase11" class="item" draggable="true" ondragstart="drag(event)">Und jetzt... Nein, ich will nicht in die Mülltonne</div>
             <div id="phrase12" class="item" draggable="true" ondragstart="drag(event)">Ihr sollt zuerst auf einem Fuß springen!</div>
             <div id="phrase13" class="item" draggable="true" ondragstart="drag(event)">Springt!</div>
         </div>
-        <div id="maroona" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="dropzone1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h3>Maroona</h3>
         </div>
-        <div id="siegfried-wolfgang" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <h3>Siegfried & Wolfgang</h3>
+        <div id="dropzone2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Siegfried und Wolfgang</h3>
         </div>
         <button onclick="checkAnswers()">Check Answers</button>
-        <div id="feedback"></div>
+        <button onclick="resetQuiz()">Reset</button>
+        <div id="feedback" class="feedback"></div>
     </div>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
@@ -112,36 +169,52 @@ function drop(ev) {
 
 function checkAnswers() {
     const correctAnswers = {
-        maroona: [
-            'phrase1', 'phrase4', 'phrase6', 'phrase7', 'phrase10', 'phrase11', 'phrase12'
-        ],
-        'siegfried-wolfgang': [
-            'phrase2', 'phrase3', 'phrase5', 'phrase8', 'phrase9', 'phrase13'
-        ]
+        dropzone1: ['phrase3', 'phrase5', 'phrase9', 'phrase12'],
+        dropzone2: ['phrase1', 'phrase2', 'phrase4', 'phrase6', 'phrase7', 'phrase8', 'phrase10', 'phrase11', 'phrase13']
     };
 
     let score = 0;
-    Object.keys(correctAnswers).forEach(person => {
-        const dropzone = document.getElementById(person);
-        const phrasesInZone = Array.from(dropzone.children).map(child => child.id);
-        phrasesInZone.forEach(phrase => {
-            if (!correctAnswers[person].includes(phrase)) {
-                const incorrectItem = document.getElementById(phrase);
-                incorrectItem.classList.add('highlight-incorrect');
-                console.log(`Incorrect: ${phrase}`); // Debug log
-                setTimeout(() => {
-                    incorrectItem.classList.remove('highlight-incorrect');
-                }, 5000);
-            }
-        });
-        correctAnswers[person].forEach(correctPhrase => {
-            if (phrasesInZone.includes(correctPhrase)) {
-                score++;
+    const totalAnswers = Object.values(correctAnswers).flat().length;
+
+    // Reset all items' highlights
+    document.querySelectorAll('.item').forEach(item => {
+        item.classList.remove('highlight-incorrect');
+    });
+
+    // Check each dropzone
+    Object.keys(correctAnswers).forEach(zoneId => {
+        const dropzone = document.getElementById(zoneId);
+        const children = Array.from(dropzone.children);
+
+        children.forEach(child => {
+            if (child.classList.contains('item')) {
+                const isCorrect = correctAnswers[zoneId].includes(child.id);
+                if (isCorrect) {
+                    score++;
+                } else {
+                    child.classList.add('highlight-incorrect');
+                }
             }
         });
     });
 
-    document.getElementById('feedback').innerText = `You got ${score} correct answers.`;
+    document.getElementById('feedback').innerText = `${score} von ${totalAnswers} sind richtig`;
+}
+
+function resetQuiz() {
+    const phrasesContainer = document.getElementById('phrases');
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        Array.from(zone.children).forEach(child => {
+            if (child.classList.contains('item')) {
+                phrasesContainer.appendChild(child);
+            }
+        });
+    });
+
+    document.getElementById('feedback').innerText = '';
+    document.querySelectorAll('.item').forEach(item => {
+        item.classList.remove('highlight-incorrect');
+    });
 }
 </script>
 </body>
