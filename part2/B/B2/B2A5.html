@@ -101,136 +101,15 @@
         <nav>
             <a href="/German-Through-Stories/index.html">Main Page</a>
             <a href="b2index.html">Story B2: Kontrollzwang</a>
-            <a href="B2A3.html">Previous Exercise</a>
-            <a href="B2A5.html">Next Exercise</a>
+            <a href="B2A4.html">Previous Exercise</a>
+            <a href="B2A6.html">Next Exercise</a>
         </nav>
     </div>
     <div class="container">
         <h2>Aufgabe 4: Insert the correct form of ein/eine or kein/keine.</h2>
-        <h3>Fred ist sehr stolz auf sein Handy und will es allen seinen Freunden zeigen. Ergänzen Sie die richtigen Formen. / Fred is very proud of his new cell phone and wants to show it to all his friends.</h3>
-        <h6>Noun gender is indicated in brackets where needed.</h6>
-        <form id="quiz-form">
-            <div class="question-container">
-                <div class="question">Fred: “Guck ma! Ich habe <select name="q7">
-                    <option value="____">____</option>
-                    <option value="a">ein</option>
-                    <option value="b">eine</option>
-                    <option value="c">das</option>
-                </select> neues Handy (neut.) gekauft”.</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Bro#1: “Ist das <select name="q8">
-                    <option value="____">____</option>
-                    <option value="a">eine</option>
-                    <option value="b">ein</option>
-                    <option value="c">das</option>
-                </select> Android (neut.)?”</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Fred: “Natürlich nicht! Es ist <select name="q9_1">
-                    <option value="____">____</option>
-                    <option value="a">keine</option>
-                    <option value="b">ein</option>
-                    <option value="c">das</option>
-                    <option value="d">kein</option>
-                </select> Android, es ist <select name="q9_2">
-                    <option value="____">____</option>
-                    <option value="a">ein</option>
-                    <option value="b">kein</option>
-                </select> iPhone (neut.)! Es hat <select name="q9_3">
-                    <option value="____">____</option>
-                    <option value="a">eine</option>
-                    <option value="b">die</option>
-                    <option value="c">der</option>
-                </select> tolle Kamera (fem.)! Und auch <select name="q9_4">
-                    <option value="____">____</option>
-                    <option value="a">eine</option>
-                    <option value="b">die</option>
-                </select> gute Garantie (fem.).</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Bro#2 takes the cell-phone and almost drops it. Fred: “Pass auf! – das ist <select name="q10">
-                    <option value="____">____</option>
-                    <option value="a">ein</option>
-                    <option value="b">kein</option>
-                    <option value="c">das</option>
-                </select> Spielzeug!”</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Bro #2: “<select name="q11_1">
-                    <option value="____">____</option>
-                    <option value="a">keine</option>
-                    <option value="b">ein</option>
-                </select> Sorge! Aber nimm das Handy zurück – ich bin <select name="q11_2">
-                    <option value="____">____</option>
-                    <option value="a">ein</option>
-                    <option value="b">eine</option>
-                </select> Tollpatch!</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Fred: “Naja! Jetzt habe ich <select name="q12_1">
-                    <option value="____">____</option>
-                    <option value="a">kein</option>
-                    <option value="b">keine</option>
-                </select> OSAP Geld (neut.) mehr, aber es ist <select name="q12_2">
-                    <option value="____">____</option>
-                    <option value="a">eine</option>
-                    <option value="b">die</option>
-                </select> große Sache. Ich habe neue Schuhe und <select name="q12_3">
-                    <option value="____">____</option>
-                    <option value="a">ein</option>
-                    <option value="b">der</option>
-                </select> neues, schönes, tolles Handy (neut.)!</div>
-            </div>
-            <div class="button-group">
-                <button type="button" onclick="checkAnswers()">Lösungen anzeigen</button>
-                <button type="button" onclick="resetQuiz()">Neu starten</button>
-            </div>
-            <div class="feedback" id="feedback"></div>
-        </form>
     </div>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
-<script>
-function checkAnswers() {
-    const correctAnswers = {
-        q7: "a",
-        q8: "b",
-        q9_1: "d",
-        q9_2: "b",
-        q9_3: "a",
-        q9_4: "a",
-        q10: "a",
-        q11_1: "a",
-        q11_2: "a",
-        q12_1: "a",
-        q12_2: "a",
-        q12_3: "a"
-    };
-
-    let score = 0;
-    const totalQuestions = Object.keys(correctAnswers).length;
-
-    Object.keys(correctAnswers).forEach(question => {
-        const selected = document.querySelector(`select[name="${question}"]`).value;
-
-        if (selected && selected === correctAnswers[question]) {
-            score++;
-            document.querySelector(`select[name="${question}"]`).style.borderColor = "green";
-        } else {
-            document.querySelector(`select[name="${question}"]`).style.borderColor = "red";
-        }
-    });
-
-    document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
-}
-
-function resetQuiz() {
-    document.querySelectorAll('select').forEach(select => select.value = "____");
-    document.querySelectorAll('select').forEach(select => select.style.borderColor = "");
-    document.getElementById("feedback").innerText = "";
-}
-</script>
 </body>
 </html>
