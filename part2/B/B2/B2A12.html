@@ -68,12 +68,13 @@
             padding: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            width: 5%;
+            width: 15%;
         }
         .correct-answer {
             color: green;
             font-weight: bold;
             display: none;
+            margin-left: 10px;
         }
         .button-group {
             text-align: center;
@@ -146,41 +147,30 @@
         <nav>
             <a href="/German-Through-Stories/index.html">Main Page</a>
             <a href="b2index.html">Story B2: Kontrollzwang</a>
-            <a href="B2A5b.html">Previous Exercise</a>
-            <a href="B2A7.html">Next Exercise</a>
+            <a href="B2A11.html">Previous Exercise</a>
+            <a href="B2A13.html">Next Exercise</a>
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 6. Talking to and about others.</h2>
-        <h3>Replace the bolded words with a corresponding personal pronoun.</h3>
+        <h2>Aufgabe 12. Perfekt</h2>
+        <p>Fill in the missing verbs.<br>
+        Note: This time you need to decide whether a form of ‘sein’ or ‘haben’ is missing and use the correct form depending on who has done the action (ich bin, du bist, ich habe, du hast etc).<br>
+        Remember: verbs of motion always use ‘sein’ —> ich bin gefahren (I have driven). All other verbs use ‘haben’</p>
         <form id="quiz-form">
             <div class="question-container">
-                <div class="question">Ist <b><span class="tooltip">Rita<span class="tooltiptext">Rita</span></span></b> eine <span class="tooltip">Kaffeesüchtige<span class="tooltiptext">coffee addict</span></span>? > Ja, <input type="text" name="q1"> ist eine Kaffeesüchtige.</div>
-                <div class="correct-answer" id="answer-q1">sie</div>
+                <div class="question">Siegfried und Wolfgang <input type="text" name="q1"> <span class="correct-answer" id="answer-q1"></span> zum Restaurant gekommen um beim Speeddating mitzumachen. Maroona <input type="text" name="q2"> <span class="correct-answer" id="answer-q2"></span> dort als Türstehern gearbeitet.</div>
             </div>
             <div class="question-container">
-                <div class="question">Ist <b><span class="tooltip">Fred<span class="tooltiptext">Fred</span></span></b> jetzt <span class="tooltip">pleite<span class="tooltiptext">broke</span></span>? > Ja, <input type="text" name="q2"> ist jetzt pleite.</div>
-                <div class="correct-answer" id="answer-q2">er</div>
+                <div class="question">Sie <input type="text" name="q3"> <span class="correct-answer" id="answer-q3"></span> auf einem Fuß gesprungen, weil Maroona es gesagt <input type="text" name="q4"> <span class="correct-answer" id="answer-q4"></span>.</div>
             </div>
             <div class="question-container">
-                <div class="question">Ist <b>das Waschbärbaby</b> <span class="tooltip">echt<span class="tooltiptext">really</span></span> <span class="tooltip">süß<span class="tooltiptext">cute</span></span>? > Nein, <input type="text" name="q3"> ist nicht so süß.</div>
-                <div class="correct-answer" id="answer-q3">es</div>
+                <div class="question">Dann <input type="text" name="q5"> <span class="correct-answer" id="answer-q5"></span> sie zu Sterbocks und zurück geschwommen und andere Studenten <input type="text" name="q6"> <span class="correct-answer" id="answer-q6"></span> gelacht.</div>
             </div>
             <div class="question-container">
-                <div class="question">Sind <b>Fred und Rita </b>gute Freunde? > Nein, <input type="text" name="q4"> sind keine guten Freunde.</div>
-                <div class="correct-answer" id="answer-q4">sie</div>
+                <div class="question">Sie <input type="text" name="q7"> <span class="correct-answer" id="answer-q7"></span> gedacht, es war komisch ohne Wasser auf dem Fußboden zu schwimmen und <input type="text" name="q8"> <span class="correct-answer" id="answer-q8"></span> Siegfried und Wolfgang gefragt: “Warum schwimmt ihr auf dem Fußboden?”</div>
             </div>
             <div class="question-container">
-                <div class="question">Maroona: “<b>Wolfgang und Siegfried</b>, <input type="text" name="q5_1"> dürft nicht reinkommen!”</div>
-                <div class="correct-answer" id="answer-q5_1">ihr</div>
-                <div class="question"><b>Wolfgang und Siegfried</b>: “Was?! <input type="text" name="q5_2"> dürfen nicht reinkommen?!”</div>
-                <div class="correct-answer" id="answer-q5_2">wir</div>
-                <div class="question">Maroona: “Ja, <input type="text" name="q5_3"> dürft nicht reinkommen!”</div>
-                <div class="correct-answer" id="answer-q5_3">ihr</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Will <b><span class="tooltip">Professor Oopsilon<span class="tooltiptext">Professor Oopsilon</span></span></b> Fred kicken? > Ja, <input type="text" name="q6"> will <span class="tooltip">bestimmt<span class="tooltiptext">definitely</span></span> Fred kicken.</div>
-                <div class="correct-answer" id="answer-q6">er</div>
+                <div class="question">Dann waren Siegfried und Wolfgang wirklich verärgert. Sie <input type="text" name="q9"> <span class="correct-answer" id="answer-q9"></span> Maroona in eine Mülltonne geworfen und <input type="text" name="q10"> <span class="correct-answer" id="answer-q10"></span> ins Restaurant gegangen. Das war nicht besonders nett.</div>
             </div>
             <div class="button-group">
                 <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
@@ -193,28 +183,31 @@
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
         <a href="b2index.html">Story B2: Kontrollzwang</a>
-        <a href="B2A5b.html">Previous Exercise</a>
-        <a href="B2A7.html">Next Exercise</a>
+        <a href="B2A11.html">Previous Exercise</a>
+        <a href="B2A13.html">Next Exercise</a>
     </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
 <script>
 const correctAnswers = {
-    q1: "sie",
-    q2: "er",
-    q3: "es",
-    q4: "sie",
-    q5_1: "ihr",
-    q5_2: "wir",
-    q5_3: "ihr",
-    q6: "er"
+    q1: "sind",
+    q2: "hat",
+    q3: "sind",
+    q4: "hat",
+    q5: "sind",
+    q6: "haben",
+    q7: "haben",
+    q8: "haben",
+    q9: "haben",
+    q10: "sind"
 };
 
 function showAnswers() {
     Object.keys(correctAnswers).forEach(question => {
         const answerElement = document.getElementById(`answer-${question}`);
-        answerElement.style.display = "block";
+        answerElement.textContent = correctAnswers[question];
+        answerElement.style.display = "inline";
     });
 }
 
