@@ -229,6 +229,17 @@ function showanswers() {
 
     document.getElementById('correct-sequence').innerText = correctOrderText.join('\n');
 }
+
+function shufflePhrases() {
+    const phrasesContainer = document.getElementById('phrases');
+    const phrases = Array.from(phrasesContainer.children);
+    for (let i = phrases.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        phrasesContainer.appendChild(phrasesContainer.removeChild(phrases[j]));
+    }
+}
+
+window.onload = shufflePhrases;
 </script>
 </body>
 </html>
