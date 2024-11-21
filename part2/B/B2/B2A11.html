@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -152,47 +151,24 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 7. Personal pronouns for inanimate objects</h2>
-        <form id="quiz-form">
-            <div class="question-container">
-                <div class="question">Welche Farbe haben Recyclingmülltonnen (plur.)? <input type="text" name="q1"> sind blau.</div>
-                <div class="correct-answer" id="answer-q1">sie</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist die McMaster Uni klein? Jein, <input type="text" name="q2"> ist nicht sehr groß und nicht sehr klein.</div>
-                <div class="correct-answer" id="answer-q2">sie</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist der Willi-Hund-Stand teuer? Nein, <input type="text" name="q3"> ist nicht teuer!</div>
-                <div class="correct-answer" id="answer-q3">er</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Was kostet Freds Handy (neut.)? <input type="text" name="q4"> kostet viel Geld!</div>
-                <div class="correct-answer" id="answer-q4">es</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Sind Freds Schuhe (plur.) weiß? Nein, <input type="text" name="q5"> sind nicht mehr weiß.</div>
-                <div class="correct-answer" id="answer-q5">sie</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist der Stift rot? Nein, <input type="text" name="q6"> ist blau.</div>
-                <div class="correct-answer" id="answer-q6">er</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist Wolfgangs Roboter klug (smart)? Ja, <input type="text" name="q7"> ist sehr klug!</div>
-                <div class="correct-answer" id="answer-q7">er</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist McDonald’s ein gutes Restaurant (neut.)? Klar, <input type="text" name="q8"> ist ein sehr gutes Restaurant!</div>
-                <div class="correct-answer" id="answer-q8">es</div>
-            </div>
-            <div class="button-group">
-                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
-                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
-                <button type="button" onclick="resetQuiz()">Neu starten</button>
-            </div>
-            <div class="feedback" id="feedback"></div>
-        </form>
+        <h2>Aufgabe 11. Perfekt with ‘easy’ verbs</h2>
+        <p>Fill in the missing verbs using the verbs given in brackets for each sentence.</p>
+        <p>Note: All of the verbs used in this task are ‘easy’, meaning that in Perfekt they all start with ge- and end with -t. Remember that when there is a separable prefix, it will go in front of the ge-, e.g. einschalten - hat eingeschaltet</p>
+        <p><strong>Beispiel:</strong> Maroona hat als Türsteherin <u>gearbeitet</u> (arbeiten)</p>
+        <div class="question-container">
+            <div class="question">Maroona war sehr sportlich: sie hat jeden Tag <input type="text" name="q1" placeholder="(boxen)"> (boxen), Crossfit <input type="text" name="q2" placeholder="(machen)"> (machen), und Fußball <input type="text" name="q3" placeholder="(spielen)"> (spielen).</div>
+            <div class="question">Siegfried und Wolfgang wollten reingehen, aber sie hat <input type="text" name="q4" placeholder="(sagen)"> (sagen): “Halt! Ihr dürft nicht rein! Ihr sollt auf einem Fuß springen!” Siegfried und Wolfgang sind dann auf einem Fuß gesprungen.</div>
+            <div class="correct-answer" id="answer-q1">geboxt</div>
+            <div class="correct-answer" id="answer-q2">gemacht</div>
+            <div class="correct-answer" id="answer-q3">gespielt</div>
+            <div class="correct-answer" id="answer-q4">gesagt</div>
+        </div>
+        <div class="button-group">
+            <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+            <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
+            <button type="button" onclick="resetQuiz()">Neu starten</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
     </div>
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
@@ -205,14 +181,10 @@
     </footer>
 <script>
 const correctAnswers = {
-    q1: "sie",
-    q2: "sie",
-    q3: "er",
-    q4: "es",
-    q5: "sie",
-    q6: "er",
-    q7: "er",
-    q8: "es"
+    q1: "geboxt",
+    q2: "gemacht",
+    q3: "gespielt",
+    q4: "gesagt"
 };
 
 function showAnswers() {
@@ -229,9 +201,10 @@ function checkAnswers() {
     Object.keys(correctAnswers).forEach(question => {
         const inputElement = document.querySelector(`input[name="${question}"]`);
         const answer = inputElement.value.trim().toLowerCase();
+        const correctAnswer = correctAnswers[question].toLowerCase();
 
         if (answer !== "") {
-            if (answer === correctAnswers[question]) {
+            if (answer === correctAnswer) {
                 score++;
                 inputElement.style.borderColor = "green";
             } else {
