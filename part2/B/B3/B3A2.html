@@ -68,7 +68,7 @@
             padding: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
-            width: 5%;
+            width: 10%;
         }
         .correct-answer {
             color: green;
@@ -155,8 +155,45 @@
         <p>Watch out! Most (but not all!) of these verbs change a bit when used with du or er/sie/es</p>
         <form id="quiz-form">
             <div class="question-container">
-                <div class="question">Der Roboter <input type="text" name="q1"> (sehen) eine wunderschöne Machine.</div>
+                <div class="question">Der Roboter <input type="text" name="q1" placeholder="(sehen)">eine wunderschöne Machine.</div>
                 <div class="correct-answer" id="answer-q1">sieht</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Auf der Maschine steht „Was willst du trinken?“. Er <input type="text" name="q2" placeholder="(lesen)"> das und denkt „sie <input type="text" name="q3" placeholder="(lieben)"> mich!“. </div>
+                <div class="correct-answer" id="answer-q2">liest</div>
+                <div class="correct-answer" id="answer-q3">liebt</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Die Maschine <input type="text" name="q4" placeholder="(geben)"> ihm ein Pfefsi.</div>
+                <div class="correct-answer" id="answer-q4">gibt</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Er <input type="text" name="q5" placeholder="(nehmen)"> das Pfefsi und sagt: „Ja, ich <input type="text" name="q6" placeholder="(sein)"> in sie verliebt!“</div>
+                <div class="correct-answer" id="answer-q5">nimmt</div>
+                <div class="correct-answer" id="answer-q6">bin</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Sie <input type="text" name="q7" placeholder="(sein)"> die Liebe meines Lebens!</div>
+                <div class="correct-answer" id="answer-q7">ist</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Er <input type="text" name="q8" placeholder="(sein)"> glücklich. Endlich <input type="text" name="q9" placeholder="(haben)"> er seine große Liebe gefunden!</div>
+                <div class="correct-answer" id="answer-q8">ist</div>
+                <div class="correct-answer" id="answer-q9">hat</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Aber dann kommt ein Student vorbei und die Maschine <input type="text" name="q10" placeholder="(geben)"> ihm auch ein Pfefsi!</div>
+                <div class="correct-answer" id="answer-q10">gibt</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Das kann nicht sein! „Nein, sie <input type="text" name="q11" placeholder="(lieben)"> mich nicht.“, denkt der Roboter und <input type="text" name="q12" placeholder="(werfen)"> das Pfefsi auf den Boden.</div>
+                <div class="correct-answer" id="answer-q11">liebt</div>
+                <div class="correct-answer" id="answer-q12">wirft</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Er <input type="text" name="q13" placeholder="(werden)"> sehr traurig und <input type="text" name="q14" placeholder="(laufen)"> weinend weg.</div>
+                <div class="correct-answer" id="answer-q13">wird</div>
+                <div class="correct-answer" id="answer-q14">läuft</div>
             </div>
             <div class="button-group">
                 <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
@@ -177,7 +214,20 @@
     </footer>
 <script>
 const correctAnswers = {
-    q1: "sieht"
+    q1: "sieht",
+    q2: "liest",
+    q3: "liebt",
+    q4: "gibt",
+    q5: "nimmt",
+    q6: "bin",
+    q7: "ist",
+    q8: "ist",
+    q9: "hat",
+    q10: "gibt",
+    q11: "liebt",
+    q12: "wirft",
+    q13: "wird",
+    q14: "läuft"
 };
 
 function showAnswers() {
