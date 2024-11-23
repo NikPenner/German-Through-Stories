@@ -1,1 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B3: New Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            margin-left: 20px;
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 50%;
+        }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .button-group button:hover {
+            background-color: #174573;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
+            text-align: center;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>B3: New Exercise</h1>
+    </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b3index.html">Story B3</a>
+            <a href="B3A1.html">Previous Exercise</a>
+            <a href="B3A2.html">Next Exercise</a>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Aufgabe 3. Fragen</h2>
+        <p>Rephrase the questions below using the du form:</p>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">Lieben Sie mich? <input type="text" name="q1"></div>
+                <div class="correct-answer" id="answer-q1">Liebst du mich?</div>
+            </div>
+            <div class="button-group">
+                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
+    </div>
+    <nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b3index.html">Story B3</a>
+        <a href="B3A1.html">Previous Exercise</a>
+        <a href="B3A2.html">Next Exercise</a>
+    </nav>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+<script>
+const correctAnswers = {
+    q1: "Liebst du mich?"
+};
 
+function showAnswers() {
+    Object.keys(correctAnswers).forEach(question => {
+        const answerElement = document.getElementById(`answer-${question}`);
+        answerElement.style.display = "block";
+    });
+}
+
+function checkAnswers() {
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
+
+    Object.keys(correctAnswers).forEach(question => {
+        const inputElement = document.querySelector(`input[name="${question}"]`);
+        const answer = inputElement.value.trim().toLowerCase();
+
+        if (answer !== "") {
+            if (answer === correctAnswers[question].toLowerCase()) {
+                score++;
+                inputElement.style.borderColor = "green";
+            } else {
+                inputElement.style.borderColor = "red";
+            }
+        } else {
+            inputElement.style.borderColor = "";
+        }
+    });
+
+    document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+}
+
+function resetQuiz() {
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+        input.value = "";
+        input.style.borderColor = "";
+    });
+    document.querySelectorAll('.correct-answer').forEach(answer => {
+        answer.style.display = "none";
+    });
+    document.getElementById("feedback").innerText = "";
+}
+</script>
+</body>
+</html>
