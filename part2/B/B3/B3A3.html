@@ -158,6 +158,42 @@
                 <div class="question">Lieben Sie mich? <input type="text" name="q1"></div>
                 <div class="correct-answer" id="answer-q1">Liebst du mich?</div>
             </div>
+            <div class="question-container">
+                <div class="question">Lesen Sie gern Romane? <input type="text" name="q2"></div>
+                <div class="correct-answer" id="answer-q2">Liest du gern Romane?</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Warum werden Sie so traurig? <input type="text" name="q3"></div>
+                <div class="correct-answer" id="answer-q3">Warum wirst du so traurig?</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Sehen Sie den Mann mit dem Hut da? <input type="text" name="q4"></div>
+                <div class="correct-answer" id="answer-q4">Siehst du den Mann mit dem Hut da?</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Was geben Sie Ihrem Bruder zu Geburtstag? <input type="text" name="q5"></div>
+                <div class="correct-answer" id="answer-q5">Was gibst du deinem Bruder zu Geburtstag?</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Nehmen Sie Ihren Hund mit in die Ferien (on vacation)? <input type="text" name="q6"></div>
+                <div class="correct-answer" id="answer-q6">Nimmst du deinen Hund mit in die Ferien?</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Sind Sie verliebt? <input type="text" name="q7"></div>
+                <div class="correct-answer" id="answer-q7">Bist du verliebt?</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Wann werden Sie traurig? <input type="text" name="q8"></div>
+                <div class="correct-answer" id="answer-q8">Wann wirst du traurig?</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Wie lange laufen Sie schon? <input type="text" name="q9"></div>
+                <div class="correct-answer" id="answer-q9">Wie lange läufst du schon?</div>
+            </div>
+            <div class="question-container">
+                <div class="question">Warum werfen Sie Müll auf den Fußboden? <input type="text" name="q10"></div>
+                <div class="correct-answer" id="answer-q10">Warum wirfst du Müll auf den Fußboden?</div>
+            </div>
             <div class="button-group">
                 <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
                 <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
@@ -177,7 +213,16 @@
     </footer>
 <script>
 const correctAnswers = {
-    q1: "Liebst du mich?"
+    q1: "Liebst du mich?",
+    q2: "Liest du gern Romane?",
+    q3: "Warum wirst du so traurig?",
+    q4: "Siehst du den Mann mit dem Hut da?",
+    q5: "Was gibst du deinem Bruder zu Geburtstag?",
+    q6: "Nimmst du deinen Hund mit in die Ferien?",
+    q7: "Bist du verliebt?",
+    q8: "Wann wirst du traurig?",
+    q9: "Wie lange läufst du schon?",
+    q10: "Warum wirfst du Müll auf den Fußboden?"
 };
 
 function showAnswers() {
