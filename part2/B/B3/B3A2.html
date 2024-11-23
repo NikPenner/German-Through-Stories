@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTS - Part 2: Stories</title>
+    <title>B3: New Exercise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,8 +28,8 @@
             overflow: hidden;
             display: inline-block;
             border-radius: 15px;
-            margin: 20px 0;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
         }
         nav a {
             float: left;
@@ -43,45 +43,37 @@
             background-color: #ddd;
             color: black;
         }
-        .container-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-.container {
-    max-width: 500px;
-    width: 100%;
-    text-align: left;
-    background-color: white;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-        h1 {
-            color: black;
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h2 {
             color: #2a6592;
         }
+        .question-container {
+            margin-bottom: 20px;
+        }
         .question {
-            margin: 15px 0;
+            margin-bottom: 10px;
         }
-        .question label {
-            font-weight: bold;
-        }
-        .question input {
-            display: block;
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
+        input[type="text"] {
+            margin-left: 20px;
+            margin-bottom: 5px;
+            padding: 5px;
             border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 5%;
         }
         .correct-answer {
-            margin-top: 10px;
             color: green;
-            font-style: italic;
+            font-weight: bold;
+            display: none;
         }
         .button-group {
             text-align: center;
@@ -96,110 +88,138 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: inline-block;
+            margin: 0 10px;
         }
         .button-group button:hover {
             background-color: #174573;
         }
-        footer {
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
             text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #666;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Aufgaben zu B2: Kontrollzwang</h1>
+        <h1>B3: New Exercise</h1>
     </header>
-<nav>
-    <a href="/German-Through-Stories/index.html">Main Page</a>
-    <a href="b2index">Story B3: Die Liebe seines Lebens</a>
-    <span style="display: inline; visibility: visible;">Previous Exercise</span>
-    <a href="B3A2.html">Next Exercise</a>
-</nav>
-<div class="container-wrapper">
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b3index.html">Story B3</a>
+            <a href="B3A0.html">Previous Exercise</a>
+            <a href="B3A2.html">Next Exercise</a>
+        </nav>
+    </div>
     <div class="container">
-        <section>
-            <h2>Aufgabe 1. Fragen zum Text. Answer the questions using your own words. You can find all the points in the story.
- </h2>
-            <div class="question">
-                <label for="q1">1.Ist der Roboter am Anfang (brginning) glücklich? Warum?</label>
-                <input type="text" id="q1" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a1" style="display: none;">Sample answer: Ja, weil er endlich frei ist und kann alles machen, was er will!</p>
-            </div>
-            <div class="question">
-                <label for="q2">2. Warum mag der Roboter die Maschine?
-</label>
-                <input type="text" id="q2" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a2" style="display: none;">Sample answer: Der Roboter mag die Maschine, weil sie schön ist und romantische Musik spielt.</p>
-            </div>
-            <div class="question">
-                <label for="q3">3. Warum denkt der Roboter, dass die Maschine ihn auch liebt?
-</label>
-                <input type="text" id="q3" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a3" style="display: none;">Sample answer: Weil die Maschine ihm ein Pfefsi gibt, das „nur für ihn“ ist.</p>
-            </div>
-            <div class="question">
-                <label for="q4">4. Warum ist der Roboter enttäuscht (disappointed)?
-</label>
-                <input type="text" id="q4" placeholder="Ihre Antwort">
-                <p class="correct-answer" id="a4" style="display: none;">Sample answer: Der Roboter ist traurig, weil der Student auch ein Getränk vond er Maschiee bekommt.</p>
+        <h2>Aufgabe 2. Fill in the blanks</h2>
+        <p>Watch out! Most (but not all!) of these verbs change a bit when used with du or er/sie/es</p>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">Der Roboter <input type="text" name="q1"> (sehen) eine wunderschöne Machine.</div>
+                <div class="correct-answer" id="answer-q1">sieht</div>
             </div>
             <div class="button-group">
-                <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
-                <button onclick="resetQuiz()">Neu Starten</button>
+                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
             </div>
-        </section>
+            <div class="feedback" id="feedback"></div>
+        </form>
     </div>
-    <div class="container">
-        <h2>B-3: Roboters Große Liebe</h2>
-            <p>Der Roboter ist endlich frei! Er muss nicht mehr machen, was Wolfgang ihm sagt. “Geh vorwärts! Geh rückwärts! Öffne das Buch, schließe das Buch und lies! Genug! Ich bin jetzt ein freier Roboter!”, denkt er, “Und jetzt will ich Pfefsi trinken!”</p>
-            <p>Er öffnet eine Tür und schaut hinein. Was sieht er da? Da steht eine wunderschöne Maschine! Der Roboter mag sie sofort. “Du bist sooo schön!”, denkt er. Dann hört er etwas.</p>
-            <p>Romantische Musik kommt aus der Maschine. Der Roboter sieht die Machine an und liest: “Hallo! Was willst du trinken?”</p>
-            <p>“O mein Gott”, denkt der Roboter, “Sie mag mich auch!” und zeigt auf Pfefsi. Der Roboter ist fast verliebt.</p>
-<p>Die Maschine spielt wieder romantische Musik. Der Roboter hört etwas fallen und sieht die Maschine wieder an. Er liest: “Nur für dich!”. Was ist das? Ein Pfefsi?! Die Maschine gibt   ihm Pfefsi und es ist nur für ihn?!</p>
-            <p>Er nimmt das Pfefsi. Ja, er ist hoffnungslos verliebt in die Maschine. Sie hat ihm Pfefsi gegeben und es war nur für ihn allein!</p>
-<p>Roboter öffnet das Pfefsi und trinkt. Endlich ist er glücklich. Diese Maschine ist die Liebe seines Lebens! Endlich hat er die Liebe seines Lebens gefunden!!!</p>
-<p>Doch dann kommt ein Student vorbei. Der Roboter dreht sich um. Was war das? Die Maschine sagt: “Hallo! Was willst du trinken?”.</p>
-<p>Der Roboter wird nervös.<p>
-<p>Der Student zeigt auf Cola. Die Maschine spielt Musik und… gibt ihm eine Cola.<p/>
-            <p>“N-E-E-E-I-N!!!”, schreit der Roboter, “Tu das nicht! Du bist die Liebe meines Lebens!”
-Aber auf der Maschine steht: “Nur für dich!”.</p>
-            <p>Der Roboter wirft das Pfefsi auf den Boden und läuft weinend weg. “Wie konnte sie nur? Und ich habe sie so geliebt!”</p>
-    </div>
-</div>
-        </section>
     <nav>
-      <a href="/German-Through-Stories/index.html">Main Page</a>
-      <a href="b3index">Story B3: Die Liebe seines Lebens</a>
-      <span style="display: inline; visibility: visible;">Previous Exercise</span>
-      <a href="B3A2.html">Next Exercise</a>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b3index.html">Story B3</a>
+        <a href="B3A0.html">Previous Exercise</a>
+        <a href="B3A2.html">Next Exercise</a>
     </nav>
-    </div>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
+<script>
+const correctAnswers = {
+    q1: "sieht"
+};
 
-    <script>
-    function showCorrectAnswers() {
-        // Show all correct answers
-        for (let i = 1; i <= 8; i++) {
-            document.getElementById('a' + i).style.display = 'block';
-        }
-    }
+function showAnswers() {
+    Object.keys(correctAnswers).forEach(question => {
+        const answerElement = document.getElementById(`answer-${question}`);
+        answerElement.style.display = "block";
+    });
+}
 
-    function resetQuiz() {
-        // Hide all correct answers
-        for (let i = 1; i <= 8; i++) {
-            document.getElementById('a' + i).style.display = 'none';
+function checkAnswers() {
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
+
+    Object.keys(correctAnswers).forEach(question => {
+        const inputElement = document.querySelector(`input[name="${question}"]`);
+        const answer = inputElement.value.trim().toLowerCase();
+
+        if (answer !== "") {
+            if (answer === correctAnswers[question]) {
+                score++;
+                inputElement.style.borderColor = "green";
+            } else {
+                inputElement.style.borderColor = "red";
+            }
+        } else {
+            inputElement.style.borderColor = "";
         }
-        
-        // Clear all input fields
-        document.querySelectorAll('.question input').forEach(input => {
-            input.value = '';
-        });
-    }
+    });
+
+    document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+}
+
+function resetQuiz() {
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+        input.value = "";
+        input.style.borderColor = "";
+    });
+    document.querySelectorAll('.correct-answer').forEach(answer => {
+        answer.style.display = "none";
+    });
+    document.getElementById("feedback").innerText = "";
+}
 </script>
 </body>
 </html>
