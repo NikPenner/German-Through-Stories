@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTS - Part 2: Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+        h1 {
+            color: black;
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        .question label {
+            font-weight: bold;
+        }
+        .question input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .correct-answer {
+            margin-top: 10px;
+            color: green;
+            font-style: italic;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-group button:hover {
+            background-color: #174573;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aufgaben zu B2: Kontrollzwang</h1>
+    </header>
+<nav>
+    <a href="/German-Through-Stories/index.html">Main Page</a>
+    <a href="b2index">Story B3: Die Liebe seines Lebens</a>
+    <span style="display: inline; visibility: visible;">Previous Exercise</span>
+    <a href="B3A2.html">Next Exercise</a>
+</nav>
+<div class="container-wrapper">
+    <div class="container">
+        <section>
+            <h2>Aufgabe 1. Fragen zum Text. Answer the questions using your own words. You can find all the points in the story.
+ </h2>
+            <div class="question">
+                <label for="q1">1. 1. Ist der Roboter glücklich? Warum?</label>
+                <input type="text" id="q1" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a1" style="display: none;">Richtige Antwort: Joggen, Boxen, Crossfit, Fußball, Baseball, Eishockey.</p>
+            </div>
+            <div class="question">
+                <label for="q2">2. Warum mag der Roboter die Maschine?
+</label>
+                <input type="text" id="q2" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a2" style="display: none;">Richtige Antwort: In einem Restaurant auf dem Campus.</p>
+            </div>
+            <div class="question">
+                <label for="q3">3. Warum denkt der Roboter, dass die Maschine ihn auch liebt?
+</label>
+                <input type="text" id="q3" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a3" style="display: none;">Richtige Antwort: Dreizehn-Neunzig.</p>
+            </div>
+            <div class="question">
+                <label for="q4">4. Warum ist der Roboter enttäuscht (disappointed)?
+</label>
+                <input type="text" id="q4" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a4" style="display: none;">Richtige Antwort: Speed-Dating.</p>
+            </div>
+            <div class="button-group">
+                <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
+                <button onclick="resetQuiz()">Neu Starten</button>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <h2>Geschichte B3: Die Liebe sienes Lebens</h2>
+        <p>Diese sportliche junge Frau heißt Maroona.Sie studiert Kinesiologie im dritten Semester und ist ein mega Fan von Maroons! Maroona joggt, boxt, macht Crossfit und spielt Fußball, Baseball und Eishockey.</p>
+        <p>Maroona arbeitet in einem Restaurant auf dem Campus. Das Restaurant heißt Dreizehn-Neunzig. Heute gibt es Speed-dating in Dreizehn-Neunzig. Maroona ist die Türsteherin: sie steht an der Tür und kontrolliert: wer kommt rein und wer nicht.</p>
+        <p>Hier kommen zwei Freunde, Siegfried und Wolfgang. Sie wollen reingehen, aber Maroona steht da und sagt: “Halt!”. “Warum nicht? Wir wollen auch beim Speed-Dating mitmachen!” antworten Siegfried und Wolfgang.</p>
+
+        <p>Maroona sagt: “Dann springt auf einem Fuß!” “Bist du dumm oder was?”, antworten Siegfried und Wolfgang. Sie denken, dass Maroona komisch ist, aber sie wollen rein und springen auf einem Fuß.</p>
+        <p>“Jetzt schwimmt auf dem Fußboden! Schwimmt zu Sternbocks und zurück!” sagt Maroona. Siegfried und Wolfgang sind verärgert, aber sie wollen bei Speed-Dating mitmachen und schwimmen auf dem Fußboden zu Sternbocks und zurück.</p>
+        <p>Andere Studenten sehen das und lachen. Sie fragen: “Was macht ihr da? Warum schwimmt ihr auf dem Fußboden?”</p>
+        <p>Als Siegfried und Wolfgang zurückkommen, sind sie wirklich verärgert.</p>
+        <p>“Und jetzt…”  sagt Maroona, aber Siegfried und Wolfgang nehmen sie und werfen sie in eine Mülltonne.<br>
+        “Ruckzuck!” (boom!) sagen sie und gehen rein.</p>
+    </div>
+</div>
+        </section>
+    <nav>
+      <a href="/German-Through-Stories/index.html">Main Page</a>
+      <a href="b2index">Story B2: Kontrollzwang</a>
+      <span style="display: inline; visibility: visible;">Previous Exercise</span>
+      <a href="B2A2.html">Next Exercise</a>
+    </nav>
+    </div>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function showCorrectAnswers() {
+        // Show all correct answers
+        for (let i = 1; i <= 8; i++) {
+            document.getElementById('a' + i).style.display = 'block';
+        }
+    }
+
+    function resetQuiz() {
+        // Hide all correct answers
+        for (let i = 1; i <= 8; i++) {
+            document.getElementById('a' + i).style.display = 'none';
+        }
+        
+        // Clear all input fields
+        document.querySelectorAll('.question input').forEach(input => {
+            input.value = '';
+        });
+    }
+</script>
+</body>
+</html>
