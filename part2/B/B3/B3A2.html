@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTS - Part 2: Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+        h1 {
+            color: black;
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        .question label {
+            font-weight: bold;
+        }
+        .question input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .correct-answer {
+            margin-top: 10px;
+            color: green;
+            font-style: italic;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-group button:hover {
+            background-color: #174573;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aufgaben zu B2: Kontrollzwang</h1>
+    </header>
+<nav>
+    <a href="/German-Through-Stories/index.html">Main Page</a>
+    <a href="b2index">Story B3: Die Liebe seines Lebens</a>
+    <span style="display: inline; visibility: visible;">Previous Exercise</span>
+    <a href="B3A2.html">Next Exercise</a>
+</nav>
+<div class="container-wrapper">
+    <div class="container">
+        <section>
+            <h2>Aufgabe 1. Fragen zum Text. Answer the questions using your own words. You can find all the points in the story.
+ </h2>
+            <div class="question">
+                <label for="q1">1.Ist der Roboter am Anfang (brginning) glücklich? Warum?</label>
+                <input type="text" id="q1" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a1" style="display: none;">Sample answer: Ja, weil er endlich frei ist und kann alles machen, was er will!</p>
+            </div>
+            <div class="question">
+                <label for="q2">2. Warum mag der Roboter die Maschine?
+</label>
+                <input type="text" id="q2" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a2" style="display: none;">Sample answer: Der Roboter mag die Maschine, weil sie schön ist und romantische Musik spielt.</p>
+            </div>
+            <div class="question">
+                <label for="q3">3. Warum denkt der Roboter, dass die Maschine ihn auch liebt?
+</label>
+                <input type="text" id="q3" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a3" style="display: none;">Sample answer: Weil die Maschine ihm ein Pfefsi gibt, das „nur für ihn“ ist.</p>
+            </div>
+            <div class="question">
+                <label for="q4">4. Warum ist der Roboter enttäuscht (disappointed)?
+</label>
+                <input type="text" id="q4" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a4" style="display: none;">Sample answer: Der Roboter ist traurig, weil der Student auch ein Getränk vond er Maschiee bekommt.</p>
+            </div>
+            <div class="button-group">
+                <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
+                <button onclick="resetQuiz()">Neu Starten</button>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <h2>B-3: Roboters Große Liebe</h2>
+            <p>Der Roboter ist endlich frei! Er muss nicht mehr machen, was Wolfgang ihm sagt. “Geh vorwärts! Geh rückwärts! Öffne das Buch, schließe das Buch und lies! Genug! Ich bin jetzt ein freier Roboter!”, denkt er, “Und jetzt will ich Pfefsi trinken!”</p>
+            <p>Er öffnet eine Tür und schaut hinein. Was sieht er da? Da steht eine wunderschöne Maschine! Der Roboter mag sie sofort. “Du bist sooo schön!”, denkt er. Dann hört er etwas.</p>
+            <p>Romantische Musik kommt aus der Maschine. Der Roboter sieht die Machine an und liest: “Hallo! Was willst du trinken?”</p>
+            <p>“O mein Gott”, denkt der Roboter, “Sie mag mich auch!” und zeigt auf Pfefsi. Der Roboter ist fast verliebt.</p>
+<p>Die Maschine spielt wieder romantische Musik. Der Roboter hört etwas fallen und sieht die Maschine wieder an. Er liest: “Nur für dich!”. Was ist das? Ein Pfefsi?! Die Maschine gibt   ihm Pfefsi und es ist nur für ihn?!</p>
+            <p>Er nimmt das Pfefsi. Ja, er ist hoffnungslos verliebt in die Maschine. Sie hat ihm Pfefsi gegeben und es war nur für ihn allein!</p>
+<p>Roboter öffnet das Pfefsi und trinkt. Endlich ist er glücklich. Diese Maschine ist die Liebe seines Lebens! Endlich hat er die Liebe seines Lebens gefunden!!!</p>
+<p>Doch dann kommt ein Student vorbei. Der Roboter dreht sich um. Was war das? Die Maschine sagt: “Hallo! Was willst du trinken?”.</p>
+<p>Der Roboter wird nervös.<p>
+<p>Der Student zeigt auf Cola. Die Maschine spielt Musik und… gibt ihm eine Cola.<p/>
+            <p>“N-E-E-E-I-N!!!”, schreit der Roboter, “Tu das nicht! Du bist die Liebe meines Lebens!”
+Aber auf der Maschine steht: “Nur für dich!”.</p>
+            <p>Der Roboter wirft das Pfefsi auf den Boden und läuft weinend weg. “Wie konnte sie nur? Und ich habe sie so geliebt!”</p>
+    </div>
+</div>
+        </section>
+    <nav>
+      <a href="/German-Through-Stories/index.html">Main Page</a>
+      <a href="b3index">Story B3: Die Liebe seines Lebens</a>
+      <span style="display: inline; visibility: visible;">Previous Exercise</span>
+      <a href="B3A2.html">Next Exercise</a>
+    </nav>
+    </div>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function showCorrectAnswers() {
+        // Show all correct answers
+        for (let i = 1; i <= 8; i++) {
+            document.getElementById('a' + i).style.display = 'block';
+        }
+    }
+
+    function resetQuiz() {
+        // Hide all correct answers
+        for (let i = 1; i <= 8; i++) {
+            document.getElementById('a' + i).style.display = 'none';
+        }
+        
+        // Clear all input fields
+        document.querySelectorAll('.question input').forEach(input => {
+            input.value = '';
+        });
+    }
+</script>
+</body>
+</html>
