@@ -112,47 +112,20 @@
     </script>
     <div class="container">
         <section class="book-part">
-            <h2>Aufgaben zu B2: Kontrollzwang</h2>
+            <h2>Aufgaben zu B3: Die Liebe seines Lebens</h2>
             <div class="content">
                 <div class="button-group">
                     <div style="display: flex; gap: 10px;">
-                        <a href="B2A1.html">Aufgabe 1. Fragen zum Text </a>
+                        <a href="B3A1.html">Aufgabe 1. Fragen zum Text </a>
                     </div>
                      <div style="display: flex; gap: 10px;">
-                        <a href="B2A2.html">Aufgabe 2. Dies und das / Bits and pieces </a>
+                        <a href="B3A2.html">Aufgabe 2.'Tricky' verbs </a>
                       </div>
                      <div style="display: flex; gap: 10px;">
-                         <a href="B2A3.html">Aufgabe 3. Fill in the Correct Article. </a>
+                         <a href="B3A3.html">Aufgabe 3. Rephrase in the du-form </a>
                     </div>
                     <div style="display: flex; gap: 10px;">
-                         <a href="B2A4.html">Aufgabe 4. Fred zeigt seinen Freunden sein Handy. </a>
-                    </div>
-                    <div style="display: flex; gap: 10px;">
-                         <a href="B2A5a.html">Aufgabe 5s. Who says what? </a>
-                    </div>
-                    <div style="display: flex; gap: 10px;">
-                         <a href="B2A5b.html">Aufgabe 5b.  Reconstruct the dialogue.</a>
-                    </div>
-                    <div style="display: flex; gap: 10px;">
-                         <a href="B2A6.html">Aufgabe 6. Talking to and about others (personal pronouns). </a>
-                    </div>
-                    <div style="display: flex; gap: 10px;">
-                         <a href="B2A7.html">Aufgabe 7. Personal pronouns for inanimate objects. </a>
-                    </div>
-                    <div style="display: flex; gap: 10px;">
-                         <a href="B2A8.html">Aufgabe 8. Giving commands to Wolfgang’s Roboter </a>
-                    </div>
-                     <div style="display: flex; gap: 10px;">
-                         <a href="B2A9.html">Aufgabe 9. Was ist logisch? What makes sense? </a>
-                    </div>
-                     <div style="display: flex; gap: 10px;">
-                         <a href="B2A10.html">Aufgabe 10. Persönliche Fragen.  </a>
-                    </div>
-                     <div style="display: flex; gap: 10px;">
-                         <a href="B2A11.html">Aufgabe 11. Perfekt with ‘easy’ verbs. </a>
-                    </div>
-                     <div style="display: flex; gap: 10px;">
-                         <a href="B2A12.html">Aufgabe 12. Perfekt: haben or sein? </a>
+                         <a href="B3A4.html">Aufgabe 4. Perfekt </a>
                     </div>
                 </div>
             </div>
