@@ -1,1 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B3: New Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            margin-left: 20px;
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 10ch;
+        }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .button-group button:hover {
+            background-color: #174573;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>B3: New Exercise</h1>
+    </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b3index.html">Story B3</a>
+            <a href="B3A2.html">Previous Exercise</a>
+            <a href="B3A4.html">Next Exercise</a>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Aufgabe 4. Complete these sentences using Perfekt forms of the verbs provided</h2>
+        <p>Beispiel: (bauen) Wolfgang <input type="text" name="q0_1"> den Roboter <input type="text" name="q0_2">.</p>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">(wegrennen) Der Roboter <input type="text" name="q1_1"> von Wolfgang <input type="text" name="q1_2">.</div>
+                <div class="correct-answer" id="answer-q1">ist weggelaufen</div>
+            </div>
+            <div class="question-container">
+                <div class="question">(herumlaufen) Er  <input type="text" name="q2_1"> ziellos (pointlessly) auf dem Campus <input type="text" name="q2_2">.</div>
+                <div class="correct-answer" id="answer-q2">ist herumgelaufen</div>
+            </div>
+            <div class="question-container">
+                <div class="question">(sehen) Dann <input type="text" name="q3_1"> er eine wunderschöne Maschine <input type="text" name="q3_2">.</div>
+                <div class="correct-answer" id="answer-q3">hat gesehen</div>
+            </div>
+            <div class="question-container">
+                <div class="question">(geben) Die Maschine <input type="text" name="q4_1"> ihm Pfefsi <input type="text" name="q4_2"> und er war glücklich.</div>
+                <div class="correct-answer" id="answer-q4">hat gegeben</div>
+            </div>
+            <div class="question-container">
+                <div class="question">(kommen geben) Dann <input type="text" name="q5_1"> ein Student <input type="text" name="q5_2"> und die Maschine <input type="text" name="q5_3"> ihm auch ein Pfefsi <input type="text" name="q5_4">.</div>
+                <div class="correct-answer" id="answer-q5">ist gekommen, hat gegeben</div>
+            </div>
+            <div class="question-container">
+                <div class="question">(weinen) Der Roboter war dann unglücklich und <input type="text" name="q6_1"> <input type="text" name="q6_2">.</div>
+                <div class="correct-answer" id="answer-q6">hat geweint</div>
+            </div>
+            <div class="button-group">
+                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
+    </div>
+    <nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b3index.html">Story B3</a>
+        <a href="B3A2.html">Previous Exercise</a>
+        <a href="B3A4.html">Next Exercise</a>
+    </nav>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+<script>
+const correctAnswers = {
+    q0_1: "hat",
+    q0_2: "gebaut",
+    q1_1: "ist",
+    q1_2: "weggelaufen",
+    q2_1: "ist",
+    q2_2: "herumgelaufen",
+    q3_1: "hat",
+    q3_2: "gesehen",
+    q4_1: "hat",
+    q4_2: "gegeben",
+    q5_1: "ist",
+    q5_2: "gekommen",
+    q5_3: "hat",
+    q5_4: "gegeben",
+    q6_1: "hat",
+    q6_2: "geweint"
+};
 
+function showAnswers() {
+    Object.keys(correctAnswers).forEach(question => {
+        const answerElement = document.getElementById(`answer-${question}`);
+        answerElement.style.display = "block";
+    });
+}
+
+function checkAnswers() {
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
+
+    Object.keys(correctAnswers).forEach(question => {
+        const inputElements = document.querySelectorAll(`input[name^="${question}"]`);
+        const answers = correctAnswers[question].toLowerCase().split(", ");
+        inputElements.forEach((inputElement, index) => {
+            const answer = inputElement.value.trim().toLowerCase();
+            if (answer !== "") {
+                if (answer === answers[index]) {
+                    score++;
+                    inputElement.style.borderColor = "green";
+                } else {
+                    inputElement.style.borderColor = "red";
+                }
+            } else {
+                inputElement.style.borderColor = "";
+            }
+        });
+    });
+
+    document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+}
+
+function resetQuiz() {
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+        input.value = "";
+        input.style.borderColor = "";
+    });
+    document.querySelectorAll('.correct-answer').forEach(answer => {
+        answer.style.display = "none";
+    });
+    document.getElementById("feedback").innerText = "";
+}
+</script>
+</body>
+</html>
