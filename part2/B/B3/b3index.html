@@ -96,6 +96,41 @@
             font-size: 0.9em;
             color: #666;
         }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -80px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -113,23 +148,23 @@
     <div class="container">
         <section class="book-part">
             <h2>B-3: Roboters Große Liebe</h2>
-            <p>Der Roboter ist endlich frei! Er muss nicht mehr machen, was Wolfgang ihm sagt. “Geh vorwärts! Geh rückwärts! Öffne das Buch, schließe das Buch und lies! Genug! Ich bin jetzt ein freier Roboter!”, denkt er, “Und jetzt will ich Pfefsi trinken!”</p>
+            <p>Der Roboter ist endlich frei! Er muss nicht mehr machen, was Wolfgang ihm sagt. “Geh vorwärts! Geh rückwärts! Öffne das Buch, schließe das Buch und lies! Genug! Ich bin jetzt ein[...]
             <img src="B3_1_resized.png" alt="Description of the image">
-            <p>Er öffnet eine Tür und schaut hinein. Was sieht er da? Da steht eine wunderschöne Maschine! Der Roboter mag sie sofort. “Du bist sooo schön!”, denkt er. Dann hört er etwas.</p>
+            <p>Er öffnet eine Tür und <span class="tooltip">schaut hinein<span class="tooltiptext">looks inside</span></span>. Was sieht er da? Da steht eine <span class="tooltip">wunderschön<span class="tooltiptext">beautiful</span></span> Maschine! Der Roboter mag sie <span class="tooltip">sofort<span class="tooltiptext">immediately</span></span>. “Du bist sooo <span class="tooltip">schön<span class="tooltiptext">beautiful</span></span>!”, denkt er. Dann hört er <span class="tooltip">etwas<span class="tooltiptext">something</span></span>.</p>
             <p>Romantische Musik kommt aus der Maschine. Der Roboter sieht die Machine an und liest: “Hallo! Was willst du trinken?”<br><br></p>
             <img src="B3_2_resized.png" alt="Description of the image">
-            <p>“O mein Gott”, denkt der Roboter, “Sie mag mich auch!” und zeigt auf Pfefsi. Der Roboter ist fast verliebt.</p>
-<p>Die Maschine spielt wieder romantische Musik. Der Roboter hört etwas fallen und sieht die Maschine wieder an. Er liest: “Nur für dich!”. Was ist das? Ein Pfefsi?! Die Maschine gibt   ihm Pfefsi und es ist nur für ihn?!<br><br></p>
+            <p>“O mein Gott”, denkt der Roboter, “Sie mag mich auch!” und zeigt auf Pfefsi. Der Roboter ist <span class="tooltip">fast verliebt<span class="tooltiptext">almost in love</span></span>.</p>
+<p>Die Maschine <span class="tooltip">spielt<span class="tooltiptext">plays</span></span> wieder romantische Musik. Der Roboter hört etwas fallen und sieht die Maschine wieder an. Er liest: “Nur für dich!”. Was ist das? Ein Pfefsi?! Die Maschine gibt ihm Pf[...]
  <img src="B3_3_resized.png" alt="Description of the image">
-            <p>Er nimmt das Pfefsi. Ja, er ist hoffnungslos verliebt in die Maschine. Sie hat ihm Pfefsi gegeben und es war nur für ihn allein!</p>
-<p>Roboter öffnet das Pfefsi und trinkt. Endlich ist er glücklich. Diese Maschine ist die Liebe seines Lebens! Endlich hat er die Liebe seines Lebens gefunden!!!</p>
-<p>Doch dann kommt ein Student vorbei. Der Roboter dreht sich um. Was war das? Die Maschine sagt: “Hallo! Was willst du trinken?”.</p>
+            <p>Er nimmt das Pfefsi. Ja, er ist hoffnungslos verliebt in die Maschine. Sie <span class="tooltip">hat gegeben<span class="tooltiptext">has given</span></span> ihm Pfefsi und <span class="tooltip">es war<span class="tooltiptext">it was</span></span> nur für ihn allein!</p>
+<p>Roboter öffnet das Pfefsi und trinkt. Endlich ist er glücklich. Diese Maschine ist die Liebe seines Lebens! Endlich <span class="tooltip">hat gefunden<span class="tooltiptext">has found</span></span>!!!</p>
+<p><span class="tooltip">Doch<span class="tooltiptext">however</span></span> dann kommt ein Student vorbei. Der Roboter dreht sich um. Was war das? Die Maschine sagt: “Hallo! Was willst du trinken?”.</p>
 <p>Der Roboter wird nervös.<p>
 <p>Der Student zeigt auf Cola. Die Maschine spielt Musik und… gibt ihm eine Cola.<p/>
  <img src="B3_4_resized.png" alt="Description of the image">
             <p>“N-E-E-E-I-N!!!”, schreit der Roboter, “Tu das nicht! Du bist die Liebe meines Lebens!”
 Aber auf der Maschine steht: “Nur für dich!”.</p>
-            <p>Der Roboter wirft das Pfefsi auf den Boden und läuft weinend weg. “Wie konnte sie nur? Und ich habe sie so geliebt!”</p>
+            <p>Der Roboter wirft das Pfefsi auf den Boden und läuft <span class="tooltip">weinend<span class="tooltiptext">crying</span></span> weg. “Wie konnte sie nur? Und ich habe sie so geliebt!”</p>
         </section>
         <section class="book-part">
             <div style="display: flex; gap: 10px;">
