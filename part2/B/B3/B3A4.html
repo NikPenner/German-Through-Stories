@@ -121,27 +121,35 @@
         <form id="quiz-form">
             <div class="question-container">
                 <div class="question">(wegrennen) Der Roboter <input type="text" name="q1_1"> von Wolfgang <input type="text" name="q1_2">.</div>
-                <div class="correct-answer" id="answer-q1">ist weggelaufen</div>
+                <div class="correct-answer" id="answer-q1_1">ist</div>
+                <div class="correct-answer" id="answer-q1_2">weggelaufen</div>
             </div>
             <div class="question-container">
-                <div class="question">(herumlaufen) Er  <input type="text" name="q2_1"> ziellos (pointlessly) auf dem Campus <input type="text" name="q2_2">.</div>
-                <div class="correct-answer" id="answer-q2">ist herumgelaufen</div>
+                <div class="question">(herumlaufen) Er <input type="text" name="q2_1"> ziellos (pointlessly) auf dem Campus <input type="text" name="q2_2">.</div>
+                <div class="correct-answer" id="answer-q2_1">ist</div>
+                <div class="correct-answer" id="answer-q2_2">herumgelaufen</div>
             </div>
             <div class="question-container">
                 <div class="question">(sehen) Dann <input type="text" name="q3_1"> er eine wunderschöne Maschine <input type="text" name="q3_2">.</div>
-                <div class="correct-answer" id="answer-q3">hat gesehen</div>
+                <div class="correct-answer" id="answer-q3_1">hat</div>
+                <div class="correct-answer" id="answer-q3_2">gesehen</div>
             </div>
             <div class="question-container">
                 <div class="question">(geben) Die Maschine <input type="text" name="q4_1"> ihm Pfefsi <input type="text" name="q4_2"> und er war glücklich.</div>
-                <div class="correct-answer" id="answer-q4">hat gegeben</div>
+                <div class="correct-answer" id="answer-q4_1">hat</div>
+                <div class="correct-answer" id="answer-q4_2">gegeben</div>
             </div>
             <div class="question-container">
                 <div class="question">(kommen geben) Dann <input type="text" name="q5_1"> ein Student <input type="text" name="q5_2"> und die Maschine <input type="text" name="q5_3"> ihm auch ein Pfefsi <input type="text" name="q5_4">.</div>
-                <div class="correct-answer" id="answer-q5">ist gekommen, hat gegeben</div>
+                <div class="correct-answer" id="answer-q5_1">ist</div>
+                <div class="correct-answer" id="answer-q5_2">gekommen</div>
+                <div class="correct-answer" id="answer-q5_3">hat</div>
+                <div class="correct-answer" id="answer-q5_4">gegeben</div>
             </div>
             <div class="question-container">
                 <div class="question">(weinen) Der Roboter war dann unglücklich und <input type="text" name="q6_1"> <input type="text" name="q6_2">.</div>
-                <div class="correct-answer" id="answer-q6">hat geweint</div>
+                <div class="correct-answer" id="answer-q6_1">hat</div>
+                <div class="correct-answer" id="answer-q6_2">geweint</div>
             </div>
             <div class="button-group">
                 <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
@@ -182,8 +190,10 @@ const correctAnswers = {
 
 function showAnswers() {
     Object.keys(correctAnswers).forEach(question => {
-        const answerElement = document.getElementById(`answer-${question}`);
-        answerElement.style.display = "block";
+        const answerElements = document.querySelectorAll(`.correct-answer[id^="answer-${question}"]`);
+        answerElements.forEach(answerElement => {
+            answerElement.style.display = "block";
+        });
     });
 }
 
