@@ -271,9 +271,15 @@ function drop(event) {
 }
 
 function showAnswers() {
-    Object.keys(correctAnswers).forEach(question => {
-        const answerElement = document.getElementById(`answer-${question}`);
-        answerElement.style.display = "block";
+    Object.keys(correctAnswers).forEach(id => {
+        const correctWord = document.getElementById(id);
+        const dropzone = document.getElementById(correctAnswers[id]);
+
+        if (dropzone.firstChild) {
+            dropzone.removeChild(dropzone.firstChild);
+        }
+
+        dropzone.appendChild(correctWord.cloneNode(true));
     });
 }
 
