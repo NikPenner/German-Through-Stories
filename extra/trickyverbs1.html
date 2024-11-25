@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -137,6 +136,50 @@
             visibility: visible;
             opacity: 1;
         }
+        .draggable {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border: 1px solid #333;
+            background-color: #b0c4de;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .draggable:hover {
+            background-color: #2a6592;
+        }
+        .dropzone {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            margin: 0 5px;
+            border-bottom: 2px solid #2a6592;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1rem;
+            background-color: #e6f2ff;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #a8e6cf !important;
+            color: #333;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #ff8b94 !important;
+            color: #333;
+            font-weight: bold;
+        }
+        .origin {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .sentence {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -152,47 +195,39 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 7. Personal pronouns for inanimate objects</h2>
-        <form id="quiz-form">
-            <div class="question-container">
-                <div class="question">Welche Farbe haben Recyclingmülltonnen (plur.)? <input type="text" name="q1"> sind blau.</div>
-                <div class="correct-answer" id="answer-q1">sie</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist die McMaster Uni klein? Jein, <input type="text" name="q2"> ist nicht sehr groß und nicht sehr klein.</div>
-                <div class="correct-answer" id="answer-q2">sie</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist der Willi-Hund-Stand teuer? Nein, <input type="text" name="q3"> ist nicht teuer!</div>
-                <div class="correct-answer" id="answer-q3">er</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Was kostet Freds Handy (neut.)? <input type="text" name="q4"> kostet viel Geld!</div>
-                <div class="correct-answer" id="answer-q4">es</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Sind Freds Schuhe (plur.) weiß? Nein, <input type="text" name="q5"> sind nicht mehr weiß.</div>
-                <div class="correct-answer" id="answer-q5">sie</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist der Stift rot? Nein, <input type="text" name="q6"> ist blau.</div>
-                <div class="correct-answer" id="answer-q6">er</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist Wolfgangs Roboter klug (smart)? Ja, <input type="text" name="q7"> ist sehr klug!</div>
-                <div class="correct-answer" id="answer-q7">er</div>
-            </div>
-            <div class="question-container">
-                <div class="question">Ist McDonald’s ein gutes Restaurant (neut.)? Klar, <input type="text" name="q8"> ist ein sehr gutes Restaurant!</div>
-                <div class="correct-answer" id="answer-q8">es</div>
-            </div>
-            <div class="button-group">
-                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
-                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
-                <button type="button" onclick="resetQuiz()">Neu starten</button>
-            </div>
-            <div class="feedback" id="feedback"></div>
-        </form>
+        <h2>Verb Conjugation Matching Exercise</h2>
+        <p>Ziehen Sie die Formen der Verben (du / er/sie/es) auf das passende Infinitiv.</p>
+
+        <div class="origin" id="origin">
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="tritt">tritt</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="wirfst">wirfst</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="nimmt">nimmt</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="gibst">gibst</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="siehst">siehst</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="liest">liest</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="wäscht">wäscht</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="fällst">fällst</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="fährt">fährt</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="läufst">läufst</div>
+        </div>
+
+        <div class="sentence">treten <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="treten"></span></div>
+        <div class="sentence">werfen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="werfen"></span></div>
+        <div class="sentence">nehmen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="nehmen"></span></div>
+        <div class="sentence">geben <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="geben"></span></div>
+        <div class="sentence">sehen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="sehen"></span></div>
+        <div class="sentence">lesen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="lesen"></span></div>
+        <div class="sentence">waschen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="waschen"></span></div>
+        <div class="sentence">fallen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="fallen"></span></div>
+        <div class="sentence">fahren <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="fahren"></span></div>
+        <div class="sentence">laufen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="laufen"></span></div>
+
+        <div class="button-group">
+            <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+            <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
+            <button type="button" onclick="resetQuiz()">Neu starten</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
     </div>
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
@@ -205,15 +240,35 @@
     </footer>
 <script>
 const correctAnswers = {
-    q1: "sie",
-    q2: "sie",
-    q3: "er",
-    q4: "es",
-    q5: "sie",
-    q6: "er",
-    q7: "er",
-    q8: "es"
+    tritt: "treten",
+    wirfst: "werfen",
+    nimmt: "nehmen",
+    gibst: "geben",
+    siehst: "sehen",
+    liest: "lesen",
+    wäscht: "waschen",
+    fällst: "fallen",
+    fährt: "fahren",
+    läufst: "laufen"
 };
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+}
+
+function drop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    const draggedElement = document.getElementById(data);
+
+    if (event.target.classList.contains("dropzone") && event.target.children.length === 0) {
+        event.target.appendChild(draggedElement);
+    }
+}
 
 function showAnswers() {
     Object.keys(correctAnswers).forEach(question => {
@@ -226,34 +281,30 @@ function checkAnswers() {
     let score = 0;
     const totalQuestions = Object.keys(correctAnswers).length;
 
-    Object.keys(correctAnswers).forEach(question => {
-        const inputElement = document.querySelector(`input[name="${question}"]`);
-        const answer = inputElement.value.trim().toLowerCase();
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        const droppedWord = zone.firstChild ? zone.firstChild.id : "";
 
-        if (answer !== "") {
-            if (answer === correctAnswers[question]) {
-                score++;
-                inputElement.style.borderColor = "green";
-            } else {
-                inputElement.style.borderColor = "red";
-            }
+        if (correctAnswers[droppedWord] === zone.id) {
+            score++;
+            zone.classList.add('correct');
+            zone.classList.remove('incorrect');
         } else {
-            inputElement.style.borderColor = "";
+            zone.classList.add('incorrect');
+            zone.classList.remove('correct');
         }
     });
 
-    document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+    document.getElementById('feedback').innerText = `Sie haben ${score} von ${totalQuestions} richtig.`;
 }
 
 function resetQuiz() {
-    document.querySelectorAll('input[type="text"]').forEach(input => {
-        input.value = "";
-        input.style.borderColor = "";
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        if (zone.firstChild) {
+            document.getElementById('origin').appendChild(zone.firstChild);
+        }
+        zone.classList.remove('correct', 'incorrect');
     });
-    document.querySelectorAll('.correct-answer').forEach(answer => {
-        answer.style.display = "none";
-    });
-    document.getElementById("feedback").innerText = "";
+    document.getElementById('feedback').innerText = "";
 }
 </script>
 </body>
