@@ -1,1 +1,327 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Practice: Tricky Verbs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .question-container {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            margin-left: 20px;
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 5%;
+        }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .button-group button:hover {
+            background-color: #174573;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
+            text-align: center;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .draggable {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border: 1px solid #333;
+            background-color: #b0c4de;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .draggable:hover {
+            background-color: #2a6592;
+        }
+        .dropzone {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            margin: 0 5px;
+            border-bottom: 2px solid #2a6592;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1rem;
+            background-color: #e6f2ff;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #a8e6cf !important;
+            color: #333;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #ff8b94 !important;
+            color: #333;
+            font-weight: bold;
+        }
+        .origin {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .sentence {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Extra Practice: Tricky Verbs</h1>
+    </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="b2index.html">Story B2: Kontrollzwang</a>
+            <a href="B2A6.html">Previous Exercise</a>
+            <a href="B2A8.html">Next Exercise</a>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Verb Conjugation Matching Exercise</h2>
+        <p>Ziehen Sie die Formen der Verben (du / er/sie/es) auf das passende Infinitiv.</p>
 
+        <div class="origin" id="origin">
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="tritt">tritt</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="wirfst">wirfst</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="nimmt">nimmt</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="gibst">gibst</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="siehst">siehst</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="liest">liest</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="wäscht">wäscht</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="fällst">fällst</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="fährt">fährt</div>
+            <div class="draggable" draggable="true" ondragstart="drag(event)" id="läufst">läufst</div>
+        </div>
+
+        <div class="sentence">treten <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="treten"></span></div>
+        <div class="sentence">werfen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="werfen"></span></div>
+        <div class="sentence">nehmen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="nehmen"></span></div>
+        <div class="sentence">geben <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="geben"></span></div>
+        <div class="sentence">sehen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="sehen"></span></div>
+        <div class="sentence">lesen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="lesen"></span></div>
+        <div class="sentence">waschen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="waschen"></span></div>
+        <div class="sentence">fallen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="fallen"></span></div>
+        <div class="sentence">fahren <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="fahren"></span></div>
+        <div class="sentence">laufen <span class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" id="laufen"></span></div>
+
+        <div class="button-group">
+            <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+            <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
+            <button type="button" onclick="resetQuiz()">Neu starten</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+    <nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="b2index.html">Story B2: Kontrollzwang</a>
+        <a href="B2A6.html">Previous Exercise</a>
+        <a href="B2A8.html">Next Exercise</a>
+    </nav>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+<script>
+const correctAnswers = {
+    tritt: "treten",
+    wirfst: "werfen",
+    nimmt: "nehmen",
+    gibst: "geben",
+    siehst: "sehen",
+    liest: "lesen",
+    wäscht: "waschen",
+    fällst: "fallen",
+    fährt: "fahren",
+    läufst: "laufen"
+};
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+}
+
+function drop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    const draggedElement = document.getElementById(data);
+
+    if (event.target.classList.contains("dropzone") && event.target.children.length === 0) {
+        event.target.appendChild(draggedElement);
+    }
+}
+
+function showAnswers() {
+    Object.keys(correctAnswers).forEach(id => {
+        const correctWord = document.getElementById(id);
+        const dropzone = document.getElementById(correctAnswers[id]);
+
+        // Move the original element to the dropzone
+        if (correctWord.parentElement.id !== 'origin') {
+            correctWord.parentElement.appendChild(correctWord);
+        }
+        dropzone.appendChild(correctWord);
+    });
+}
+
+function resetQuiz() {
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        if (zone.firstChild) {
+            document.getElementById('origin').appendChild(zone.firstChild);
+        }
+        zone.classList.remove('correct', 'incorrect');
+    });
+    document.getElementById('feedback').innerText = "";
+}
+
+function checkAnswers() {
+    let score = 0;
+    const totalQuestions = Object.keys(correctAnswers).length;
+
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        const droppedWord = zone.firstChild ? zone.firstChild.id : "";
+
+        if (correctAnswers[droppedWord] === zone.id) {
+            score++;
+            zone.classList.add('correct');
+            zone.classList.remove('incorrect');
+        } else {
+            zone.classList.add('incorrect');
+            zone.classList.remove('correct');
+        }
+    });
+
+    document.getElementById('feedback').innerText = `Sie haben ${score} von ${totalQuestions} richtig.`;
+}
+
+function resetQuiz() {
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        if (zone.firstChild) {
+            document.getElementById('origin').appendChild(zone.firstChild);
+        }
+        zone.classList.remove('correct', 'incorrect');
+    });
+    document.getElementById('feedback').innerText = "";
+}
+</script>
+</body>
+</html>
