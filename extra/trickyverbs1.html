@@ -275,12 +275,22 @@ function showAnswers() {
         const correctWord = document.getElementById(id);
         const dropzone = document.getElementById(correctAnswers[id]);
 
-        if (dropzone.firstChild) {
-            dropzone.removeChild(dropzone.firstChild);
+        // Move the original element to the dropzone
+        if (correctWord.parentElement.id !== 'origin') {
+            correctWord.parentElement.appendChild(correctWord);
         }
-
-        dropzone.appendChild(correctWord.cloneNode(true));
+        dropzone.appendChild(correctWord);
     });
+}
+
+function resetQuiz() {
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        if (zone.firstChild) {
+            document.getElementById('origin').appendChild(zone.firstChild);
+        }
+        zone.classList.remove('correct', 'incorrect');
+    });
+    document.getElementById('feedback').innerText = "";
 }
 
 function checkAnswers() {
