@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bonusaufgaben zu Kapitel B: Aufgabe 1</title>
+    <title>Opposite Word Matching Exercise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f8ff;
             color: #333;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            flex-direction: column;
             padding: 20px;
         }
         header {
@@ -59,15 +59,13 @@
         .origin {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
         }
         .dropzone {
             display: inline-block;
             width: 150px;
-            height: 30px;
-            margin: 10px 5px;
-            border: 2px solid #2a6592;
+            height: 25px;
+            margin: 0 5px;
+            border-bottom: 2px solid #2a6592;
             text-align: center;
             vertical-align: middle;
             font-size: 1rem;
@@ -117,6 +115,10 @@
         button:hover {
             background-color: #174573;
         }
+        .sentence {
+            margin-bottom: 20px; 
+            line-height: 1.5; 
+        }
     </style>
 </head>
 <body>
@@ -132,22 +134,30 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Verb Matching Exercise</h2>
-        <p>Which words mean approximately the same thing?</p>
+        <h2>Bonusaufgabe2: Gegenteile zuordnen (Opposite Word Matching Exercise)</h2>
+        <p>Ziehen Sie die Wörter aus der Liste links auf das Wort mit der entgegengesetzten Bedeutung rechts.</p>
         <div class="origin" id="origin">
-            <div class="draggable" draggable="true" id="laufen" ondragstart="drag(event)">laufen</div>
-            <div class="draggable" draggable="true" id="schauen" ondragstart="drag(event)">schauen</div>
-            <div class="draggable" draggable="true" id="aufpassen" ondragstart="drag(event)">aufpassen</div>
-            <div class="draggable" draggable="true" id="tun" ondragstart="drag(event)">tun</div>
+            <div class="draggable" draggable="true" id="sprechen" ondragstart="drag(event)">sprechen</div>
+            <div class="draggable" draggable="true" id="schreiben" ondragstart="drag(event)">schreiben</div>
             <div class="draggable" draggable="true" id="aufmachen" ondragstart="drag(event)">aufmachen</div>
-            <div class="draggable" draggable="true" id="zumachen" ondragstart="drag(event)">zumachen</div>
+            <div class="draggable" draggable="true" id="öffnen" ondragstart="drag(event)">öffnen</div>
+            <div class="draggable" draggable="true" id="einschalten" ondragstart="drag(event)">einschalten</div>
+            <div class="draggable" draggable="true" id="kaufen" ondragstart="drag(event)">kaufen</div>
+            <div class="draggable" draggable="true" id="gehen" ondragstart="drag(event)">gehen</div>
+            <div class="draggable" draggable="true" id="reparieren" ondragstart="drag(event)">reparieren</div>
+            <div class="draggable" draggable="true" id="nehmen" ondragstart="drag(event)">nehmen</div>
+            <div class="draggable" draggable="true" id="fragen" ondragstart="drag(event)">fragen</div>
         </div>
-        <div class="sentence">rennen <span class="dropzone" id="rennen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">sehen <span class="dropzone" id="sehen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">zuhören <span class="dropzone" id="zuhören" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">machen <span class="dropzone" id="machen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">öffnen <span class="dropzone" id="öffnen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">schließen <span class="dropzone" id="schließen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
+        <div class="sentence">hören <span class="dropzone" ondragover="allowDrop(event)" id="hören" ondrop="drop(event)"></span></div>
+        <div class="sentence">lesen <span class="dropzone" ondragover="allowDrop(event)" id="lesen" ondrop="drop(event)"></span></div>
+        <div class="sentence">zumachen <span class="dropzone" ondragover="allowDrop(event)" id="zumachen" ondrop="drop(event)"></span></div>
+        <div class="sentence">schließen <span class="dropzone" ondragover="allowDrop(event)" id="schließen" ondrop="drop(event)"></span></div>
+        <div class="sentence">ausschalten <span class="dropzone" ondragover="allowDrop(event)" id="ausschalten" ondrop="drop(event)"></span></div>
+        <div class="sentence">verkaufen <span class="dropzone" ondragover="allowDrop(event)" id="verkaufen" ondrop="drop(event)"></span></div>
+        <div class="sentence">kommen <span class="dropzone" ondragover="allowDrop(event)" id="kommen" ondrop="drop(event)"></span></div>
+        <div class="sentence">kaputtmachen <span class="dropzone" ondragover="allowDrop(event)" id="kaputtmachen" ondrop="drop(event)"></span></div>
+        <div class="sentence">geben <span class="dropzone" ondragover="allowDrop(event)" id="geben" ondrop="drop(event)"></span></div>
+        <div class="sentence">antworten <span class="dropzone" ondragover="allowDrop(event)" id="antworten" ondrop="drop(event)"></span></div>
         <div class="button-group">
             <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
             <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
@@ -160,79 +170,84 @@
             <a href="../../../index.html">Main Page</a>
             <a href="bbonusaufgabe1.html">Previous Exercise</a>
             <a href="bbonusaufgabe3.html">Next Exercise</a>
-        </nav>
+    </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
 <script>
-const correctAnswers = {
-    laufen: "rennen",
-    schauen: "sehen",
-    aufpassen: "zuhören",
-    tun: "machen",
-    aufmachen: "öffnen",
-    zumachen: "schließen"
-};
-
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
-}
-
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text");
-    const draggedElement = document.getElementById(data);
-
-    // Only allow one item per dropzone
-    if (event.target.classList.contains("dropzone") && !event.target.firstChild) {
-        event.target.appendChild(draggedElement);
-    } else if (event.target.classList.contains("origin")) {
-        event.target.appendChild(draggedElement); // Move back to the origin list
+    function allowDrop(event) {
+        event.preventDefault();
     }
-}
-
-function showAnswers() {
-    Object.keys(correctAnswers).forEach(question => {
-        const dropzone = document.getElementById(correctAnswers[question]);
-        const draggable = document.getElementById(question);
-        if (dropzone && draggable) {
-            dropzone.appendChild(draggable);
+    function drag(event) {
+        event.dataTransfer.setData("text", event.target.id);
+    }
+    function drop(event) {
+        event.preventDefault();
+        const data = event.dataTransfer.getData("text");
+        const draggedElement = document.getElementById(data);
+        if (event.target.classList.contains("dropzone") && event.target.children.length === 0) {
+            event.target.appendChild(draggedElement);
+        } else if (event.target.classList.contains("origin")) {
+            event.target.appendChild(draggedElement);
         }
-    });
-}
-
-function checkAnswers() {
-    let score = 0;
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        const answer = zone.id;
-        const userAnswer = zone.firstChild ? zone.firstChild.id : "";
-        if (correctAnswers[userAnswer] === answer) {
-            score++;
-            zone.classList.add('correct');
-            zone.classList.remove('incorrect');
-        } else {
-            zone.classList.add('incorrect');
-            zone.classList.remove('correct');
-        }
-    });
-
-    document.getElementById('feedback').innerText = `${score} von ${Object.keys(correctAnswers).length} ist/sind richtig.`;
-}
-
-function resetExercise() {
-    // Move all items back to the origin area and clear feedback
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        if (zone.firstChild) {
-            document.getElementById('origin').appendChild(zone.firstChild);
-        }
-        zone.classList.remove('correct', 'incorrect');
-    });
-    document.getElementById('feedback').innerText = "";
-}
+    }
+    function showAnswers() {
+        const correctPairs = {
+            "sprechen": "hören",
+            "schreiben": "lesen",
+            "aufmachen": "zumachen",
+            "öffnen": "schließen",
+            "einschalten": "ausschalten",
+            "kaufen": "verkaufen",
+            "gehen": "kommen",
+            "reparieren": "kaputtmachen",
+            "nehmen": "geben",
+            "fragen": "antworten"
+        };
+        Object.keys(correctPairs).forEach(key => {
+            const dropzone = document.getElementById(correctPairs[key]);
+            const draggable = document.getElementById(key);
+            if (dropzone && draggable) {
+                dropzone.appendChild(draggable);
+            }
+        });
+    }
+    function checkAnswers() {
+        const correctPairs = {
+            "sprechen": "hören",
+            "schreiben": "lesen",
+            "aufmachen": "zumachen",
+            "öffnen": "schließen",
+            "einschalten": "ausschalten",
+            "kaufen": "verkaufen",
+            "gehen": "kommen",
+            "reparieren": "kaputtmachen",
+            "nehmen": "geben",
+            "fragen": "antworten"
+        };
+        let score = 0;
+        document.querySelectorAll('.dropzone').forEach(zone => {
+            const droppedWord = zone.firstChild ? zone.firstChild.id : "";
+            if (correctPairs[droppedWord] === zone.id) {
+                score++;
+                zone.classList.add('correct');
+                zone.classList.remove('incorrect');
+            } else {
+                zone.classList.add('incorrect');
+                zone.classList.remove('correct');
+            }
+        });
+        document.getElementById('feedback').innerText = `Sie haben ${score} von ${Object.keys(correctPairs).length} richtig.`;
+    }
+    function resetExercise() {
+        document.querySelectorAll('.dropzone').forEach(zone => {
+            if (zone.firstChild) {
+                document.getElementById('origin').appendChild(zone.firstChild);
+            }
+            zone.classList.remove('correct', 'incorrect');
+        });
+        document.getElementById('feedback').innerText = "";
+    }
 </script>
 </body>
 </html>
