@@ -130,7 +130,6 @@
         <h3>Drag & drop the correct forms to complete these sentences in Perfekt.:</h3>
         <div id="origin">
             <div class="draggable" draggable="true" id="gelesen">gelesen</div>
-            <div class="draggable" draggable="true" id="herumgerannt">herumgerannt</div>
             <div class="draggable" draggable="true" id="herumgelaufen">herumgelaufen</div>
             <div class="draggable" draggable="true" id="zugehört">zugehört</div>
             <div class="draggable" draggable="true" id="gelaufen">gelaufen</div>
@@ -144,10 +143,10 @@
             <div class="draggable" draggable="true" id="geantwortet">geantwortet</div>
         </div>
         <div class="sentence">1. Julia war brav und hat ein Buch <span class="dropzone" id="drop1" data-answer="gelesen"></span>.</div>
-        <div class="sentence">2. Milo ist wie wild <span class="dropzone" id="drop2" data-answer="herumgelaufen herumgerannt"></span> und hat nicht <span class="dropzone" id="drop3" data-answer="zugehört"></span>.</div>
+        <div class="sentence">2. Milo ist wie wild <span class="dropzone" id="drop2" data-answer="herumgelaufen"></span> und hat nicht <span class="dropzone" id="drop3" data-answer="zugehört"></span>.</div>
         <div class="sentence">3. Milo ist zum Tisch <span class="dropzone" id="drop4" data-answer="gelaufen gerannt"></span> und hat die Schere <span class="dropzone" id="drop5" data-answer="genommen"></span>.</div>
         <div class="sentence">4. Frau L. hat <span class="dropzone" id="drop6" data-answer="gesagt"></span>, dass es gefährlich ist, mit einer Schere herumzulaufen.</div>
-        <div class="sentence">5. Milo ist mit der Schere <span class="dropzone" id="drop7" data-answer="herumgelaufen herumgerannt"></span>.</div>
+        <div class="sentence">5. Milo ist mit der Schere <span class="dropzone" id="drop7" data-answer="herumgelaufen"></span>.</div>
         <div class="sentence">6. Milo hat <span class="dropzone" id="drop8" data-answer="gefragt"></span>, warum er nicht rennen soll, und Frau L. hat <span class="dropzone" id="drop9" data-answer="geantwortet"></span>, dass es gefährlich ist.</div>
         <div class="sentence">7. Am Ende ist Milo aus dem Fenster <span class="dropzone" id="drop10" data-answer="gesprungen"></span>. Frau L. hat das Fenster <span class="dropzone" id="drop11" data-answer="zugemacht"></span>, und dann hat Frau L. endlich ihre Ruhe <span class="dropzone" id="drop12" data-answer="gehabt"></span>.</div>
         <div class="button-group">
@@ -199,7 +198,6 @@
         function showAnswers() {
             const correctPairs = {
                 "gelesen": "drop1",
-                "herumgerannt": "drop2",
                 "herumgelaufen": "drop2",
                 "zugehört": "drop3",
                 "gelaufen": "drop4",
@@ -207,7 +205,6 @@
                 "genommen": "drop5",
                 "gesagt": "drop6",
                 "herumgelaufen": "drop7",
-                "herumgerannt": "drop7",
                 "gefragt": "drop8",
                 "geantwortet": "drop9",
                 "gesprungen": "drop10",
@@ -218,7 +215,7 @@
                 const dropzone = document.getElementById(correctPairs[key]);
                 const draggable = document.getElementById(key);
                 if (dropzone && draggable) {
-                    dropzone.appendChild(draggable);
+                    dropzone.appendChild(draggable.cloneNode(true));
                 }
             });
         }
