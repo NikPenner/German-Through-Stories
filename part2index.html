@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTS - Part 2: Stories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px; /* Rounded edges */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 15px; /* Rounded edges */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Fluffy edges effect */
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: black;
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .book-part {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #e6f2ff;
+        }
+        .book-part .content {
+            display: flex; /* Flexbox for alignment */
+            align-items: flex-start; /* Align items to the start */
+        }
+        .book-part img {
+            width: 200px;
+            margin-right: 20px; /* Space between image and buttons */
+            border-radius: 5px;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .book-part a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            width: 200px; /* Consistent width for all buttons */
+            background-color: #2a6592;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .book-part a:hover {
+            background-color: #174573;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>German Through Stories - Part 2</h1>
+    </header>
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
+    <div class="container">
+         <section class="book-part">
+                    <h2>Einführung (Introduction): Mini-Geschichten</h2>
+                        <div class="content">
+                            <img src="part2/A/Kapitel A main theme.png" style="width: 200px;">
+                            <div class="button-group">
+                            <div style="display: flex; gap: 10px;">
+                            <a href="part2index.html">Mini-Geschichte 1: Georg will eine Fanta</a>
+                            <a href="part2index.html">MG1: Aufgaben</a>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="part2/B/B2/b2index.html">Mini-Geschichte 2: Michael will eine Bratwurst</a>
+                            <a href="part2index.html">MG2: Aufgaben</a>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="part2index.html">Mini-Geschichte 3: Wer kann besser singen?</a>
+                            <a href="part2index.html">MG3: Aufgaben</a>
+                        </div>
+                         <div style="display: flex; gap: 10px;">
+                                <a href="part2index.html">Mini-Geschichte 4: Ich bin nicht eingeladen</a>
+                                <a href="part2index.html">MG4: Aufgaben</a>
+                        </div>
+                </div>
+            </div>
+        </section>
+                <section class="book-part">
+                    <h2>Kapitel A: Aller Anfang ist schwer</h2>
+                        <div class="content">
+                            <img src="part2/A/Kapitel A main theme.png" style="width: 200px;">
+                            <div class="button-group">
+                            <div style="display: flex; gap: 10px;">
+                            <a href="part2index.html">A1: Ein neuer Freund</a>
+                            <a href="part2index.html">A1: Aufgaben</a>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="part2/B/B2/b2index.html">A2: Fred und sein Schuh</a>
+                            <a href="part2index.html">A2: Aufgaben</a>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="part2index.html">A3: Nicht schon wieder!</a>
+                            <a href="part2index.html">A3: Aufgaben</a>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <section class="book-part">
+            <h2>Kapitel B: Blut ist dicker als Wasser</h2>
+            <div class="content">
+                <img src="part2/B/Kapitel B main theme.png" style="width: 200px;">
+                <div class="button-group">
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2index.html">B1: Wolfgang und sein Projekt</a>
+                        <a href="part2index.html">B1: Aufgaben</a>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2/B/B2/b2index.html">B2: Kontrollzwang</a>
+                        <a href="part2/B/B2/b2exercisesindex.html">B2: Aufgaben</a>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2/B/B3/b3index.html">B3: Die Liebe seines Lebens</a>
+                        <a href="part2/B/B3/b3exercisesindex.html">B3: Aufgaben</a>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2/B/bbonusaufgaben.html">Bonus-Aufgaben</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="book-part">
+            <h2>Kapitel C: Zu viele Köche verderben den Brei</h2>
+            <div class="content">
+                <img src="part2/C/Kapitel C main theme.png" style="width: 200px;">
+                <div class="button-group">
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2/C/C1/c1index.html">C1: Maroona und MSAF</a>
+                        <a href="part2/C/C1/c1exercisesindex.html">C1: Aufgaben</a>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2index.html">C2: Na, warte!</a>
+                        <a href="part2index.html">C2: Aufgaben</a>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="part2index.html">C3: Simsen in der Vorlesung</a>
+                        <a href="part2index.html">C3: Aufgaben</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+</body>
+</html>
