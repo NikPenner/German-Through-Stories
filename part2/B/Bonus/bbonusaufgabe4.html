@@ -195,31 +195,39 @@
             }
         }
 
-        function showAnswers() {
-            const correctPairs = {
-                "gelesen": "drop1",
-                "herumgelaufen": "drop2",
-                "zugehört": "drop3",
-                "gelaufen": "drop4",
-                "gerannt": "drop4",
-                "genommen": "drop5",
-                "gesagt": "drop6",
-                "herumgelaufen": "drop7",
-                "gefragt": "drop8",
-                "geantwortet": "drop9",
-                "gesprungen": "drop10",
-                "zugemacht": "drop11",
-                "gehabt": "drop12"
-            };
-            Object.keys(correctPairs).forEach(key => {
-                const dropzone = document.getElementById(correctPairs[key]);
-                const draggable = document.getElementById(key);
-                if (dropzone && draggable) {
-                    dropzone.appendChild(draggable.cloneNode(true));
-                }
-            });
-        }
+   function showAnswers() {
+        const correctPairs = {
+            "gelesen": "drop1",
+            "herumgelaufen": "drop2",
+            "zugehört": "drop3",
+            "gelaufen": "drop4",
+            "gerannt": "drop4",
+            "genommen": "drop5",
+            "gesagt": "drop6",
+            "herumgelaufen": "drop7",
+            "gefragt": "drop8",
+            "geantwortet": "drop9",
+            "gesprungen": "drop10",
+            "zugemacht": "drop11",
+            "gehabt": "drop12"
+        };
 
+        // Clear all drop zones first
+        document.querySelectorAll('.dropzone').forEach(zone => {
+            while (zone.firstChild) {
+                document.getElementById("origin").appendChild(zone.firstChild);
+            }
+        });
+
+        // Append the correct elements to their corresponding drop zones
+        Object.keys(correctPairs).forEach(key => {
+            const dropzone = document.getElementById(correctPairs[key]);
+            const draggable = document.getElementById(key);
+            if (dropzone && draggable) {
+                dropzone.appendChild(draggable);
+            }
+        });
+    }
         function checkAnswers() {
             let score = 0;
             const total = document.querySelectorAll('.dropzone').length;
