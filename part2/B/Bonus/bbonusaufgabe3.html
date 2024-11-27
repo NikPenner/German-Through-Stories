@@ -132,107 +132,169 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Verb Matching Exercise</h2>
-        <p>Which words mean approximately the same thing?</p>
-        <div class="origin" id="origin">
-            <div class="draggable" draggable="true" id="laufen" ondragstart="drag(event)">laufen</div>
-            <div class="draggable" draggable="true" id="schauen" ondragstart="drag(event)">schauen</div>
-            <div class="draggable" draggable="true" id="aufpassen" ondragstart="drag(event)">aufpassen</div>
-            <div class="draggable" draggable="true" id="tun" ondragstart="drag(event)">tun</div>
-            <div class="draggable" draggable="true" id="aufmachen" ondragstart="drag(event)">aufmachen</div>
-            <div class="draggable" draggable="true" id="zumachen" ondragstart="drag(event)">zumachen</div>
-        </div>
-        <div class="sentence">rennen <span class="dropzone" id="rennen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">sehen <span class="dropzone" id="sehen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">zuhören <span class="dropzone" id="zuhören" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">machen <span class="dropzone" id="machen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">öffnen <span class="dropzone" id="öffnen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">schließen <span class="dropzone" id="schließen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="button-group">
-            <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
-            <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
-            <button type="button" onclick="resetExercise()">Neu starten</button>
-        </div>
-        <div id="feedback"></div>
+        <h2>In which situation are you likely to hear each of the following commands?</h2>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">1. stehen Sie auf!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q1" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q1" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">2. spring!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q2" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q2" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">3. nehmen Sie Platz!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q3" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q3" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">4. mach das Fenster auf!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q4" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q4" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">5. geht!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q5" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q5" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">6. renn!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q6" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q6" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">7. schwimmt!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q7" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q7" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">8. nehmen Sie!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q8" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q8" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">9. springt!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q9" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q9" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q9" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">10. stehen Sie auf!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q10" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q10" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q10" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">11. renn!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q11" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q11" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q11" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question">12. machen Sie die Tür auf!</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q12" value="a"> a) a close friend talking to another friend</label><br>
+                    <label class="option"><input type="radio" name="q12" value="b"> b) two colleagues speaking formally to each other</label><br>
+                    <label class="option"><input type="radio" name="q12" value="c"> c) a coach talking to a team during practice</label>
+                </div>
+            </div>
+            <div class="button-group">
+                <button type="button" onclick="checkAnswers()">Antworten überprüfen</button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+                <button type="button" onclick="showAnswers()">Lösungen anzeigen</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
     </div>
     <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="../../../index.html">Main Page</a>
-            <a href="bbonusaufgabe2.html">Previous Exercise</a>
-            <a href="bbonusaufgabe4.html">Next Exercise</a>
-        </nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="../../../index.html">Main Page</a>
+        <a href="bbonusaufgabe2.html">Previous Exercise</a>
+        <a href="bbonusaufgabe4.html">Next Exercise</a>
+    </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
-<script>
-const correctAnswers = {
-    laufen: "rennen",
-    schauen: "sehen",
-    aufpassen: "zuhören",
-    tun: "machen",
-    aufmachen: "öffnen",
-    zumachen: "schließen"
-};
+    <script>
+        const correctAnswers = {
+            q1: "b", q2: "a", q3: "b", q4: "a",
+            q5: "c", q6: "a", q7: "c", q8: "b",
+            q9: "c", q10: "b", q11: "a", q12: "b"
+        };
 
-function allowDrop(event) {
-    event.preventDefault();
-}
+        function checkAnswers() {
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
 
-function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
-}
+            Object.keys(correctAnswers).forEach(question => {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                const options = document.querySelectorAll(`input[name="${question}"]`);
 
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text");
-    const draggedElement = document.getElementById(data);
+                options.forEach(option => {
+                    const label = option.parentNode;
+                    label.classList.remove("correct", "incorrect");
 
-    // Only allow one item per dropzone
-    if (event.target.classList.contains("dropzone") && !event.target.firstChild) {
-        event.target.appendChild(draggedElement);
-    } else if (event.target.classList.contains("origin")) {
-        event.target.appendChild(draggedElement); // Move back to the origin list
-    }
-}
+                    if (selected && option === selected && option.value === correctAnswers[question]) {
+                        score++;
+                        label.classList.add("correct");
+                    } else if (selected && option === selected && option.value !== correctAnswers[question]) {
+                        label.classList.add("incorrect");
+                    }
+                });
+            });
 
-function showAnswers() {
-    Object.keys(correctAnswers).forEach(question => {
-        const dropzone = document.getElementById(correctAnswers[question]);
-        const draggable = document.getElementById(question);
-        if (dropzone && draggable) {
-            dropzone.appendChild(draggable);
+            document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
         }
-    });
-}
 
-function checkAnswers() {
-    let score = 0;
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        const answer = zone.id;
-        const userAnswer = zone.firstChild ? zone.firstChild.id : "";
-        if (correctAnswers[userAnswer] === answer) {
-            score++;
-            zone.classList.add('correct');
-            zone.classList.remove('incorrect');
-        } else {
-            zone.classList.add('incorrect');
-            zone.classList.remove('correct');
+        function resetQuiz() {
+            document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+            document.querySelectorAll('.option').forEach(label => {
+                label.classList.remove("correct", "incorrect");
+            });
+            document.getElementById("feedback").innerText = "";
         }
-    });
 
-    document.getElementById('feedback').innerText = `${score} von ${Object.keys(correctAnswers).length} ist/sind richtig.`;
-}
-
-function resetExercise() {
-    // Move all items back to the origin area and clear feedback
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        if (zone.firstChild) {
-            document.getElementById('origin').appendChild(zone.firstChild);
+        function showAnswers() {
+            Object.keys(correctAnswers).forEach(question => {
+                const correctOption = document.querySelector(`input[name="${question}"][value="${correctAnswers[question]}"]`);
+                if (correctOption) {
+                    const label = correctOption.parentNode;
+                    label.classList.add("correct");
+                }
+            });
         }
-        zone.classList.remove('correct', 'incorrect');
-    });
-    document.getElementById('feedback').innerText = "";
-}
-</script>
+    </script>
 </body>
 </html>
