@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bonusaufgaben zu Kapitel B: Aufgabe 1</title>
+    <title>Drag & Drop Exercise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f8ff;
             color: #333;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            flex-direction: column;
             padding: 20px;
         }
         header {
@@ -44,30 +44,16 @@
             color: black;
         }
         .container {
-            max-width: 800px;
+            max-width: 600px;
             width: 100%;
             text-align: left;
-            background-color: white;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #2a6592;
-        }
-        .origin {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
         }
         .dropzone {
             display: inline-block;
             width: 150px;
-            height: 30px;
-            margin: 10px 5px;
-            border: 2px solid #2a6592;
+            height: 25px;
+            margin: 0 5px;
+            border-bottom: 2px solid #2a6592;
             text-align: center;
             vertical-align: middle;
             font-size: 1rem;
@@ -84,9 +70,17 @@
             font-size: 1rem;
             border-radius: 5px;
             color: #fff;
+            height: auto; /* Keep the original height */
+            line-height: normal; /* Ensure text is vertically centered */
         }
         .draggable:hover {
             background-color: #2a6592;
+        }
+        .sentence {
+            text-align: left;
+            margin-bottom: 10pt;
+            font-size: 1rem;
+            line-height: 2.5;
         }
         .correct {
             background-color: #a8e6cf !important;
@@ -127,27 +121,35 @@
         <nav>
             <a href="/German-Through-Stories/index.html">Main Page</a>
             <a href="../../../index.html">Main Page</a>
-            <a href="bbonusaufgabe3.html">Previous Exercise</a>
-            <a href="bbonusaufgabe5.html">Next Exercise</a>
+            <a href="bbonusaufgabe1.html">Previous Exercise</a>
+            <a href="bbonusaufgabe3.html">Next Exercise</a>
         </nav>
     </div>
     <div class="container">
-        <h2>Verb Matching Exercise</h2>
-        <p>Which words mean approximately the same thing?</p>
-        <div class="origin" id="origin">
-            <div class="draggable" draggable="true" id="laufen" ondragstart="drag(event)">laufen</div>
-            <div class="draggable" draggable="true" id="schauen" ondragstart="drag(event)">schauen</div>
-            <div class="draggable" draggable="true" id="aufpassen" ondragstart="drag(event)">aufpassen</div>
-            <div class="draggable" draggable="true" id="tun" ondragstart="drag(event)">tun</div>
-            <div class="draggable" draggable="true" id="aufmachen" ondragstart="drag(event)">aufmachen</div>
-            <div class="draggable" draggable="true" id="zumachen" ondragstart="drag(event)">zumachen</div>
+        <h2>Bonusaufgabe 4: Perfekt</h2>
+        <h3>Drag & drop the correct forms to complete these sentences in Perfekt.:</h3>
+        <div id="origin">
+            <div class="draggable" draggable="true" id="gelesen">gelesen</div>
+            <div class="draggable" draggable="true" id="herumgerannt">herumgerannt</div>
+            <div class="draggable" draggable="true" id="herumgelaufen">herumgelaufen</div>
+            <div class="draggable" draggable="true" id="zugehört">zugehört</div>
+            <div class="draggable" draggable="true" id="gelaufen">gelaufen</div>
+            <div class="draggable" draggable="true" id="gerannt">gerannt</div>
+            <div class="draggable" draggable="true" id="genommen">genommen</div>
+            <div class="draggable" draggable="true" id="gesagt">gesagt</div>
+            <div class="draggable" draggable="true" id="gefragt">gefragt</div>
+            <div class="draggable" draggable="true" id="gesprungen">gesprungen</div>
+            <div class="draggable" draggable="true" id="zugemacht">zugemacht</div>
+            <div class="draggable" draggable="true" id="gehabt">gehabt</div>
+            <div class="draggable" draggable="true" id="geantwortet">geantwortet</div>
         </div>
-        <div class="sentence">rennen <span class="dropzone" id="rennen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">sehen <span class="dropzone" id="sehen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">zuhören <span class="dropzone" id="zuhören" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">machen <span class="dropzone" id="machen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">öffnen <span class="dropzone" id="öffnen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
-        <div class="sentence">schließen <span class="dropzone" id="schließen" ondragover="allowDrop(event)" ondrop="drop(event)"></span></div>
+        <div class="sentence">1. Julia war brav und hat ein Buch <span class="dropzone" id="drop1" data-answer="gelesen"></span>.</div>
+        <div class="sentence">2. Milo ist wie wild <span class="dropzone" id="drop2" data-answer="herumgelaufen herumgerannt"></span> und hat nicht <span class="dropzone" id="drop3" data-answer="zugehört"></span>.</div>
+        <div class="sentence">3. Milo ist zum Tisch <span class="dropzone" id="drop4" data-answer="gelaufen gerannt"></span> und hat die Schere <span class="dropzone" id="drop5" data-answer="genommen"></span>.</div>
+        <div class="sentence">4. Frau L. hat <span class="dropzone" id="drop6" data-answer="gesagt"></span>, dass es gefährlich ist, mit einer Schere herumzulaufen.</div>
+        <div class="sentence">5. Milo ist mit der Schere <span class="dropzone" id="drop7" data-answer="herumgelaufen herumgerannt"></span>.</div>
+        <div class="sentence">6. Milo hat <span class="dropzone" id="drop8" data-answer="gefragt"></span>, warum er nicht rennen soll, und Frau L. hat <span class="dropzone" id="drop9" data-answer="geantwortet"></span>, dass es gefährlich ist.</div>
+        <div class="sentence">7. Am Ende ist Milo aus dem Fenster <span class="dropzone" id="drop10" data-answer="gesprungen"></span>. Frau L. hat das Fenster <span class="dropzone" id="drop11" data-answer="zugemacht"></span>, und dann hat Frau L. endlich ihre Ruhe <span class="dropzone" id="drop12" data-answer="gehabt"></span>.</div>
         <div class="button-group">
             <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
             <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
@@ -156,83 +158,101 @@
         <div id="feedback"></div>
     </div>
     <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="../../../index.html">Main Page</a>
-            <a href="bbonusaufgabe3.html">Previous Exercise</a>
-            <a href="bbonusaufgabe5.html">Next Exercise</a>
-        </nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="../../../index.html">Main Page</a>
+        <a href="bbonusaufgabe1.html">Previous Exercise</a>
+        <a href="bbonusaufgabe3.html">Next Exercise</a>
+    </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
-<script>
-const correctAnswers = {
-    laufen: "rennen",
-    schauen: "sehen",
-    aufpassen: "zuhören",
-    tun: "machen",
-    aufmachen: "öffnen",
-    zumachen: "schließen"
-};
+    <script>
+        document.querySelectorAll('.draggable').forEach(item => {
+            item.addEventListener('dragstart', dragStart);
+        });
 
-function allowDrop(event) {
-    event.preventDefault();
-}
+        document.querySelectorAll('.dropzone').forEach(zone => {
+            zone.addEventListener('dragover', allowDrop);
+            zone.addEventListener('drop', drop);
+        });
 
-function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
-}
-
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text");
-    const draggedElement = document.getElementById(data);
-
-    // Only allow one item per dropzone
-    if (event.target.classList.contains("dropzone") && !event.target.firstChild) {
-        event.target.appendChild(draggedElement);
-    } else if (event.target.classList.contains("origin")) {
-        event.target.appendChild(draggedElement); // Move back to the origin list
-    }
-}
-
-function showAnswers() {
-    Object.keys(correctAnswers).forEach(question => {
-        const dropzone = document.getElementById(correctAnswers[question]);
-        const draggable = document.getElementById(question);
-        if (dropzone && draggable) {
-            dropzone.appendChild(draggable);
+        function dragStart(event) {
+            event.dataTransfer.setData("text", event.target.id);
         }
-    });
-}
 
-function checkAnswers() {
-    let score = 0;
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        const answer = zone.id;
-        const userAnswer = zone.firstChild ? zone.firstChild.id : "";
-        if (correctAnswers[userAnswer] === answer) {
-            score++;
-            zone.classList.add('correct');
-            zone.classList.remove('incorrect');
-        } else {
-            zone.classList.add('incorrect');
-            zone.classList.remove('correct');
+        function allowDrop(event) {
+            event.preventDefault();
         }
-    });
 
-    document.getElementById('feedback').innerText = `${score} von ${Object.keys(correctAnswers).length} ist/sind richtig.`;
-}
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
 
-function resetExercise() {
-    // Move all items back to the origin area and clear feedback
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        if (zone.firstChild) {
-            document.getElementById('origin').appendChild(zone.firstChild);
+            if (event.target.classList.contains('dropzone') && !event.target.firstChild) {
+                event.target.appendChild(draggedElement);
+            } else if (event.target.id === "origin") {
+                document.getElementById("origin").appendChild(draggedElement);
+            }
         }
-        zone.classList.remove('correct', 'incorrect');
-    });
-    document.getElementById('feedback').innerText = "";
-}
-</script>
+
+        function showAnswers() {
+            const correctPairs = {
+                "gelesen": "drop1",
+                "herumgerannt": "drop2",
+                "herumgelaufen": "drop2",
+                "zugehört": "drop3",
+                "gelaufen": "drop4",
+                "gerannt": "drop4",
+                "genommen": "drop5",
+                "gesagt": "drop6",
+                "herumgelaufen": "drop7",
+                "herumgerannt": "drop7",
+                "gefragt": "drop8",
+                "geantwortet": "drop9",
+                "gesprungen": "drop10",
+                "zugemacht": "drop11",
+                "gehabt": "drop12"
+            };
+            Object.keys(correctPairs).forEach(key => {
+                const dropzone = document.getElementById(correctPairs[key]);
+                const draggable = document.getElementById(key);
+                if (dropzone && draggable) {
+                    dropzone.appendChild(draggable);
+                }
+            });
+        }
+
+        function checkAnswers() {
+            let score = 0;
+            const total = document.querySelectorAll('.dropzone').length;
+
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                const answer = zone.getAttribute('data-answer').split(" ");
+                const userAnswer = zone.firstChild ? zone.firstChild.id : "";
+
+                if (answer.includes(userAnswer)) {
+                    score++;
+                    zone.classList.add('correct');
+                    zone.classList.remove('incorrect');
+                } else {
+                    zone.classList.add('incorrect');
+                    zone.classList.remove('correct');
+                }
+            });
+
+            document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
+        }
+
+        function resetExercise() {
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                if (zone.firstChild) {
+                    document.getElementById("origin").appendChild(zone.firstChild);
+                }
+                zone.classList.remove('correct', 'incorrect');
+            });
+            document.getElementById('feedback').innerText = "";
+        }
+    </script>
 </body>
 </html>
