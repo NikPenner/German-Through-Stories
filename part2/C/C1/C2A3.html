@@ -56,47 +56,20 @@
         h2 {
             color: #2a6592;
         }
-        .origin {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
+        .sentence {
+            margin: 10px 0;
         }
         .dropzone {
             display: inline-block;
-            width: 150px;
-            height: 30px;
-            margin: 10px 5px;
-            border: 2px solid #2a6592;
+            width: auto;
+            height: auto;
+            margin: 0 5px;
             text-align: center;
             vertical-align: middle;
             font-size: 1rem;
             background-color: #e6f2ff;
+            border: none;
             border-radius: 5px;
-        }
-        .draggable {
-            display: inline-block;
-            padding: 5px 10px;
-            margin: 5px;
-            border: 1px solid #333;
-            background-color: #b0c4de;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 5px;
-            color: #fff;
-        }
-        .draggable:hover {
-            background-color: #2a6592;
-        }
-        .correct {
-            background-color: #a8e6cf !important;
-            color: #333;
-            font-weight: bold;
-        }
-        .incorrect {
-            background-color: #ff8b94 !important;
-            color: #333;
-            font-weight: bold;
         }
         #feedback {
             margin-top: 15px;
@@ -132,28 +105,14 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 2. Fill in the blank</h2>
-        <h3>Drag the correct verb in each blank:</h3>
-        <div id="origin">
-            <div class="draggable" draggable="true" id="am liebsten">am liebsten</div>
-            <div class="draggable" draggable="true" id="kann">kann</div>
-            <div class="draggable" draggable="true" id="muss">muss</div>
-            <div class="draggable" draggable="true" id="hat">hat</div>
-            <div class="draggable" draggable="true" id="um">um</div>
-            <div class="draggable" draggable="true" id="mag">mag</div>
-            <div class="draggable" draggable="true" id="soll">soll</div>
-            <div class="draggable" draggable="true" id="schreiben">schreiben</div>
-            <div class="draggable" draggable="true" id="erlaubt">erlaubt</div>
-            <div class="draggable" draggable="true" id="gern">gern</div>
-        </div>
-        <div class="sentence">Maroona <span class="dropzone" id="drop1" data-answer="hat"></span> Sport <span class="dropzone" id="drop2" data-answer="gern"></span>.</div>
-        <div class="sentence">Sie <span class="dropzone" id="drop3" data-answer="mag"></span> Volleyball, aber <span class="dropzone" id="drop4" data-answer="am liebsten"></span> mag sie Fußball.</div>
-        <div class="sentence">Maroona <span class="dropzone" id="drop5" data-answer="muss"></span> viel trainieren und <span class="dropzone" id="drop6" data-answer="hat"></span> nicht viel Zeit zum Lernen.</div>
-        <div class="sentence">Die Midtermprüfung ist <span class="dropzone" id="drop7" data-answer="um"></span> sieben Uhr dreißig.</div>
-        <div class="sentence">Sie <span class="dropzone" id="drop8" data-answer="kann"></span> nicht gleichzeitig auf dem Stadium und im Klassenzimmer sein! Sie <span class="dropzone" id="drop9" data-answer="soll"></span> eins wählen.</div>
-        <div class="sentence">Was <span class="dropzone" id="drop10" data-answer="soll"></span> sie machen: die Prüfung <span class="dropzone" id="drop11" data-answer="schreiben"></span> oder Fußball spielen?</div>
-        <div class="sentence">Dann <span class="dropzone" id="drop12" data-answer="hat"></span> Maroona eine Idee! Sie <span class="dropzone" id="drop13" data-answer="kann"></span> eine MSAF ausfüllen und die Prüfung später <span class="dropzone" id="drop14" data-answer="schreiben"></span>!</div>
-        <div class="sentence">Leider ist die MSAF nicht <span class="dropzone" id="drop15" data-answer="erlaubt"></span>!</div>
+        <h2>Aufgabe 3. Fill in the blank</h2>
+        <h3>Gern, lieber, am liebsten. Remember: gern means "to like doing something," lieber means "to prefer something.”, am liebsten means to “like something the most”. Note: there is only one instance of ‘am liebsten’ in this exercise!</h3>
+        <div class="sentence">Maroona spielt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Baseball, aber sie spielt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Fußball.</div>
+        <div class="sentence">Wolfgang lernt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Deutsch, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> macht er Matheaufgaben.</div>
+        <div class="sentence">Wir essen <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Pizza, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> essen wir Schokolade.</div>
+        <div class="sentence">Rita liest <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Bücher. Sie liest <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Krimis, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Fantasy-Romane.</div>
+        <div class="sentence">Möchtest du einen Apfel? – Nein, ich esse <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> eine Banane.</div>
+        <div class="sentence">Ich trinke <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Tee, aber Kaffee trinke ich <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select>.</div>
         <button onclick="checkAnswers()">Antworten überprüfen</button>
         <button onclick="resetExercise()">Neu starten</button>
         <button onclick="showAnswers()">Lösungen anzeigen</button>
@@ -169,89 +128,60 @@
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
     <script>
-        document.querySelectorAll('.draggable').forEach(item => {
-            item.addEventListener('dragstart', dragStart);
-        });
-
-        document.querySelectorAll('.dropzone').forEach(zone => {
-            zone.addEventListener('dragover', allowDrop);
-            zone.addEventListener('drop', drop);
-        });
-
-        function dragStart(event) {
-            event.dataTransfer.setData("text", event.target.id);
-        }
-
-        function allowDrop(event) {
-            event.preventDefault();
-        }
-
-        function drop(event) {
-            event.preventDefault();
-            const data = event.dataTransfer.getData("text");
-            const draggedElement = document.getElementById(data).cloneNode(true);
-            draggedElement.setAttribute("draggable", "false");
-            draggedElement.removeAttribute("id");
-            draggedElement.classList.remove("draggable");
-
-            if (event.target.classList.contains('dropzone') && !event.target.firstChild) {
-                event.target.appendChild(draggedElement);
-            } else if (event.target.id === "origin") {
-                document.getElementById("origin").appendChild(draggedElement);
-            }
-        }
-
         function checkAnswers() {
+            const correctAnswers = [
+                ["gern", "am liebsten"],
+                ["gern", "am liebsten"],
+                ["gern", "am liebsten"],
+                ["gern", "lieber", "am liebsten"],
+                ["gern"],
+                ["gern", "lieber"]
+            ];
             let score = 0;
-            const total = document.querySelectorAll('.dropzone').length;
-
-            document.querySelectorAll('.dropzone').forEach(zone => {
-                const answer = zone.getAttribute('data-answer');
-                const userAnswer = zone.firstChild ? zone.firstChild.textContent : "";
-
-                if (userAnswer === answer) {
+            const total = correctAnswers.length;
+            document.querySelectorAll('.sentence').forEach((sentence, index) => {
+                const options = sentence.querySelectorAll('.dropzone');
+                let isCorrect = true;
+                options.forEach((option, optionIndex) => {
+                    if (option.value !== correctAnswers[index][optionIndex]) {
+                        isCorrect = false;
+                    }
+                });
+                if (isCorrect) {
                     score++;
-                    zone.classList.add('correct');
-                    zone.classList.remove('incorrect');
+                    sentence.style.backgroundColor = '#a8e6cf';
                 } else {
-                    zone.classList.add('incorrect');
-                    zone.classList.remove('correct');
+                    sentence.style.backgroundColor = '#ff8b94';
                 }
             });
-
             document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
         }
 
         function resetExercise() {
-            document.querySelectorAll('.dropzone').forEach(zone => {
-                if (zone.firstChild) {
-                    document.getElementById("origin").appendChild(zone.firstChild);
-                }
-                zone.innerHTML = '';
-                zone.classList.remove('correct', 'incorrect');
+            document.querySelectorAll('.sentence').forEach(sentence => {
+                sentence.style.backgroundColor = '';
+                sentence.querySelectorAll('.dropzone').forEach(option => {
+                    option.selectedIndex = 0;
+                });
             });
-
             document.getElementById('feedback').innerText = '';
-
-            const origin = document.getElementById('origin');
-            origin.innerHTML = '';
-            const draggableItems = ['am liebsten', 'kann', 'muss', 'hat', 'um', 'mag', 'soll', 'schreiben', 'erlaubt', 'gern'];
-            draggableItems.forEach(item => {
-                const newDraggable = document.createElement('div');
-                newDraggable.id = item;
-                newDraggable.textContent = item;
-                newDraggable.setAttribute('draggable', 'true');
-                newDraggable.classList.add('draggable');
-                newDraggable.addEventListener('dragstart', dragStart);
-                origin.appendChild(newDraggable);
-            });
         }
 
         function showAnswers() {
-            document.querySelectorAll('.dropzone').forEach(zone => {
-                const answer = zone.getAttribute('data-answer');
-                zone.innerHTML = '';
-                zone.innerHTML = `<span class="correct">${answer}</span>`;
+            const correctAnswers = [
+                ["gern", "am liebsten"],
+                ["gern", "am liebsten"],
+                ["gern", "am liebsten"],
+                ["gern", "lieber", "am liebsten"],
+                ["gern"],
+                ["gern", "lieber"]
+            ];
+            document.querySelectorAll('.sentence').forEach((sentence, index) => {
+                const options = sentence.querySelectorAll('.dropzone');
+                options.forEach((option, optionIndex) => {
+                    option.value = correctAnswers[index][optionIndex];
+                });
+                sentence.style.backgroundColor = '#a8e6cf';
             });
             document.getElementById('feedback').innerText = "Lösungen angezeigt.";
         }
