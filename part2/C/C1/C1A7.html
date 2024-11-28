@@ -125,7 +125,7 @@
         <div class="answer" id="answer3-correct">Am Freitagabend arbeite ich nicht gern.</div>
         <div class="sentence">4. <u>Was</u> essen Sie nicht gern?</div>
         <input type="text" class="input-box" id="answer4">
-        <div class="answer" id="answer4-correct">Sample answer: Brokkoli esse ich nicht gern.</div>
+        <div class="answer" id="answer4-correct">Brokkoli esse ich nicht gern.</div>
         <button onclick="checkAnswers()">Antworten überprüfen</button>
         <button onclick="resetExercise()">Neu starten</button>
         <button onclick="showAnswers()">Lösungen anzeigen</button>
@@ -143,10 +143,10 @@
     <script>
         function checkAnswers() {
             const correctAnswers = [
-                "Ja, ich höre sehr gern Musik von Taylor Swift.",
+                "Ja, Musik von Taylor Swift höre ich gern.",
                 "Am Wochenende gehe ich gern spazieren.",
                 "Am Freitagabend arbeite ich nicht gern.",
-                "Ich esse nicht gern Rosenkohl."
+                "Brokkoli esse ich nicht gern."
             ];
             document.querySelectorAll('.input-box').forEach((inputBox, index) => {
                 inputBox.classList.remove('correct', 'incorrect');
@@ -171,16 +171,8 @@
         }
 
         function showAnswers() {
-            const correctAnswers = [
-                "Ja, ich höre sehr gern Musik von Taylor Swift.",
-                "Am Wochenende gehe ich gern spazieren.",
-                "Am Freitagabend arbeite ich nicht gern.",
-                "Ich esse nicht gern Rosenkohl."
-            ];
-            document.querySelectorAll('.input-box').forEach((inputBox, index) => {
-                inputBox.classList.remove('correct', 'incorrect');
-                inputBox.value = correctAnswers[index];
-                document.getElementById(`answer${index + 1}-correct`).style.display = 'block';
+            document.querySelectorAll('.answer').forEach((answer) => {
+                answer.style.display = 'block';
             });
             document.getElementById('feedback').innerText = "Lösungen angezeigt.";
         }
