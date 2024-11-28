@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aufgaben zu Kapitel C</title>
+    <title>GTS - Part 2: Stories</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,8 +28,8 @@
             overflow: hidden;
             display: inline-block;
             border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         nav a {
             float: left;
@@ -44,219 +43,159 @@
             background-color: #ddd;
             color: black;
         }
-        .container {
-            max-width: 800px;
-            width: 100%;
-            text-align: left;
-            background-color: white;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .container-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+        h1 {
+            color: black;
         }
         h2 {
             color: #2a6592;
         }
-        .origin {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
+        .question {
+            margin: 15px 0;
         }
-        .dropzone {
-            display: inline-block;
-            width: 150px;
-            height: 30px;
-            margin: 10px 5px;
-            border: 2px solid #2a6592;
+        .question label {
+            font-weight: bold;
+        }
+        .question input {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .correct-answer {
+            margin-top: 10px;
+            color: green;
+            font-style: italic;
+        }
+        .button-group {
             text-align: center;
-            vertical-align: middle;
-            font-size: 1rem;
-            background-color: #e6f2ff;
-            border-radius: 5px;
+            margin-top: 20px;
         }
-        .draggable {
-            display: inline-block;
-            padding: 5px 10px;
-            margin: 5px;
-            border: 1px solid #333;
-            background-color: #b0c4de;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 5px;
-            color: #fff;
-        }
-        .draggable:hover {
-            background-color: #2a6592;
-        }
-        .correct {
-            background-color: #a8e6cf !important;
-            color: #333;
-            font-weight: bold;
-        }
-        .incorrect {
-            background-color: #ff8b94 !important;
-            color: #333;
-            font-weight: bold;
-        }
-        #feedback {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            color: #2a6592;
-            font-weight: bold;
-        }
-        button {
-            margin-top: 15px;
+        .button-group button {
             padding: 10px 20px;
+            font-size: 1em;
             background-color: #2a6592;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
+        .button-group button:hover {
             background-color: #174573;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Aufgaben zu Kapitel C</h1>
+        <h1>Aufgaben zu B-3: Die Liebe seines Lebens</h1>
     </header>
-    <div style="text-align: center;">
-        <nav>
-            <a href="/German-Through-Stories/index.html">Main Page</a>
-            <a href="../../../index.html">Main Page</a>
-            <a style="cursor: default; color: white;">Previous Exercise</a>
-            <a href="C1A2.html">Next Exercise</a>
-        </nav>
+<nav>
+     <a href="/German-Through-Stories/index.html">Main Page</a>
+      <a href="C1index">Story C-1: Maroona und die MSAF</a>
+      <a style="cursor: default; color: white;">Previous Exercise</a>
+     <a href="C1A2.html">Next Exercise</a>
+</nav>
+<div class="container-wrapper">
+    <div class="container">
+        <section>
+            <h2>Aufgabe 1. Fragen zum Text. Answer the questions using your own words. You can find all the points in the story.
+ </h2>
+            <div class="question">
+                <label for="q1">1.Ist der Roboter am Anfang (brginning) glücklich? Warum?</label>
+                <input type="text" id="q1" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a1" style="display: none;">Sample answer: Ja, weil er endlich frei ist und kann alles machen, was er will!</p>
+            </div>
+            <div class="question">
+                <label for="q2">2. Warum mag der Roboter die Maschine?
+</label>
+                <input type="text" id="q2" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a2" style="display: none;">Sample answer: Der Roboter mag die Maschine, weil sie schön ist und romantische Musik spielt.</p>
+            </div>
+            <div class="question">
+                <label for="q3">3. Warum denkt der Roboter, dass die Maschine ihn auch liebt?
+</label>
+                <input type="text" id="q3" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a3" style="display: none;">Sample answer: Weil die Maschine ihm ein Pfefsi gibt, das „nur für ihn“ ist.</p>
+            </div>
+            <div class="question">
+                <label for="q4">4. Warum ist der Roboter enttäuscht (disappointed)?
+</label>
+                <input type="text" id="q4" placeholder="Ihre Antwort">
+                <p class="correct-answer" id="a4" style="display: none;">Sample answer: Der Roboter ist traurig, weil der Student auch ein Getränk vond er Maschiee bekommt.</p>
+            </div>
+            <div class="button-group">
+                <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
+                <button onclick="resetQuiz()">Neu Starten</button>
+            </div>
+        </section>
     </div>
     <div class="container">
-        <h2>Füllen Sie die Lücken mit den passenden Wörtern:</h2>
-        <h3>Drag the correct verb in each blank:</h3>
-        <div id="origin">
-            <div class="draggable" draggable="true" id="hat">hat</div>
-            <div class="draggable" draggable="true" id="ist">ist</div>
-            <div class="draggable" draggable="true" id="war">war</div>
-            <div class="draggable" draggable="true" id="wollte">wollte</div>
-            <div class="draggable" draggable="true" id="hatte">hatte</div>
-        </div>
-        <div class="sentence">1. Frau L, die Babysitterin, <span class="dropzone" id="drop1" data-answer="war"></span> müde und <span class="dropzone" id="drop2" data-answer="wollte"></span> ihre Ruhe haben.</div>
-        <div class="sentence">2. Julia <span class="dropzone" id="drop3" data-answer="war"></span> brav und <span class="dropzone" id="drop4" data-answer="hat"></span> ein Buch gelesen.</div>
-        <div class="sentence">3. Milo <span class="dropzone" id="drop5" data-answer="ist"></span> wie wild herumgerannt und <span class="dropzone" id="drop6" data-answer="hat"></span> nicht zugehört.</div>
-        <div class="sentence">4. Milo <span class="dropzone" id="drop7" data-answer="ist"></span> zum Tisch gelaufen und <span class="dropzone" id="drop8" data-answer="hat"></span> die Schere genommen.</div>
-        <div class="sentence">5. Frau L. <span class="dropzone" id="drop9" data-answer="hat"></span> gesagt, dass es gefährlich <span class="dropzone" id="drop10" data-answer="ist"></span> mit einer Schere herumzulaufen.</div>
-        <div class="sentence">6. Milo <span class="dropzone" id="drop11" data-answer="ist"></span> mit der Schere herumgelaufen.</div>
-        <div class="sentence">7. Milo <span class="dropzone" id="drop12" data-answer="hat"></span> gefragt, warum er nicht rennen soll, und Frau L. <span class="dropzone" id="drop13" data-answer="hat"></span> gesagt, dass es gefährlich <span class="dropzone" id="drop14" data-answer="ist"></span>.</div>
-        <div class="sentence">8. Am Ende <span class="dropzone" id="drop15" data-answer="ist"></span> Milo aus dem Fenster gesprungen.</div>
-        <div class="sentence">9. Frau L. <span class="dropzone" id="drop16" data-answer="hat"></span> das Fenster zugemacht, und dann <span class="dropzone" id="drop17" data-answer="hatte"></span> Frau L. endlich ihre Ruhe.</div>
-        <button onclick="checkAnswers()">Antworten überprüfen</button>
-        <button onclick="resetExercise()">Neu starten</button>
-        <button onclick="showAnswers()">Lösungen anzeigen</button>
-        <div id="feedback"></div>
+        <h2>C-1: Maroona und die MSAF</h2>
+            <p>Maroona mag Sport. Sie boxt gern, joggt gern, spielt gern Eishockey, Volleyball und Baseball. Aber am liebsten spielt sie Fußball. Sie ist sogar an der McMaster Fußballmannschaft. Bald gibt es ein Fußballspiel  gegen McMasters größten Rivalen, die Western-Uni! 
+So muss Maroona sehr viel trainieren. Sie trainiert jeden Tag drei Mal: am Morgen, am Tag und am Abend. Sie hat nicht viel Zeit zum Lernen. „Aber wen interessiert das Lernen, wenn man Fußball gegen Western spielt?!“ denkt sie. „Ich muss mehr trainieren damit wir gegen Western gewinnen!“
+Am Abend vor dem Spiel kommt Maroona nach Hause und sieht auf ihren Kalendar. Oh Nein! Morgen um sieben Uhr dreißig soll sie eine Midterm-Prüfung schreiben! Aber das große Fußballspiel ist auch um sieben Uhr dreißig! Das ist ein großes Problem! Sie kann nicht Fußball spielen und eine Midterm-Prüfung schreiben. Sie muss eins wählen!  Was soll sie machen: die Prüfung schreiben oder gegen Western spielen?
+Sie hat für die Prüfung nicht gelernt, denn sie hat so viel trainiert. „Was soll ich nur tun?“ denkt sie.
+“Aber natürlich! Ich kann eine MSAF ausfüllen! Dann kann ich morgen Fußball spielen und  die Midterm-Prüfung später schreiben!”, denkt Maroona. Sie geht online, füllt die MSAF aus und geht ins Bett.
+Am nächsten Abend spielt Maroona sehr gut und ihre Mannschaft gewinnt vier zu zwei. Alle sind sehr glücklich und natürlich auch Maroona selbst. Sie hat  alle vier Tore geschossen!
+Dann bekommt sie eine Nachricht. Sie sieht auf ihr Handy und wird sofort traurig. In der Nachricht steht: “MSAF nicht erlaubt. Die Midterm-Prüfung ist sechsundzwanzig Prozent der Endnote wert.” 
+Jetzt hat sie ein Problem.</p>
+            <p>Der Roboter wirft das Pfefsi auf den Boden und läuft weinend weg. “Wie konnte sie nur? Und ich habe sie so geliebt!”</p>
     </div>
+</div>
+        </section>
     <nav>
-        <a href="/German-Through-Stories/index.html">Main Page</a>
-        <a href="../../../index.html">Main Page</a>
-            <a style="cursor: default; color: white;">Previous Exercise</a>
-            <a href="C1A2.html">Next Exercise</a>
+      <a href="/German-Through-Stories/index.html">Main Page</a>
+      <a href="C1index">Story C-1: Maroona und die MSAF</a>
+      <a style="cursor: default; color: white;">Previous Exercise</a>
+       <a href="C1A2.html">Next Exercise</a>
     </nav>
+    </div>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
+
     <script>
-        document.querySelectorAll('.draggable').forEach(item => {
-            item.addEventListener('dragstart', dragStart);
+    function showCorrectAnswers() {
+        // Show all correct answers
+        for (let i = 1; i <= 8; i++) {
+            document.getElementById('a' + i).style.display = 'block';
+        }
+    }
+
+    function resetQuiz() {
+        // Hide all correct answers
+        for (let i = 1; i <= 8; i++) {
+            document.getElementById('a' + i).style.display = 'none';
+        }
+        
+        // Clear all input fields
+        document.querySelectorAll('.question input').forEach(input => {
+            input.value = '';
         });
-
-        document.querySelectorAll('.dropzone').forEach(zone => {
-            zone.addEventListener('dragover', allowDrop);
-            zone.addEventListener('drop', drop);
-        });
-
-        function dragStart(event) {
-            event.dataTransfer.setData("text", event.target.id);
-        }
-
-        function allowDrop(event) {
-            event.preventDefault();
-        }
-
-        function drop(event) {
-            event.preventDefault();
-            const data = event.dataTransfer.getData("text");
-            const draggedElement = document.getElementById(data).cloneNode(true);
-            draggedElement.setAttribute("draggable", "false");
-            draggedElement.removeAttribute("id");
-            draggedElement.classList.remove("draggable");
-
-            if (event.target.classList.contains('dropzone') && !event.target.firstChild) {
-                event.target.appendChild(draggedElement);
-            } else if (event.target.id === "origin") {
-                document.getElementById("origin").appendChild(draggedElement);
-            }
-        }
-
-        function checkAnswers() {
-            let score = 0;
-            const total = document.querySelectorAll('.dropzone').length;
-
-            document.querySelectorAll('.dropzone').forEach(zone => {
-                const answer = zone.getAttribute('data-answer');
-                const userAnswer = zone.firstChild ? zone.firstChild.textContent : "";
-
-                if (userAnswer === answer) {
-                    score++;
-                    zone.classList.add('correct');
-                    zone.classList.remove('incorrect');
-                } else {
-                    zone.classList.add('incorrect');
-                    zone.classList.remove('correct');
-                }
-            });
-
-            document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
-        }
-
-  function resetExercise() {
-    // Clear all dropzones
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        if (zone.firstChild) {
-            document.getElementById("origin").appendChild(zone.firstChild); // Move back to origin
-        }
-        zone.innerHTML = ''; // Clear any answers left by showAnswers
-        zone.classList.remove('correct', 'incorrect'); // Reset styles
-    });
-
-    // Clear feedback text
-    document.getElementById('feedback').innerText = "";
-
-    // Reset the origin area
-    const origin = document.getElementById('origin');
-    origin.innerHTML = ''; // Clear current origin
-    // Recreate draggable elements
-    const draggableItems = ['hat', 'ist', 'war', 'wollte', 'hatte'];
-    draggableItems.forEach(item => {
-        const newDraggable = document.createElement('div');
-        newDraggable.id = item;
-        newDraggable.textContent = item;
-        newDraggable.setAttribute('draggable', 'true');
-        newDraggable.classList.add('draggable');
-        newDraggable.addEventListener('dragstart', dragStart);
-        origin.appendChild(newDraggable);
-    });
-}
-
-
- function showAnswers() {
-    document.querySelectorAll('.dropzone').forEach(zone => {
-        const answer = zone.getAttribute('data-answer');
-        zone.innerHTML = ''; // Clear current content before showing the answer
-        zone.innerHTML = `<span class="correct">${answer}</span>`;
-    });
-    document.getElementById('feedback').innerText = "Lösungen angezeigt.";
-}
-    </script>
+    }
+</script>
 </body>
 </html>
