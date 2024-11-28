@@ -112,17 +112,16 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 5. Siegfried and Wolfgang are finally participating in Speeddating in 1390. However, they came late because they had to do all those silly things for Maroona, so they only have one chance at meeting someone. Help them formulate the questions for their date and find out as much as possible about the other person.</h2>
-        <h4>Use ‘gern’ and the action & the question word in brackets to form questions and, of course, use the du-form.</h4>
-        <p>Note: Beispiel. Gern trinken, was: Was trinkst du gern?</p>
-        <div class="sentence">1. Gern machen, was: <input type="text" class="input-box" id="answer1"><div class="answer" id="answer1-correct"></div></div>
-        <div class="sentence">2. Gern hören, welche Musik: <input type="text" class="input-box" id="answer2"><div class="answer" id="answer2-correct"></div></div>
-        <div class="sentence">3. Gern reisen, wohin: <input type="text" class="input-box" id="answer3"><div class="answer" id="answer3-correct"></div></div>
-        <div class="sentence">4. Gern spielen, was: <input type="text" class="input-box" id="answer4"><div class="answer" id="answer4-correct"></div></div>
-        <div class="sentence">Bonus questions. Watch out: these actions change slightly with du and er/sie/es:</div>
-        <div class="sentence">5. Gern essen, was: <input type="text" class="input-box" id="answer5"><div class="answer" id="answer5-correct"></div></div>
-        <div class="sentence">6. Gern sehen, welche Filme: <input type="text" class="input-box" id="answer6"><div class="answer" id="answer6-correct"></div></div>
-        <div class="sentence">7. Gern lesen, welche Bücher: <input type="text" class="input-box" id="answer7"><div class="answer" id="answer7-correct"></div></div>
+        <h2>Aufgabe 7. Persönliche Fragen.</h2>
+        <p>Answer each question with a full sentence. Make sure to use ‘gern’. Try to start some sentences with the underlined element: “Kaffee trinke ich sehr gern.”</p>
+        <div class="sentence">1. Hören Sie gern Musik von Taylor Swift?</div>
+        <input type="text" class="input-box" id="answer1">
+        <div class="sentence">2. Was machen Sie gern am Wochenende?</div>
+        <input type="text" class="input-box" id="answer2">
+        <div class="sentence">3. Was machen Sie nicht gern am Freitagabend?</div>
+        <input type="text" class="input-box" id="answer3">
+        <div class="sentence">4. Was essen Sie nicht gern?</div>
+        <input type="text" class="input-box" id="answer4">
         <button onclick="checkAnswers()">Antworten überprüfen</button>
         <button onclick="resetExercise()">Neu starten</button>
         <button onclick="showAnswers()">Lösungen anzeigen</button>
@@ -139,28 +138,15 @@
     </footer>
     <script>
         function checkAnswers() {
-            const correctAnswers = [
-                "Was machst du gern?",
-                "Welche Musik hörst du gern?",
-                "Wohin reist du gern?",
-                "Was spielst du gern?",
-                "Was isst du gern?",
-                "Welche Filme siehst du gern?",
-                "Welche Bücher liest du gern?"
-            ];
-            let score = 0;
-            const total = correctAnswers.length;
-            document.querySelectorAll('.input-box').forEach((inputBox, index) => {
+            document.querySelectorAll('.input-box').forEach(inputBox => {
                 inputBox.classList.remove('correct', 'incorrect');
-                const answers = correctAnswers[index].split(" / ");
-                if (answers.includes(inputBox.value.trim())) {
-                    score++;
+                if (inputBox.value.trim()) {
                     inputBox.classList.add('correct');
                 } else {
                     inputBox.classList.add('incorrect');
                 }
             });
-            document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
+            document.getElementById('feedback').innerText = "Antworten überprüft.";
         }
 
         function resetExercise() {
@@ -168,26 +154,13 @@
                 inputBox.classList.remove('correct', 'incorrect');
                 inputBox.value = '';
             });
-            document.querySelectorAll('.answer').forEach(answer => {
-                answer.style.display = 'none';
-            });
             document.getElementById('feedback').innerText = '';
         }
 
         function showAnswers() {
-            const correctAnswers = [
-                "Was machst du gern?",
-                "Welche Musik hörst du gern?",
-                "Wohin reist du gern?",
-                "Was spielst du gern?",
-                "Was isst du gern?",
-                "Welche Filme siehst du gern?",
-                "Welche Bücher liest du gern?"
-            ];
-            document.querySelectorAll('.input-box').forEach((inputBox, index) => {
+            document.querySelectorAll('.input-box').forEach(inputBox => {
                 inputBox.classList.remove('correct', 'incorrect');
-                document.getElementById(`answer${index + 1}-correct`).innerText = correctAnswers[index];
-                document.getElementById(`answer${index + 1}-correct`).style.display = 'block';
+                inputBox.value = 'Beispiel Antwort'; // Example answers
             });
             document.getElementById('feedback').innerText = "Lösungen angezeigt.";
         }
