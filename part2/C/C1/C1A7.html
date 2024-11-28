@@ -113,15 +113,19 @@
     </div>
     <div class="container">
         <h2>Aufgabe 7. Persönliche Fragen.</h2>
-        <p>Answer each question with a full sentence. Make sure to use ‘gern’. Try to start some sentences with the underlined element: “Kaffee trinke ich sehr gern.”</p>
-        <div class="sentence">1. Hören Sie gern Musik von Taylor Swift?</div>
+        <p>Answer each question with a full sentence. Make sure to use ‘gern’. Try to start some sentences with the <u>underlined element</u>: “<u>Kaffee</u> trinke ich sehr gern.”</p>
+        <div class="sentence">1. Hören Sie gern <u>Musik von Taylor Swift?</u></div>
         <input type="text" class="input-box" id="answer1">
-        <div class="sentence">2. Was machen Sie gern am Wochenende?</div>
+        <div class="answer" id="answer1-correct">Ja, Musik von Taylor Swift höre ich gern.</div>
+        <div class="sentence">2. Was machen Sie gern <u>am Wochenende?</u></div>
         <input type="text" class="input-box" id="answer2">
-        <div class="sentence">3. Was machen Sie nicht gern am Freitagabend?</div>
+        <div class="answer" id="answer2-correct">Am Wochenende gehe ich gern spazieren.</div>
+        <div class="sentence">3. Was machen Sie nicht gern <u>am Freitagabend?</u></div>
         <input type="text" class="input-box" id="answer3">
-        <div class="sentence">4. Was essen Sie nicht gern?</div>
+        <div class="answer" id="answer3-correct">Am Freitagabend arbeite ich nicht gern.</div>
+        <div class="sentence">4. <u>Was</u> essen Sie nicht gern?</div>
         <input type="text" class="input-box" id="answer4">
+        <div class="answer" id="answer4-correct">Sample answer: Brokkoli esse ich nicht gern.</div>
         <button onclick="checkAnswers()">Antworten überprüfen</button>
         <button onclick="resetExercise()">Neu starten</button>
         <button onclick="showAnswers()">Lösungen anzeigen</button>
@@ -138,10 +142,18 @@
     </footer>
     <script>
         function checkAnswers() {
-            document.querySelectorAll('.input-box').forEach(inputBox => {
+            const correctAnswers = [
+                "Ja, ich höre sehr gern Musik von Taylor Swift.",
+                "Am Wochenende gehe ich gern spazieren.",
+                "Am Freitagabend arbeite ich nicht gern.",
+                "Ich esse nicht gern Rosenkohl."
+            ];
+            document.querySelectorAll('.input-box').forEach((inputBox, index) => {
                 inputBox.classList.remove('correct', 'incorrect');
-                if (inputBox.value.trim()) {
+                const answer = document.getElementById(`answer${index + 1}-correct`);
+                if (inputBox.value.trim() === correctAnswers[index]) {
                     inputBox.classList.add('correct');
+                    answer.style.display = 'block';
                 } else {
                     inputBox.classList.add('incorrect');
                 }
@@ -150,17 +162,25 @@
         }
 
         function resetExercise() {
-            document.querySelectorAll('.input-box').forEach(inputBox => {
+            document.querySelectorAll('.input-box').forEach((inputBox, index) => {
                 inputBox.classList.remove('correct', 'incorrect');
                 inputBox.value = '';
+                document.getElementById(`answer${index + 1}-correct`).style.display = 'none';
             });
             document.getElementById('feedback').innerText = '';
         }
 
         function showAnswers() {
-            document.querySelectorAll('.input-box').forEach(inputBox => {
+            const correctAnswers = [
+                "Ja, ich höre sehr gern Musik von Taylor Swift.",
+                "Am Wochenende gehe ich gern spazieren.",
+                "Am Freitagabend arbeite ich nicht gern.",
+                "Ich esse nicht gern Rosenkohl."
+            ];
+            document.querySelectorAll('.input-box').forEach((inputBox, index) => {
                 inputBox.classList.remove('correct', 'incorrect');
-                inputBox.value = 'Beispiel Antwort'; // Example answers
+                inputBox.value = correctAnswers[index];
+                document.getElementById(`answer${index + 1}-correct`).style.display = 'block';
             });
             document.getElementById('feedback').innerText = "Lösungen angezeigt.";
         }
