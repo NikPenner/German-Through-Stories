@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -112,15 +111,17 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 3. Fill in the blank. Gern, lieber, am liebsten.</h2>
-        <h4>Remember: gern means "to like doing something," lieber means "to prefer something” (emphasizing one of two things), am liebsten means to “like something the most” and is used when comparing 3 or more things.<br>
-Note: there is only one instance of ‘am liebsten’ in this exercise!</h4>
-        <div class="sentence">1. Maroona spielt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Baseball, aber sie spielt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Fußball.</div>
-        <div class="sentence">2. Wolfgang lernt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Deutsch, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> macht er Matheaufgaben.</div>
-        <div class="sentence">3. Wir essen <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Pizza, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> essen wir Schokolade.</div>
-        <div class="sentence">4. Rita liest <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Liebesromane. Sie liest <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Krimis, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Fantasy-Romane.</div>
-        <div class="sentence">5. Möchtest du einen Apfel? – Nein, ich esse <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> eine Banane.</div>
-        <div class="sentence">6. Ich trinke <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Tee, aber ich trinke Kaffee <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select>.</div>
+        <h2>Aufgabe 4. Rephrase the following sentences using ‘gern’ or ‘nicht gern’. Use the verb in brackets in your sentences.</h2>
+        <h4>Remember: 1) ‘gern haben’ means the same as ‘mögen’<br>2) ’gern’ can be placed right after the main verb or at the end of a sentence.</h4>
+        <p>Beispiel: Ich mag Kaffee. (trinken): Ich trinke gern Kaffee. / Ich trinke Kaffee gern.</p>
+        <div class="sentence">Maroona mag Sport. (machen): _______________________________________________</div>
+        <div class="sentence">Aber sie mag Lernen nicht. (lernen): ________________________________________</div>
+        <div class="sentence">Wolfgang mag Mathematik (haben): __________________________________________</div>
+        <div class="sentence">Fred mag nicht Hausaufgaben. (machen): ____________________________________</div>
+        <div class="sentence">Rita mag Waschbären. (haben): _____________________________________________</div>
+        <div class="sentence">Siegfried mag das Restaurant 1390. (gehen in): _______________________________</div>
+        <div class="sentence">Der Roboter mag nicht machen, was Wolfgang ihm sagt. (machen): _____________</div>
+        <div class="sentence">Er mag Pfefsi sehr. (trinken): ______________________________________________</div>
         <button onclick="checkAnswers()">Antworten überprüfen</button>
         <button onclick="resetExercise()">Neu starten</button>
         <button onclick="showAnswers()">Lösungen anzeigen</button>
@@ -138,11 +139,11 @@ Note: there is only one instance of ‘am liebsten’ in this exercise!</h4>
     <script>
         function checkAnswers() {
             const correctAnswers = [
-                ["gern", "lieber"],
+                ["gern", "am liebsten"],
                 ["gern", "am liebsten"],
                 ["gern", "am liebsten"],
                 ["gern", "lieber", "am liebsten"],
-                ["lieber"],
+                ["gern"],
                 ["gern", "lieber"]
             ];
             let score = 0;
