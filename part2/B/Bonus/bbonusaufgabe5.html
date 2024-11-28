@@ -1,171 +1,230 @@
 <!DOCTYPE html>
-<html lang="de"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drag & Drop Perfekt Exercise</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f8ff;
-      color: #333;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-    }
-    h2 {
-      color: #2a6592;
-    }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      text-align: left;
-    }
-    .dropzone {
-      display: inline-block;
-      width: 80px;
-      height: 25px;
-      margin: 0 5px;
-      border-bottom: 2px solid #2a6592;
-      text-align: center;
-      vertical-align: middle;
-      font-size: 1rem;
-      background-color: #e6f2ff;
-      border-radius: 5px;
-    }
-    .draggable {
-      display: inline-block;
-      padding: 5px 10px;
-      margin: 5px;
-      border: 1px solid #333;
-      background-color: #b0c4de;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 5px;
-      color: #fff;
-    }
-    .draggable:hover {
-      background-color: #2a6592;
-    }
-    .sentence {
-      text-align: left;
-      margin-bottom: 10px;
-      font-size: 1rem;
-      line-height: 2;
-    }
-    .correct {
-      background-color: #a8e6cf !important;
-      color: #333;
-      font-weight: bold;
-    }
-    .incorrect {
-      background-color: #ff8b94 !important;
-      color: #333;
-      font-weight: bold;
-    }
-    #feedback {
-      margin-top: 15px;
-      font-size: 1.2rem;
-      color: #2a6592;
-      font-weight: bold;
-    }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #2a6592;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    button:hover {
-      background-color: #174573;
-    }
-  </style>
-</head><body><div class="container">
-<h2>Füllen Sie die Lücken mit den passenden Wörtern:</h2>
-<h3>Drag the correct verb in each blank:</h3>
-<div id="origin">
-<div class="draggable" draggable="true" id="hat">hat</div>
-<div class="draggable" draggable="true" id="ist">ist</div>
-<div class="draggable" draggable="true" id="war">war</div>
-<div class="draggable" draggable="true" id="wollte">wollte</div>
-<div class="draggable" draggable="true" id="hatte">hatte</div>
-</div>
-<div class="sentence">1. Frau L, die Babysitterin, <span class="dropzone" id="drop1" data-answer="war"></span> müde und <span class="dropzone" id="drop2" data-answer="wollte"></span> ihre Ruhe haben.</div>
-<div class="sentence">2. Julia <span class="dropzone" id="drop3" data-answer="war"></span> brav und <span class="dropzone" id="drop4" data-answer="hat"></span> ein Buch gelesen.</div>
-<div class="sentence">3. Milo <span class="dropzone" id="drop5" data-answer="ist"></span> wie wild herumgerannt und <span class="dropzone" id="drop6" data-answer="hat"></span> nicht zugehört.</div>
-<div class="sentence">4. Milo <span class="dropzone" id="drop7" data-answer="ist"></span> zum Tisch gelaufen und <span class="dropzone" id="drop8" data-answer="hat"></span> die Schere genommen.</div>
-<div class="sentence">5. Frau L. <span class="dropzone" id="drop9" data-answer="hat"></span> gesagt, dass es gefährlich <span class="dropzone" id="drop10" data-answer="ist"></span> mit einer Schere herumzulaufen.</div>
-<div class="sentence">6. Milo <span class="dropzone" id="drop11" data-answer="ist"></span> mit der Schere herumgelaufen.</div>
-<div class="sentence">7. Milo <span class="dropzone" id="drop12" data-answer="hat"></span> gefragt, warum er nicht rennen soll, und Frau L. <span class="dropzone" id="drop13" data-answer="hat"></span> gesagt, dass es gefährlich <span class="dropzone" id="drop14" data-answer="ist"></span>.</div>
-<div class="sentence">8. Am Ende <span class="dropzone" id="drop15" data-answer="ist"></span> Milo aus dem Fenster gesprungen.</div>
-<div class="sentence">9. Frau L. <span class="dropzone" id="drop16" data-answer="hat"></span> das Fenster zugemacht, und dann <span class="dropzone" id="drop17" data-answer="hatte"></span> Frau L. endlich ihre Ruhe.</div>
-<button onclick="checkAnswers()">Lösungen</button> <button onclick="resetExercise()">Neu starten</button>
-<div id="feedback"></div>
-</div>
-<p><script>
-    document.querySelectorAll('.draggable').forEach(item => {
-      item.addEventListener('dragstart', dragStart);
-    });
-
-    document.querySelectorAll('.dropzone').forEach(zone => {
-      zone.addEventListener('dragover', allowDrop);
-      zone.addEventListener('drop', drop);
-    });
-
-    function dragStart(event) {
-      event.dataTransfer.setData("text", event.target.id);
-    }
-
-    function allowDrop(event) {
-      event.preventDefault();
-    }
-
-    function drop(event) {
-      event.preventDefault();
-      const data = event.dataTransfer.getData("text");
-      const draggedElement = document.getElementById(data).cloneNode(true);
-      draggedElement.setAttribute("draggable", "false");
-      draggedElement.removeAttribute("id");
-      draggedElement.classList.remove("draggable");
-
-      if (event.target.classList.contains('dropzone') && !event.target.firstChild) {
-        event.target.appendChild(draggedElement);
-      } else if (event.target.id === "origin") {
-        document.getElementById("origin").appendChild(draggedElement);
-      }
-    }
-
-    function checkAnswers() {
-      let score = 0;
-      const total = document.querySelectorAll('.dropzone').length;
-
-      document.querySelectorAll('.dropzone').forEach(zone => {
-        const answer = zone.getAttribute('data-answer');
-        const userAnswer = zone.firstChild ? zone.firstChild.textContent : "";
-
-        if (userAnswer === answer) {
-          score++;
-          zone.classList.add('correct');
-          zone.classList.remove('incorrect');
-        } else {
-          zone.classList.add('incorrect');
-          zone.classList.remove('correct');
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonusaufgaben zu Kapitel B: Aufgabe 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
-      });
-
-      document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
-    }
-
-    function resetExercise() {
-      document.querySelectorAll('.dropzone').forEach(zone => {
-        if (zone.firstChild) {
-          document.getElementById("origin").appendChild(zone.firstChild);
+        header {
+            background: linear-gradient(to bottom, black 33.33%, red 33.33%, red 66.66%, yellow 66.66%);
+            color: black;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
-        zone.classList.remove('correct', 'incorrect');
-      });
-      document.getElementById('feedback').innerText = "";
-    }
-  </script></p></body></html>
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2a6592;
+        }
+        .origin {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .dropzone {
+            display: inline-block;
+            width: 150px;
+            height: 30px;
+            margin: 10px 5px;
+            border: 2px solid #2a6592;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1rem;
+            background-color: #e6f2ff;
+            border-radius: 5px;
+        }
+        .draggable {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px;
+            border: 1px solid #333;
+            background-color: #b0c4de;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .draggable:hover {
+            background-color: #2a6592;
+        }
+        .correct {
+            background-color: #a8e6cf !important;
+            color: #333;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #ff8b94 !important;
+            color: #333;
+            font-weight: bold;
+        }
+        #feedback {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #2a6592;
+            font-weight: bold;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #174573;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bonusaufgaben zu Kapitel B</h1>
+    </header>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="../../../index.html">Main Page</a>
+            <a href="bbonusaufgabe2.html">Previous Exercise</a>
+            <a href="bbonusaufgabe4.html">Next Exercise</a>
+        </nav>
+    </div>
+    <div class="container">
+        <h2>Füllen Sie die Lücken mit den passenden Wörtern:</h2>
+        <h3>Drag the correct verb in each blank:</h3>
+        <div id="origin">
+            <div class="draggable" draggable="true" id="hat">hat</div>
+            <div class="draggable" draggable="true" id="ist">ist</div>
+            <div class="draggable" draggable="true" id="war">war</div>
+            <div class="draggable" draggable="true" id="wollte">wollte</div>
+            <div class="draggable" draggable="true" id="hatte">hatte</div>
+        </div>
+        <div class="sentence">1. Frau L, die Babysitterin, <span class="dropzone" id="drop1" data-answer="war"></span> müde und <span class="dropzone" id="drop2" data-answer="wollte"></span> ihre Ruhe haben.</div>
+        <div class="sentence">2. Julia <span class="dropzone" id="drop3" data-answer="war"></span> brav und <span class="dropzone" id="drop4" data-answer="hat"></span> ein Buch gelesen.</div>
+        <div class="sentence">3. Milo <span class="dropzone" id="drop5" data-answer="ist"></span> wie wild herumgerannt und <span class="dropzone" id="drop6" data-answer="hat"></span> nicht zugehört.</div>
+        <div class="sentence">4. Milo <span class="dropzone" id="drop7" data-answer="ist"></span> zum Tisch gelaufen und <span class="dropzone" id="drop8" data-answer="hat"></span> die Schere genommen.</div>
+        <div class="sentence">5. Frau L. <span class="dropzone" id="drop9" data-answer="hat"></span> gesagt, dass es gefährlich <span class="dropzone" id="drop10" data-answer="ist"></span> mit einer Schere herumzulaufen.</div>
+        <div class="sentence">6. Milo <span class="dropzone" id="drop11" data-answer="ist"></span> mit der Schere herumgelaufen.</div>
+        <div class="sentence">7. Milo <span class="dropzone" id="drop12" data-answer="hat"></span> gefragt, warum er nicht rennen soll, und Frau L. <span class="dropzone" id="drop13" data-answer="hat"></span> gesagt, dass es gefährlich <span class="dropzone" id="drop14" data-answer="ist"></span>.</div>
+        <div class="sentence">8. Am Ende <span class="dropzone" id="drop15" data-answer="ist"></span> Milo aus dem Fenster gesprungen.</div>
+        <div class="sentence">9. Frau L. <span class="dropzone" id="drop16" data-answer="hat"></span> das Fenster zugemacht, und dann <span class="dropzone" id="drop17" data-answer="hatte"></span> Frau L. endlich ihre Ruhe.</div>
+        <button onclick="checkAnswers()">Antworten überprüfen</button> <button onclick="resetExercise()">Neu starten</button>
+        <div id="feedback"></div>
+    </div>
+    <nav>
+        <a href="/German-Through-Stories/index.html">Main Page</a>
+        <a href="../../../index.html">Main Page</a>
+        <a href="bbonusaufgabe2.html">Previous Exercise</a>
+        <a href="bbonusaufgabe4.html">Next Exercise</a>
+    </nav>
+    <footer>
+        <p>&copy; 2024 German Through Stories. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.draggable').forEach(item => {
+            item.addEventListener('dragstart', dragStart);
+        });
+
+        document.querySelectorAll('.dropzone').forEach(zone => {
+            zone.addEventListener('dragover', allowDrop);
+            zone.addEventListener('drop', drop);
+        });
+
+        function dragStart(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data).cloneNode(true);
+            draggedElement.setAttribute("draggable", "false");
+            draggedElement.removeAttribute("id");
+            draggedElement.classList.remove("draggable");
+
+            if (event.target.classList.contains('dropzone') && !event.target.firstChild) {
+                event.target.appendChild(draggedElement);
+            } else if (event.target.id === "origin") {
+                document.getElementById("origin").appendChild(draggedElement);
+            }
+        }
+
+        function checkAnswers() {
+            let score = 0;
+            const total = document.querySelectorAll('.dropzone').length;
+
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                const answer = zone.getAttribute('data-answer');
+                const userAnswer = zone.firstChild ? zone.firstChild.textContent : "";
+
+                if (userAnswer === answer) {
+                    score++;
+                    zone.classList.add('correct');
+                    zone.classList.remove('incorrect');
+                } else {
+                    zone.classList.add('incorrect');
+                    zone.classList.remove('correct');
+                }
+            });
+
+            document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
+        }
+
+        function resetExercise() {
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                if (zone.firstChild) {
+                    document.getElementById("origin").appendChild(zone.firstChild);
+                }
+                zone.classList.remove('correct', 'incorrect');
+            });
+            document.getElementById('feedback').innerText = "";
+        }
+    </script>
+</body>
+</html>
