@@ -125,142 +125,24 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 6. Gern, lieber, oder am liebsten?</h2>
-        <h4>Choose the correct option (gern, lieber, or am liebsten) to complete the sentences.</h4>
-        <form id="quiz-form">
-            <div class="question-container">
-                <div class="question">1. Fred trägt immer seine weiße Schuhe. Von allen seinen Schuhen mag er sie _______.</div>
-                <div class="options">
-                    <label class="option"><input type="radio" name="q1" value="a"> a) gern</label><br>
-                    <label class="option"><input type="radio" name="q1" value="b"> b) lieber</label><br>
-                    <label class="option"><input type="radio" name="q1" value="c"> c) am liebsten</label>
-                </div>
-            </div>
-            <br>
-            <div class="question-container">
-                <div class="question">2. Wolfgang arbeitet an seinem Roboterprojekt. Er bastelt _______ an technischen Geräten.</div>
-                <div class="options">
-                    <label class="option"><input type="radio" name="q2" value="a"> a) gern</label><br>
-                    <label class="option"><input type="radio" name="q2" value="b"> b) lieber</label><br>
-                    <label class="option"><input type="radio" name="q2" value="c"> c) am liebsten</label>
-                </div>
-            </div>
-            <br>
-            <div class="question-container">
-                <div class="question">3. Fred muss heute Abend Hausaufgaben machen, aber er spielt _______ Videospiele.</div>
-                <div class="options">
-                    <label class="option"><input type="radio" name="q3" value="a"> a) gern</label><br>
-                    <label class="option"><input type="radio" name="q3" value="b"> b) lieber</label><br>
-                    <label class="option"><input type="radio" name="q3" value="c"> c) am liebsten</label>
-                </div>
-            </div>
-            <br>
-            <div class="question-container">
-                <div class="question">4. Rita liest gern Romane. Sie mag auch Krimis, aber _______ liest sie Fantasy-Romane.</div>
-                <div class="options">
-                    <label class="option"><input type="radio" name="q4" value="a"> a) gern</label><br>
-                    <label class="option"><input type="radio" name="q4" value="b"> b) lieber</label><br>
-                    <label class="option"><input type="radio" name="q4" value="c"> c) am liebsten</label>
-                </div>
-            </div>
-            <br>
-            <div class="question-container">
-                <div class="question">5. Fred macht gern Selfies allein und mit seinen Bros, aber er macht _______ Selfies mit hübschen Mädchen.</div>
-                <div class="options">
-                    <label class="option"><input type="radio" name="q5" value="a"> a) gern</label><br>
-                    <label class="option"><input type="radio" name="q5" value="b"> b) lieber</label><br>
-                    <label class="option"><input type="radio" name="q5" value="c"> c) am liebsten</label>
-                </div>
-            </div>
-            <br>
-            <div class="question-container">
-                <div class="question">6. Rita trinkt jeden Tag Kaffee und Cappuccino, aber sie trinkt _______ frischen Espresso.</div>
-                <div class="options">
-                    <label class="option"><input type="radio" name="q6" value="a"> a) gern</label><br>
-                    <label class="option"><input type="radio" name="q6" value="b"> b) lieber</label><br>
-                    <label class="option"><input type="radio" name="q6" value="c"> c) am liebsten</label>
-                </div>
-            </div>
-            <br>
-            <div class="question-container">
-                <div class="question">7. Fred mag Coke und Fanta, aber er trinkt _______ Pfefsi.</div>
-                <div class="options">
-                    <label class="option"><input type="radio" name="q7" value="a"> a) gern</label><br>
-                    <label class="option"><input type="radio" name="q7" value="b"> b) lieber</label><br>
-                    <label class="option"><input type="radio" name="q7" value="c"> c) am liebsten</label>
-                </div>
-            </div>
-            <br>
-            <div class="question-container">
-                <div class="question">8. Rita wohnt in einem Studentenwohnheim und lernt gern in der Bibliothek. Aber sie verbringt ihre Freizeit ______ im Studentenzentrum.</div>
-                <div class="options">
-                    <label class="option"><input type="radio" name="q8" value="a"> a) gern</label><br>
-                    <label class="option"><input type="radio" name="q8" value="b"> b) lieber</label><br>
-                    <label class="option"><input type="radio" name="q8" value="c"> c) am liebsten</label>
-                </div>
-            </div>
-            <br>
-            <div class="button-group">
-                <button type="button" onclick="checkAnswers()">Antworten überprüfen</button>
-                <button type="button" onclick="resetQuiz()">Neu starten</button>
-            </div>
-            <div class="feedback" id="feedback"></div>
-        </form>
+        <h2>Aufgabe 8. Retell the story using your own words.</h2>
+        <p>You should be able to say several sentences for each frame.</p>
+        <p>Word bank: Fußball spielen / gern / die Midterm-Prüfung / um dieselbe Zeit (at the same time) / das große Spiel / eine MSAF ausfüllen / eine Nachricht / nicht erlaubt</p>
+        <img src="C1A8illustrations.png" alt="Illustrations for C1A8">
+        <textarea rows="10" cols="80"></textarea>
+        <br><br>
+        <textarea rows="10" cols="80"></textarea>
+        <br><br>
+        <textarea rows="10" cols="80"></textarea>
     </div>
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
         <a href="C1index">Story C-1: Maroona und die MSAF</a>
-            <a href="C1A5.html">Previous Exercise</a>
-            <a href="C1A7.html">Next Exercise</a>
+        <a href="C1A5.html">Previous Exercise</a>
+        <a href="C1A7.html">Next Exercise</a>
     </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
-<script>
-    function checkAnswers() {
-        const correctAnswers = {
-            q1: "c",
-            q2: "a",
-            q3: "b",
-            q4: "c",
-            q5: "c",
-            q6: "c",
-            q7: "c",
-            q8: "c"
-        };
-
-        let score = 0;
-        const totalQuestions = Object.keys(correctAnswers).length;
-
-        Object.keys(correctAnswers).forEach(question => {
-            const selected = document.querySelector(`input[name="${question}"]:checked`);
-            const options = document.querySelectorAll(`input[name="${question}"]`);
-
-            options.forEach(option => {
-                const label = option.parentNode;
-                label.classList.remove("correct", "incorrect");
-
-                if (selected && option === selected && option.value === correctAnswers[question]) {
-                    score++;
-                    label.style.color = "green";
-                } else if (selected && option === selected && option.value !== correctAnswers[question]) {
-                    label.style.color = "red";
-                } else {
-                    label.style.color = "";
-                }
-            });
-        });
-
-        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
-    }
-
-    function resetQuiz() {
-        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
-        document.querySelectorAll('.option').forEach(label => {
-            label.style.color = "";
-        });
-        document.getElementById("feedback").innerText = "";
-    }
-</script>
 </body>
 </html>
