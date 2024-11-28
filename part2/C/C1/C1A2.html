@@ -28,8 +28,8 @@
             overflow: hidden;
             display: inline-block;
             border-radius: 15px;
-            margin: 20px 0;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
         }
         nav a {
             float: left;
@@ -43,11 +43,6 @@
             background-color: #ddd;
             color: black;
         }
-        .container-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
         .container {
             max-width: 800px;
             width: 100%;
@@ -58,66 +53,69 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            color: black;
-        }
         h2 {
             color: #2a6592;
         }
-        .question-container {
+        .origin {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 20px;
         }
-        .question {
-            margin-bottom: 10px;
-        }
-        .word-bank {
-            background-color: #e7e7e7;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .word-bank span {
+        .dropzone {
             display: inline-block;
-            background-color: #fff;
-            margin: 5px;
+            width: 150px;
+            height: 30px;
+            margin: 10px 5px;
+            border: 2px solid #2a6592;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1rem;
+            background-color: #e6f2ff;
+            border-radius: 5px;
+        }
+        .draggable {
+            display: inline-block;
             padding: 5px 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            margin: 5px;
+            border: 1px solid #333;
+            background-color: #b0c4de;
             cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            color: #fff;
         }
-        .blank {
-            display: inline-block;
-            width: 100px;
-            border-bottom: 2px solid #333;
-            margin: 0 5px;
-            text-align: center;
+        .draggable:hover {
+            background-color: #2a6592;
         }
-        .button-group {
-            text-align: center;
-            margin-top: 20px;
+        .correct {
+            background-color: #a8e6cf !important;
+            color: #333;
+            font-weight: bold;
         }
-        .button-group button {
+        .incorrect {
+            background-color: #ff8b94 !important;
+            color: #333;
+            font-weight: bold;
+        }
+        #feedback {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            color: #2a6592;
+            font-weight: bold;
+        }
+        button {
+            margin-top: 15px;
             padding: 10px 20px;
-            font-size: 1em;
             background-color: #2a6592;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-            margin: 0 10px;
+            font-size: 1rem;
         }
-        .button-group button:hover {
+        button:hover {
             background-color: #174573;
-        }
-        .feedback {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #2a6592;
-            text-align: center;
         }
     </style>
 </head>
@@ -125,44 +123,41 @@
     <header>
         <h1>Aufgaben zu C-1: Maroona und MSAF</h1>
     </header>
-    <nav>
-        <a href="/German-Through-Stories/index.html">Main Page</a>
-        <a href="C1index">Story C-1: Maroona und die MSAF</a>
-        <a href="C1A1.html">Previous Exercise</a>
-        <a href="C1A3.html">Next Exercise</a>
-    </nav>
+    <div style="text-align: center;">
+        <nav>
+            <a href="/German-Through-Stories/index.html">Main Page</a>
+            <a href="C1index">Story C-1: Maroona und die MSAF</a>
+            <a href="C1A1.html">Previous Exercise</a>
+            <a href="C1A3.html">Next Exercise</a>
+        </nav>
+    </div>
     <div class="container">
         <h2>Aufgabe 2. Fill in the blank</h2>
-        <div class="word-bank">
-            <span draggable="true" ondragstart="dragStart(event)">am liebsten</span>
-            <span draggable="true" ondragstart="dragStart(event)">kann</span>
-            <span draggable="true" ondragstart="dragStart(event)">muss</span>
-            <span draggable="true" ondragstart="dragStart(event)">hat</span>
-            <span draggable="true" ondragstart="dragStart(event)">um</span>
-            <span draggable="true" ondragstart="dragStart(event)">mag</span>
-            <span draggable="true" ondragstart="dragStart(event)">soll</span>
-            <span draggable="true" ondragstart="dragStart(event)">schreiben</span>
-            <span draggable="true" ondragstart="dragStart(event)">erlaubt</span>
-            <span draggable="true" ondragstart="dragStart(event)">gern</span>
+        <h3>Drag the correct verb in each blank:</h3>
+        <div id="origin">
+            <div class="draggable" draggable="true" id="am liebsten">am liebsten</div>
+            <div class="draggable" draggable="true" id="kann">kann</div>
+            <div class="draggable" draggable="true" id="muss">muss</div>
+            <div class="draggable" draggable="true" id="hat">hat</div>
+            <div class="draggable" draggable="true" id="um">um</div>
+            <div class="draggable" draggable="true" id="mag">mag</div>
+            <div class="draggable" draggable="true" id="soll">soll</div>
+            <div class="draggable" draggable="true" id="schreiben">schreiben</div>
+            <div class="draggable" draggable="true" id="erlaubt">erlaubt</div>
+            <div class="draggable" draggable="true" id="gern">gern</div>
         </div>
-        <form id="quiz-form">
-            <div class="question-container">
-                <div class="question">Maroona <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="hat"></span> Sport <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="gern"></span>.</div>
-                <div class="question">Sie <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="mag"></span> Volleyball, aber <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="am liebsten"></span> mag sie Fußball.</div>
-                <div class="question">Maroona <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="muss"></span> viel trainieren und <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="hat"></span> nicht viel Zeit zum Lernen.</div>
-                <div class="question">Die Midtermprüfung ist <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="um"></span> sieben Uhr dreißig.</div>
-                <div class="question">Sie <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="kann"></span> nicht gleichzeitig auf dem Stadium und im Klassenzimmer sein! Sie <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="soll"></span> eins wählen.</div>
-                <div class="question">Was <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="soll"></span> sie machen: die Prüfung <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="schreiben"></span> oder Fußball spielen?</div>
-                <div class="question">Dann <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="hat"></span> Maroona eine Idee! Sie <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="kann"></span> eine MSAF ausfüllen und die Prüfung später <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="schreiben"></span>!</div>
-                <div class="question">Leider ist die MSAF nicht <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="erlaubt"></span>!</div>
-            </div>
-            <div class="button-group">
-                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
-                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
-                <button type="button" onclick="resetQuiz()">Neu starten</button>
-            </div>
-            <div class="feedback" id="feedback"></div>
-        </form>
+        <div class="sentence">Maroona <span class="dropzone" id="drop1" data-answer="hat"></span> Sport <span class="dropzone" id="drop2" data-answer="gern"></span>.</div>
+        <div class="sentence">Sie <span class="dropzone" id="drop3" data-answer="mag"></span> Volleyball, aber <span class="dropzone" id="drop4" data-answer="am liebsten"></span> mag sie Fußball.</div>
+        <div class="sentence">Maroona <span class="dropzone" id="drop5" data-answer="muss"></span> viel trainieren und <span class="dropzone" id="drop6" data-answer="hat"></span> nicht viel Zeit zum Lernen.</div>
+        <div class="sentence">Die Midtermprüfung ist <span class="dropzone" id="drop7" data-answer="um"></span> sieben Uhr dreißig.</div>
+        <div class="sentence">Sie <span class="dropzone" id="drop8" data-answer="kann"></span> nicht gleichzeitig auf dem Stadium und im Klassenzimmer sein! Sie <span class="dropzone" id="drop9" data-answer="soll"></span> eins wählen.</div>
+        <div class="sentence">Was <span class="dropzone" id="drop10" data-answer="soll"></span> sie machen: die Prüfung <span class="dropzone" id="drop11" data-answer="schreiben"></span> oder Fußball spielen?</div>
+        <div class="sentence">Dann <span class="dropzone" id="drop12" data-answer="hat"></span> Maroona eine Idee! Sie <span class="dropzone" id="drop13" data-answer="kann"></span> eine MSAF ausfüllen und die Prüfung später <span class="dropzone" id="drop14" data-answer="schreiben"></span>!</div>
+        <div class="sentence">Leider ist die MSAF nicht <span class="dropzone" id="drop15" data-answer="erlaubt"></span>!</div>
+        <button onclick="checkAnswers()">Antworten überprüfen</button>
+        <button onclick="resetExercise()">Neu starten</button>
+        <button onclick="showAnswers()">Lösungen anzeigen</button>
+        <div id="feedback"></div>
     </div>
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
@@ -173,84 +168,93 @@
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
-<script>
-const correctAnswers = {
-    "hat": "hat",
-    "gern": "gern",
-    "mag": "mag",
-    "am liebsten": "am liebsten",
-    "muss": "muss",
-    "hat": "hat",
-    "um": "um",
-    "kann": "kann",
-    "soll": "soll",
-    "schreiben": "schreiben",
-    "erlaubt": "erlaubt"
-};
-
-document.querySelectorAll('.word-bank span').forEach(item => {
-    item.addEventListener('dragstart', dragStart);
-});
-
-document.querySelectorAll('.blank').forEach(blank => {
-    blank.addEventListener('dragover', dragOver);
-    blank.addEventListener('drop', drop);
-});
-
-function allowDrop(event) {
-    event.preventDefault();
-}
-
-function dragStart(event) {
-    event.dataTransfer.setData('text', event.target.textContent);
-}
-
-function dragOver(event) {
-    event.preventDefault();
-}
-
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData('text');
-    event.target.textContent = data;
-}
-
-function showAnswers() {
-    Object.keys(correctAnswers).forEach(question => {
-        const blankElements = document.querySelectorAll(`[data-answer="${question}"]`);
-        blankElements.forEach(blank => {
-            blank.textContent = correctAnswers[question];
-            blank.style.borderColor = 'green';
+    <script>
+        document.querySelectorAll('.draggable').forEach(item => {
+            item.addEventListener('dragstart', dragStart);
         });
-    });
-}
 
-function checkAnswers() {
-    let score = 0;
-    const totalQuestions = 15;
+        document.querySelectorAll('.dropzone').forEach(zone => {
+            zone.addEventListener('dragover', allowDrop);
+            zone.addEventListener('drop', drop);
+        });
 
-    document.querySelectorAll('.blank').forEach(blank => {
-        const answer = blank.textContent.trim();
-        const correctAnswer = blank.getAttribute('data-answer');
-
-        if (answer === correctAnswer) {
-            score++;
-            blank.style.borderColor = 'green';
-        } else {
-            blank.style.borderColor = 'red';
+        function dragStart(event) {
+            event.dataTransfer.setData("text", event.target.id);
         }
-    });
 
-    document.getElementById('feedback').innerText = `${score} von ${totalQuestions} sind richtig`;
-}
+        function allowDrop(event) {
+            event.preventDefault();
+        }
 
-function resetQuiz() {
-    document.querySelectorAll('.blank').forEach(blank => {
-        blank.textContent = '';
-        blank.style.borderColor = '';
-    });
-    document.getElementById('feedback').innerText = '';
-}
-</script>
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data).cloneNode(true);
+            draggedElement.setAttribute("draggable", "false");
+            draggedElement.removeAttribute("id");
+            draggedElement.classList.remove("draggable");
+
+            if (event.target.classList.contains('dropzone') && !event.target.firstChild) {
+                event.target.appendChild(draggedElement);
+            } else if (event.target.id === "origin") {
+                document.getElementById("origin").appendChild(draggedElement);
+            }
+        }
+
+        function checkAnswers() {
+            let score = 0;
+            const total = document.querySelectorAll('.dropzone').length;
+
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                const answer = zone.getAttribute('data-answer');
+                const userAnswer = zone.firstChild ? zone.firstChild.textContent : "";
+
+                if (userAnswer === answer) {
+                    score++;
+                    zone.classList.add('correct');
+                    zone.classList.remove('incorrect');
+                } else {
+                    zone.classList.add('incorrect');
+                    zone.classList.remove('correct');
+                }
+            });
+
+            document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
+        }
+
+        function resetExercise() {
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                if (zone.firstChild) {
+                    document.getElementById("origin").appendChild(zone.firstChild);
+                }
+                zone.innerHTML = '';
+                zone.classList.remove('correct', 'incorrect');
+            });
+
+            document.getElementById('feedback').innerText = '';
+
+            const origin = document.getElementById('origin');
+            origin.innerHTML = '';
+            const draggableItems = ['am liebsten', 'kann', 'muss', 'hat', 'um', 'mag', 'soll', 'schreiben', 'erlaubt', 'gern'];
+            draggableItems.forEach(item => {
+                const newDraggable = document.createElement('div');
+                newDraggable.id = item;
+                newDraggable.textContent = item;
+                newDraggable.setAttribute('draggable', 'true');
+                newDraggable.classList.add('draggable');
+                newDraggable.addEventListener('dragstart', dragStart);
+                origin.appendChild(newDraggable);
+            });
+        }
+
+        function showAnswers() {
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                const answer = zone.getAttribute('data-answer');
+                zone.innerHTML = '';
+                zone.innerHTML = `<span class="correct">${answer}</span>`;
+            });
+            document.getElementById('feedback').innerText = "Lösungen angezeigt.";
+        }
+    </script>
 </body>
 </html>
