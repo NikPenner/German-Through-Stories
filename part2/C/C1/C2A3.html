@@ -90,6 +90,12 @@
         button:hover {
             background-color: #174573;
         }
+        .correct {
+            background-color: #a8e6cf !important;
+        }
+        .incorrect {
+            background-color: #ff8b94 !important;
+        }
     </style>
 </head>
 <body>
@@ -105,14 +111,14 @@
         </nav>
     </div>
     <div class="container">
-        <h2>Aufgabe 3. Fill in the blank</h2>
-        <h3>Gern, lieber, am liebsten. Remember: gern means "to like doing something," lieber means "to prefer something.”, am liebsten means to “like something the most”. Note: there is only one instance of ‘am liebsten’ in this exercise!</h3>
+        <h2>Aufgabe 3. Fill in the blank. Gern, lieber, am liebsten. Remember: gern means "to like doing something," lieber means "to prefer something” (emphasizing one of two things), am liebsten means to “like something the most” and is used when comparing 3 or more things.
+Note: there is only one instance of ‘am liebsten’ in this exercise!</h2>
         <div class="sentence">Maroona spielt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Baseball, aber sie spielt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Fußball.</div>
         <div class="sentence">Wolfgang lernt <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Deutsch, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> macht er Matheaufgaben.</div>
         <div class="sentence">Wir essen <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Pizza, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> essen wir Schokolade.</div>
-        <div class="sentence">Rita liest <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Bücher. Sie liest <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Krimis, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Fantasy-Romane.</div>
+        <div class="sentence">Rita liest <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Liebesromane. Sie liest <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Krimis, aber <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Fantasy-Romane.</div>
         <div class="sentence">Möchtest du einen Apfel? – Nein, ich esse <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> eine Banane.</div>
-        <div class="sentence">Ich trinke <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Tee, aber Kaffee trinke ich <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select>.</div>
+        <div class="sentence">Ich trinke <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select> Tee, aber ich trinke Kaffee <select class="dropzone"><option value="">________</option><option value="gern">gern</option><option value="lieber">lieber</option><option value="am liebsten">am liebsten</option></select>.</div>
         <button onclick="checkAnswers()">Antworten überprüfen</button>
         <button onclick="resetExercise()">Neu starten</button>
         <button onclick="showAnswers()">Lösungen anzeigen</button>
@@ -139,30 +145,22 @@
             ];
             let score = 0;
             const total = correctAnswers.length;
-            document.querySelectorAll('.sentence').forEach((sentence, index) => {
-                const options = sentence.querySelectorAll('.dropzone');
-                let isCorrect = true;
-                options.forEach((option, optionIndex) => {
-                    if (option.value !== correctAnswers[index][optionIndex]) {
-                        isCorrect = false;
-                    }
-                });
-                if (isCorrect) {
+            document.querySelectorAll('.dropzone').forEach((dropzone, index) => {
+                dropzone.classList.remove('correct', 'incorrect');
+                if (dropzone.value === correctAnswers[Math.floor(index / 2)][index % 2]) {
                     score++;
-                    sentence.style.backgroundColor = '#a8e6cf';
+                    dropzone.classList.add('correct');
                 } else {
-                    sentence.style.backgroundColor = '#ff8b94';
+                    dropzone.classList.add('incorrect');
                 }
             });
             document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
         }
 
         function resetExercise() {
-            document.querySelectorAll('.sentence').forEach(sentence => {
-                sentence.style.backgroundColor = '';
-                sentence.querySelectorAll('.dropzone').forEach(option => {
-                    option.selectedIndex = 0;
-                });
+            document.querySelectorAll('.dropzone').forEach(dropzone => {
+                dropzone.classList.remove('correct', 'incorrect');
+                dropzone.selectedIndex = 0;
             });
             document.getElementById('feedback').innerText = '';
         }
@@ -176,12 +174,10 @@
                 ["gern"],
                 ["gern", "lieber"]
             ];
-            document.querySelectorAll('.sentence').forEach((sentence, index) => {
-                const options = sentence.querySelectorAll('.dropzone');
-                options.forEach((option, optionIndex) => {
-                    option.value = correctAnswers[index][optionIndex];
-                });
-                sentence.style.backgroundColor = '#a8e6cf';
+            document.querySelectorAll('.dropzone').forEach((dropzone, index) => {
+                dropzone.classList.remove('correct', 'incorrect');
+                dropzone.value = correctAnswers[Math.floor(index / 2)][index % 2];
+                dropzone.classList.add('correct');
             });
             document.getElementById('feedback').innerText = "Lösungen angezeigt.";
         }
