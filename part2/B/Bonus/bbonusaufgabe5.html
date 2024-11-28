@@ -126,9 +126,11 @@
     function drop(event) {
       event.preventDefault();
       const data = event.dataTransfer.getData("text");
-      const draggedElement = document.getElementById(data);
+      const draggedElement = document.getElementById(data).cloneNode(true);
+      draggedElement.setAttribute("draggable", "false");
+      draggedElement.removeAttribute("id");
+      draggedElement.classList.remove("draggable");
 
-      // Allow only one answer per dropzone and keep draggable size consistent
       if (event.target.classList.contains('dropzone') && !event.target.firstChild) {
         event.target.appendChild(draggedElement);
       } else if (event.target.id === "origin") {
@@ -142,7 +144,7 @@
 
       document.querySelectorAll('.dropzone').forEach(zone => {
         const answer = zone.getAttribute('data-answer');
-        const userAnswer = zone.firstChild ? zone.firstChild.id : "";
+        const userAnswer = zone.firstChild ? zone.firstChild.textContent : "";
 
         if (userAnswer === answer) {
           score++;
