@@ -49,7 +49,7 @@
             align-items: flex-start;
         }
         .container {
-            max-width: 500px;
+            max-width: 800px;
             width: 100%;
             text-align: left;
             background-color: white;
@@ -64,24 +64,34 @@
         h2 {
             color: #2a6592;
         }
+        .question-container {
+            margin-bottom: 20px;
+        }
         .question {
-            margin: 15px 0;
+            margin-bottom: 10px;
         }
-        .question label {
-            font-weight: bold;
-        }
-        .question input {
-            display: block;
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
+        .word-bank {
+            background-color: #e7e7e7;
+            padding: 10px;
             border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
         }
-        .correct-answer {
-            margin-top: 10px;
-            color: green;
-            font-style: italic;
+        .word-bank span {
+            display: inline-block;
+            background-color: #fff;
+            margin: 5px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .blank {
+            display: inline-block;
+            width: 100px;
+            border-bottom: 2px solid #333;
+            margin: 0 5px;
+            text-align: center;
         }
         .button-group {
             text-align: center;
@@ -96,15 +106,18 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: inline-block;
+            margin: 0 10px;
         }
         .button-group button:hover {
             background-color: #174573;
         }
-        footer {
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a6592;
             text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #666;
         }
     </style>
 </head>
@@ -118,71 +131,38 @@
         <a href="C1A1.html">Previous Exercise</a>
         <a href="C1A3.html">Next Exercise</a>
     </nav>
-    <div class="container-wrapper">
-        <div class="container">
-            <section>
-                <h2>Aufgabe 1. Fragen zum Text. Beantworten Sie die Fragen mit kurzen Antworten.</h2>
-                <div class="question">
-                    <label for="q1">1.Welche Sportarten spielt Maroona gern?</label>
-                    <input type="text" id="q1" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a1" style="display: none;">Sample answer: Eishockey, Volleyball und Fußball</p>
-                </div>
-                <div class="question">
-                    <label for="q2">2. Was macht Maroona am liebsten? </label>
-                    <input type="text" id="q2" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a2" style="display: none;">Sample answer: sie spielt Fußball am liebsten</p>
-                </div>
-                <div class="question">
-                    <label for="q3">3. Wie oft hat Maroona Fußballtraining?  </label>
-                    <input type="text" id="q3" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a3" style="display: none;">Sample answer: jeden Tag drei mal</p>
-                </div>
-                <div class="question">
-                    <label for="q4">4. Warum kann Maroona nicht gegen Western spielen? </label>
-                    <input type="text" id="q4" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a4" style="display: none;">Sample answer: weil sie eine Midterm-Prüfung hat</p>
-                </div>
-                <div class="question">
-                    <label for="q5">5. Wann ist das große Spiel? </label>
-                    <input type="text" id="q5" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a5" style="display: none;">Sample answer: am Samstag</p>
-                </div>
-                <div class="question">
-                    <label for="q6">6. Um wie viel Uhr ist die Midterm-Prüfung?  </label>
-                    <input type="text" id="q6" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a6" style="display: none;">Sample answer: um 7:30 Uhr</p>
-                </div>
-                <div class="question">
-                    <label for="q7">7. Was wählt Maroona: das Spiel oder die Prüfung? </label>
-                    <input type="text" id="q7" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a7" style="display: none;">Sample answer: Die Midterm-Prüfung</p>
-                </div>
-                <div class="question">
-                    <label for="q8">8. Warum hat Maroona jetzt ein Problem? </label>
-                    <input type="text" id="q8" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a8" style="display: none;">Sample answer: Weil die MSAF nicht erlaubt ist.</p>
-                </div>
-                <div class="question">
-                    <label for="q9">9. Warum ist MSAF nicht erlaubt? </label>
-                    <input type="text" id="q9" placeholder="Ihre Antwort">
-                    <p class="correct-answer" id="a9" style="display: none;">Sample answer: Weil die Midterm-Prüfung 26% wert ist</p>
-                </div>
-                <div class="button-group">
-                    <button onclick="showCorrectAnswers()">Lösungen anzeigen</button>
-                    <button onclick="resetQuiz()">Neu Starten</button>
-                </div>
-            </section>
+    <div class="container">
+        <h2>Aufgabe 2. Fill in the blank</h2>
+        <div class="word-bank">
+            <span draggable="true" ondragstart="dragStart(event)">am liebsten</span>
+            <span draggable="true" ondragstart="dragStart(event)">kann</span>
+            <span draggable="true" ondragstart="dragStart(event)">muss</span>
+            <span draggable="true" ondragstart="dragStart(event)">hat</span>
+            <span draggable="true" ondragstart="dragStart(event)">um</span>
+            <span draggable="true" ondragstart="dragStart(event)">mag</span>
+            <span draggable="true" ondragstart="dragStart(event)">soll</span>
+            <span draggable="true" ondragstart="dragStart(event)">schreiben</span>
+            <span draggable="true" ondragstart="dragStart(event)">erlaubt</span>
+            <span draggable="true" ondragstart="dragStart(event)">gern</span>
         </div>
-        <div class="container">
-            <h2>C-1: Maroona und die MSAF</h2>
-            <p>Maroona mag Sport. Sie boxt gern, joggt gern, spielt gern Eishockey, Volleyball und Baseball. Aber am liebsten spielt sie Fußball. Sie ist an der McMaster Fußballmannschaft. Bald gibt es ein Fußballspiel gegen McMasters größten Rivalen, die Western-Uni!</p>
-            <p>So muss Maroona sehr viel trainieren. Sie trainiert jeden Tag drei Mal: am Morgen, am Tag und am Abend. Sie hat nicht viel Zeit zum Lernen. „Aber wen interessiert das Lernen, wenn man Fußball gegen Western spielt?!“ denkt sie. „Ich muss mehr trainieren damit wir gegen Western gewinnen!“</p>
-            <p>Am Abend vor dem Spiel kommt Maroona nach Hause und sieht auf ihren Kalendar. Oh Nein! Morgen um sieben Uhr dreißig soll sie eine Midterm-Prüfung schreiben! Aber das große Fußballspiel ist auch um sieben Uhr dreißig! Das ist ein großes Problem! Sie kann nicht Fußball spielen und eine Midterm-Prüfung schreiben. Sie muss eins wählen! Was soll sie machen: die Prüfung schreiben oder gegen Western spielen?</p>
-            <p>Sie hat für die Prüfung nicht gelernt, denn sie hat so viel trainiert. „Was soll ich nur tun?“ denkt sie.</p>
-            <p>„Aber natürlich! Ich kann eine MSAF ausfüllen! Dann kann ich morgen Fußball spielen und die Midterm-Prüfung später schreiben!“, denkt Maroona. Sie geht online, füllt die MSAF aus und geht ins Bett.</p>
-            <p>Am nächsten Abend spielt Maroona sehr gut und ihre Mannschaft gewinnt vier zu zwei. Alle sind sehr glücklich und natürlich auch Maroona selbst. Sie hat alle vier Tore geschossen! Dann bekommt sie eine Nachricht. Sie sieht auf ihr Handy und wird sofort traurig. In der Nachricht steht: „MSAF nicht erlaubt. Die Midterm-Prüfung ist sechsundzwanzig Prozent der Endnote wert.“</p>
-            <p>Jetzt hat sie ein Problem.</p>
-        </div>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">Maroona <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="hat"></span> Sport <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="gern"></span>.</div>
+                <div class="question">Sie <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="mag"></span> Volleyball, aber <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="am liebsten"></span> mag sie Fußball.</div>
+                <div class="question">Maroona <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="muss"></span> viel trainieren und <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="hat"></span> nicht viel Zeit zum Lernen.</div>
+                <div class="question">Die Midtermprüfung ist <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="um"></span> sieben Uhr dreißig.</div>
+                <div class="question">Sie <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="kann"></span> nicht gleichzeitig auf dem Stadium und im Klassenzimmer sein! Sie <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="soll"></span> eins wählen.</div>
+                <div class="question">Was <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="soll"></span> sie machen: die Prüfung <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="schreiben"></span> oder Fußball spielen?</div>
+                <div class="question">Dann <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="hat"></span> Maroona eine Idee! Sie <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="kann"></span> eine MSAF ausfüllen und die Prüfung später <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="schreiben"></span>!</div>
+                <div class="question">Leider ist die MSAF nicht <span class="blank" ondrop="drop(event)" ondragover="allowDrop(event)" data-answer="erlaubt"></span>!</div>
+            </div>
+            <div class="button-group">
+                <button type="button" class="tooltip" title="Show Answers" onclick="showAnswers()">Lösungen anzeigen<span class="tooltiptext">Show Answers</span></button>
+                <button type="button" class="tooltip" title="Check Answers" onclick="checkAnswers()">Antworten überprüfen<span class="tooltiptext">Check Answers</span></button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
     </div>
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
@@ -193,26 +173,84 @@
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
+<script>
+const correctAnswers = {
+    "hat": "hat",
+    "gern": "gern",
+    "mag": "mag",
+    "am liebsten": "am liebsten",
+    "muss": "muss",
+    "hat": "hat",
+    "um": "um",
+    "kann": "kann",
+    "soll": "soll",
+    "schreiben": "schreiben",
+    "erlaubt": "erlaubt"
+};
 
-    <script>
-        function showCorrectAnswers() {
-            // Show all correct answers
-            for (let i = 1; i <= 9; i++) {
-                document.getElementById('a' + i).style.display = 'block';
-            }
-        }
+document.querySelectorAll('.word-bank span').forEach(item => {
+    item.addEventListener('dragstart', dragStart);
+});
 
-        function resetQuiz() {
-            // Hide all correct answers
-            for (let i = 1; i <= 9; i++) {
-                document.getElementById('a' + i).style.display = 'none';
-            }
-            
-            // Clear all input fields
-            document.querySelectorAll('.question input').forEach(input => {
-                input.value = '';
-            });
+document.querySelectorAll('.blank').forEach(blank => {
+    blank.addEventListener('dragover', dragOver);
+    blank.addEventListener('drop', drop);
+});
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function dragStart(event) {
+    event.dataTransfer.setData('text', event.target.textContent);
+}
+
+function dragOver(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData('text');
+    event.target.textContent = data;
+}
+
+function showAnswers() {
+    Object.keys(correctAnswers).forEach(question => {
+        const blankElements = document.querySelectorAll(`[data-answer="${question}"]`);
+        blankElements.forEach(blank => {
+            blank.textContent = correctAnswers[question];
+            blank.style.borderColor = 'green';
+        });
+    });
+}
+
+function checkAnswers() {
+    let score = 0;
+    const totalQuestions = 15;
+
+    document.querySelectorAll('.blank').forEach(blank => {
+        const answer = blank.textContent.trim();
+        const correctAnswer = blank.getAttribute('data-answer');
+
+        if (answer === correctAnswer) {
+            score++;
+            blank.style.borderColor = 'green';
+        } else {
+            blank.style.borderColor = 'red';
         }
-    </script>
+    });
+
+    document.getElementById('feedback').innerText = `${score} von ${totalQuestions} sind richtig`;
+}
+
+function resetQuiz() {
+    document.querySelectorAll('.blank').forEach(blank => {
+        blank.textContent = '';
+        blank.style.borderColor = '';
+    });
+    document.getElementById('feedback').innerText = '';
+}
+</script>
 </body>
 </html>
