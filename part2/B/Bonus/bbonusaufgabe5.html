@@ -150,7 +150,9 @@
         <div class="sentence">7. Milo <span class="dropzone" id="drop12" data-answer="hat"></span> gefragt, warum er nicht rennen soll, und Frau L. <span class="dropzone" id="drop13" data-answer="hat"></span> gesagt, dass es gefährlich <span class="dropzone" id="drop14" data-answer="ist"></span>.</div>
         <div class="sentence">8. Am Ende <span class="dropzone" id="drop15" data-answer="ist"></span> Milo aus dem Fenster gesprungen.</div>
         <div class="sentence">9. Frau L. <span class="dropzone" id="drop16" data-answer="hat"></span> das Fenster zugemacht, und dann <span class="dropzone" id="drop17" data-answer="hatte"></span> Frau L. endlich ihre Ruhe.</div>
-        <button onclick="checkAnswers()">Antworten überprüfen</button> <button onclick="resetExercise()">Neu starten</button>
+        <button onclick="checkAnswers()">Antworten überprüfen</button>
+        <button onclick="resetExercise()">Neu starten</button>
+        <button onclick="showAnswers()">Lösungen anzeigen</button>
         <div id="feedback"></div>
     </div>
     <nav>
@@ -224,6 +226,14 @@
                 zone.classList.remove('correct', 'incorrect');
             });
             document.getElementById('feedback').innerText = "";
+        }
+
+        function showAnswers() {
+            document.querySelectorAll('.dropzone').forEach(zone => {
+                const answer = zone.getAttribute('data-answer');
+                zone.innerHTML = `<span class="correct">${answer}</span>`;
+            });
+            document.getElementById('feedback').innerText = "Lösungen angezeigt.";
         }
     </script>
 </body>
