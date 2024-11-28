@@ -67,6 +67,11 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        .answer {
+            margin-top: 5px;
+            color: #2a6592;
+            display: none;
+        }
         #feedback {
             margin-top: 15px;
             font-size: 1.2rem;
@@ -110,14 +115,14 @@
         <h2>Aufgabe 4. Rephrase the following sentences using ‘gern’ or ‘nicht gern’. Use the verb in brackets in your sentences.</h2>
         <h4>Remember: 1) ‘gern haben’ means the same as ‘mögen’<br>2) ’gern’ can be placed right after the main verb or at the end of a sentence.</h4>
         <p>Beispiel: Ich mag Kaffee. (trinken): Ich trinke gern Kaffee. / Ich trinke Kaffee gern.</p>
-        <div class="sentence">Maroona mag Sport. (machen): <input type="text" class="input-box" id="answer1"></div>
-        <div class="sentence">Aber sie mag Lernen nicht. (lernen): <input type="text" class="input-box" id="answer2"></div>
-        <div class="sentence">Wolfgang mag Mathematik (haben): <input type="text" class="input-box" id="answer3"></div>
-        <div class="sentence">Fred mag nicht Hausaufgaben. (machen): <input type="text" class="input-box" id="answer4"></div>
-        <div class="sentence">Rita mag Waschbären. (haben): <input type="text" class="input-box" id="answer5"></div>
-        <div class="sentence">Siegfried mag das Restaurant 1390. (gehen in): <input type="text" class="input-box" id="answer6"></div>
-        <div class="sentence">Der Roboter mag nicht machen, was Wolfgang ihm sagt. (machen): <input type="text" class="input-box" id="answer7"></div>
-        <div class="sentence">Er mag Pfefsi sehr. (trinken): <input type="text" class="input-box" id="answer8"></div>
+        <div class="sentence">Maroona mag Sport. (machen): <input type="text" class="input-box" id="answer1"><div class="answer" id="answer1-correct"></div></div>
+        <div class="sentence">Aber sie mag Lernen nicht. (lernen): <input type="text" class="input-box" id="answer2"><div class="answer" id="answer2-correct"></div></div>
+        <div class="sentence">Wolfgang mag Mathematik (haben): <input type="text" class="input-box" id="answer3"><div class="answer" id="answer3-correct"></div></div>
+        <div class="sentence">Fred mag nicht Hausaufgaben. (machen): <input type="text" class="input-box" id="answer4"><div class="answer" id="answer4-correct"></div></div>
+        <div class="sentence">Rita mag Waschbären. (haben): <input type="text" class="input-box" id="answer5"><div class="answer" id="answer5-correct"></div></div>
+        <div class="sentence">Siegfried mag das Restaurant 1390. (gehen in): <input type="text" class="input-box" id="answer6"><div class="answer" id="answer6-correct"></div></div>
+        <div class="sentence">Der Roboter mag nicht machen, was Wolfgang ihm sagt. (machen): <input type="text" class="input-box" id="answer7"><div class="answer" id="answer7-correct"></div></div>
+        <div class="sentence">Er mag Pfefsi sehr. (trinken): <input type="text" class="input-box" id="answer8"><div class="answer" id="answer8-correct"></div></div>
         <button onclick="checkAnswers()">Antworten überprüfen</button>
         <button onclick="resetExercise()">Neu starten</button>
         <button onclick="showAnswers()">Lösungen anzeigen</button>
@@ -164,6 +169,9 @@
                 inputBox.classList.remove('correct', 'incorrect');
                 inputBox.value = '';
             });
+            document.querySelectorAll('.answer').forEach(answer => {
+                answer.style.display = 'none';
+            });
             document.getElementById('feedback').innerText = '';
         }
 
@@ -180,8 +188,8 @@
             ];
             document.querySelectorAll('.input-box').forEach((inputBox, index) => {
                 inputBox.classList.remove('correct', 'incorrect');
-                inputBox.value = correctAnswers[index].split(" / ")[0];
-                inputBox.classList.add('correct');
+                document.getElementById(`answer${index + 1}-correct`).innerText = correctAnswers[index];
+                document.getElementById(`answer${index + 1}-correct`).style.display = 'block';
             });
             document.getElementById('feedback').innerText = "Lösungen angezeigt.";
         }
