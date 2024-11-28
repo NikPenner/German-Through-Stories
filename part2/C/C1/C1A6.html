@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,52 +50,65 @@
             background-color: white;
             padding: 20px;
             margin: 20px;
-            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: black;
         }
         h2 {
             color: #2a6592;
         }
-        .sentence {
-            margin: 10px 0;
+        .book-part {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #e6f2ff;
         }
-        .input-box {
-            width: 100%;
-            padding: 5px;
-            margin: 5px 0;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        .book-part .content {
+            display: flex;
+            align-items: flex-start;
         }
-        .answer {
-            margin-top: 5px;
-            color: green;
-            display: none;
+        .book-part img {
+            width: 200px;
+            margin-right: 20px;
+            border-radius: 5px;
         }
-        #feedback {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            color: #2a6592;
-            font-weight: bold;
+        .button-group {
+            text-align: center;
+            margin-top: 20px;
         }
-        button {
-            margin-top: 15px;
+        .button-group button {
             padding: 10px 20px;
+            font-size: 1em;
             background-color: #2a6592;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
+        .button-group button:hover {
             background-color: #174573;
         }
-        .correct {
-            background-color: #a8e6cf !important;
+        .book-part a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #2a6592;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .incorrect {
-            background-color: #ff8b94 !important;
+        .book-part a:hover {
+            background-color: #174573;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
@@ -107,100 +120,147 @@
         <nav>
             <a href="/German-Through-Stories/index.html">Main Page</a>
             <a href="C1index">Story C-1: Maroona und die MSAF</a>
-            <a href="C1A4.html">Previous Exercise</a>
-            <a href="C1A6.html">Next Exercise</a>
+            <a href="C1A5.html">Previous Exercise</a>
+            <a href="C1A7.html">Next Exercise</a>
         </nav>
     </div>
     <div class="container">
         <h2>Aufgabe 6. Gern, lieber, oder am liebsten?</h2>
         <h4>Choose the correct option (gern, lieber, or am liebsten) to complete the sentences.</h4>
-        <div class="sentence">Fred trägt immer seine weiße  Schuhe. Von allen seinen Schuhen mag er sie <select id="answer1" class="input-box">
-            <option value="a">gern</option>
-            <option value="b">lieber</option>
-            <option value="c">am liebsten</option>
-        </select></div>
-        <div class="sentence">Wolfgang arbeitet an seinem Roboterprojekt. Er bastelt <select id="answer2" class="input-box">
-            <option value="a">gern</option>
-            <option value="b">lieber</option>
-            <option value="c">am liebsten</option>
-        </select> an technischen Geräten.</div>
-        <div class="sentence">Fred muss heute Abend Hausaufgaben machen, aber er spielt <select id="answer3" class="input-box">
-            <option value="a">gern</option>
-            <option value="b">lieber</option>
-            <option value="c">am liebsten</option>
-        </select> Videospiele.</div>
-        <div class="sentence">Rita liest gern Romane. Sie mag auch Krimis, aber <select id="answer4" class="input-box">
-            <option value="a">gern</option>
-            <option value="b">lieber</option>
-            <option value="c">am liebsten</option>
-        </select> liest sie Fantasy-Romane.</div>
-        <div class="sentence">Fred macht gern Selfies allein und mit seinen Bros, aber er macht <select id="answer5" class="input-box">
-            <option value="a">gern</option>
-            <option value="b">lieber</option>
-            <option value="c">am liebsten</option>
-        </select> Selfies mit hübschen Mädchen.</div>
-        <div class="sentence">Rita trinkt jeden Tag Kaffee und Cappuccino, aber sie trinkt <select id="answer6" class="input-box">
-            <option value="a">gern</option>
-            <option value="b">lieber</option>
-            <option value="c">am liebsten</option>
-        </select> frischen Espresso.</div>
-        <div class="sentence">Fred mag Coke und Fanta, aber er trinkt <select id="answer7" class="input-box">
-            <option value="a">gern</option>
-            <option value="b">lieber</option>
-            <option value="c">am liebsten</option>
-        </select> Pfefsi.</div>
-        <div class="sentence">Rita wohnt in einem Studentenwohnheim und lernt gern in der Bibliothek. Aber sie verbringt ihre Freizeit <select id="answer8" class="input-box">
-            <option value="a">gern</option>
-            <option value="b">lieber</option>
-            <option value="c">am liebsten</option>
-        </select> im Studentenzentrum.</div>
-        <button onclick="checkAnswers()">Antworten überprüfen</button>
-        <button onclick="resetExercise()">Neu starten</button>
-        <button onclick="showAnswers()">Lösungen anzeigen</button>
-        <div id="feedback"></div>
+        <form id="quiz-form">
+            <div class="question-container">
+                <div class="question">1. Fred trägt immer seine weiße Schuhe. Von allen seinen Schuhen mag er sie _______.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a"> a) gern</label><br>
+                    <label class="option"><input type="radio" name="q1" value="b"> b) lieber</label><br>
+                    <label class="option"><input type="radio" name="q1" value="c"> c) am liebsten</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">2. Wolfgang arbeitet an seinem Roboterprojekt. Er bastelt _______ an technischen Geräten.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a"> a) gern</label><br>
+                    <label class="option"><input type="radio" name="q2" value="b"> b) lieber</label><br>
+                    <label class="option"><input type="radio" name="q2" value="c"> c) am liebsten</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">3. Fred muss heute Abend Hausaufgaben machen, aber er spielt _______ Videospiele.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="a"> a) gern</label><br>
+                    <label class="option"><input type="radio" name="q3" value="b"> b) lieber</label><br>
+                    <label class="option"><input type="radio" name="q3" value="c"> c) am liebsten</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">4. Rita liest gern Romane. Sie mag auch Krimis, aber _______ liest sie Fantasy-Romane.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="a"> a) gern</label><br>
+                    <label class="option"><input type="radio" name="q4" value="b"> b) lieber</label><br>
+                    <label class="option"><input type="radio" name="q4" value="c"> c) am liebsten</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">5. Fred macht gern Selfies allein und mit seinen Bros, aber er macht _______ Selfies mit hübschen Mädchen.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="a"> a) gern</label><br>
+                    <label class="option"><input type="radio" name="q5" value="b"> b) lieber</label><br>
+                    <label class="option"><input type="radio" name="q5" value="c"> c) am liebsten</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">6. Rita trinkt jeden Tag Kaffee und Cappuccino, aber sie trinkt _______ frischen Espresso.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="a"> a) gern</label><br>
+                    <label class="option"><input type="radio" name="q6" value="b"> b) lieber</label><br>
+                    <label class="option"><input type="radio" name="q6" value="c"> c) am liebsten</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">7. Fred mag Coke und Fanta, aber er trinkt _______ Pfefsi.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="a"> a) gern</label><br>
+                    <label class="option"><input type="radio" name="q7" value="b"> b) lieber</label><br>
+                    <label class="option"><input type="radio" name="q7" value="c"> c) am liebsten</label>
+                </div>
+            </div>
+            <br>
+            <div class="question-container">
+                <div class="question">8. Rita wohnt in einem Studentenwohnheim und lernt gern in der Bibliothek. Aber sie verbringt ihre Freizeit ______ im Studentenzentrum.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a"> a) gern</label><br>
+                    <label class="option"><input type="radio" name="q8" value="b"> b) lieber</label><br>
+                    <label class="option"><input type="radio" name="q8" value="c"> c) am liebsten</label>
+                </div>
+            </div>
+            <br>
+            <div class="button-group">
+                <button type="button" onclick="checkAnswers()">Antworten überprüfen</button>
+                <button type="button" onclick="resetQuiz()">Neu starten</button>
+            </div>
+            <div class="feedback" id="feedback"></div>
+        </form>
     </div>
     <nav>
         <a href="/German-Through-Stories/index.html">Main Page</a>
         <a href="C1index">Story C-1: Maroona und die MSAF</a>
-        <a href="C1A4.html">Previous Exercise</a>
-        <a href="C1A6.html">Next Exercise</a>
+            <a href="C1A5.html">Previous Exercise</a>
+            <a href="C1A7.html">Next Exercise</a>
     </nav>
     <footer>
         <p>&copy; 2024 German Through Stories. All rights reserved.</p>
     </footer>
-    <script>
-        function checkAnswers() {
-            const correctAnswers = ["c", "a", "b", "c", "c", "c", "c", "c"];
-            let score = 0;
-            const total = correctAnswers.length;
-            document.querySelectorAll('select').forEach((select, index) => {
-                select.classList.remove('correct', 'incorrect');
-                if (select.value === correctAnswers[index]) {
+<script>
+    function checkAnswers() {
+        const correctAnswers = {
+            q1: "c",
+            q2: "a",
+            q3: "b",
+            q4: "c",
+            q5: "c",
+            q6: "c",
+            q7: "c",
+            q8: "c"
+        };
+
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+
+        Object.keys(correctAnswers).forEach(question => {
+            const selected = document.querySelector(`input[name="${question}"]:checked`);
+            const options = document.querySelectorAll(`input[name="${question}"]`);
+
+            options.forEach(option => {
+                const label = option.parentNode;
+                label.classList.remove("correct", "incorrect");
+
+                if (selected && option === selected && option.value === correctAnswers[question]) {
                     score++;
-                    select.classList.add('correct');
+                    label.style.color = "green";
+                } else if (selected && option === selected && option.value !== correctAnswers[question]) {
+                    label.style.color = "red";
                 } else {
-                    select.classList.add('incorrect');
+                    label.style.color = "";
                 }
             });
-            document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
-        }
+        });
 
-        function resetExercise() {
-            document.querySelectorAll('select').forEach(select => {
-                select.classList.remove('correct', 'incorrect');
-                select.value = '';
-            });
-            document.getElementById('feedback').innerText = '';
-        }
+        document.getElementById("feedback").innerText = `${score} von ${totalQuestions} sind richtig`;
+    }
 
-        function showAnswers() {
-            const correctAnswers = ["c", "a", "b", "c", "c", "c", "c", "c"];
-            document.querySelectorAll('select').forEach((select, index) => {
-                select.classList.remove('correct', 'incorrect');
-                select.value = correctAnswers[index];
-            });
-            document.getElementById('feedback').innerText = "Lösungen angezeigt.";
-        }
-    </script>
+    function resetQuiz() {
+        document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+        document.querySelectorAll('.option').forEach(label => {
+            label.style.color = "";
+        });
+        document.getElementById("feedback").innerText = "";
+    }
+</script>
 </body>
 </html>
