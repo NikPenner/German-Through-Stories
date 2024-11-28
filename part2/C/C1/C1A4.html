@@ -59,17 +59,13 @@
         .sentence {
             margin: 10px 0;
         }
-        .dropzone {
-            display: inline-block;
-            width: auto;
-            height: auto;
-            margin: 0 5px;
-            text-align: center;
-            vertical-align: middle;
-            font-size: 1rem;
-            background-color: #e6f2ff;
-            border: none;
-            border-radius: 5px;
+        .input-box {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         #feedback {
             margin-top: 15px;
@@ -114,14 +110,14 @@
         <h2>Aufgabe 4. Rephrase the following sentences using ‘gern’ or ‘nicht gern’. Use the verb in brackets in your sentences.</h2>
         <h4>Remember: 1) ‘gern haben’ means the same as ‘mögen’<br>2) ’gern’ can be placed right after the main verb or at the end of a sentence.</h4>
         <p>Beispiel: Ich mag Kaffee. (trinken): Ich trinke gern Kaffee. / Ich trinke Kaffee gern.</p>
-        <div class="sentence">Maroona mag Sport. (machen): _______________________________________________</div>
-        <div class="sentence">Aber sie mag Lernen nicht. (lernen): ________________________________________</div>
-        <div class="sentence">Wolfgang mag Mathematik (haben): __________________________________________</div>
-        <div class="sentence">Fred mag nicht Hausaufgaben. (machen): ____________________________________</div>
-        <div class="sentence">Rita mag Waschbären. (haben): _____________________________________________</div>
-        <div class="sentence">Siegfried mag das Restaurant 1390. (gehen in): _______________________________</div>
-        <div class="sentence">Der Roboter mag nicht machen, was Wolfgang ihm sagt. (machen): _____________</div>
-        <div class="sentence">Er mag Pfefsi sehr. (trinken): ______________________________________________</div>
+        <div class="sentence">Maroona mag Sport. (machen): <input type="text" class="input-box" id="answer1"></div>
+        <div class="sentence">Aber sie mag Lernen nicht. (lernen): <input type="text" class="input-box" id="answer2"></div>
+        <div class="sentence">Wolfgang mag Mathematik (haben): <input type="text" class="input-box" id="answer3"></div>
+        <div class="sentence">Fred mag nicht Hausaufgaben. (machen): <input type="text" class="input-box" id="answer4"></div>
+        <div class="sentence">Rita mag Waschbären. (haben): <input type="text" class="input-box" id="answer5"></div>
+        <div class="sentence">Siegfried mag das Restaurant 1390. (gehen in): <input type="text" class="input-box" id="answer6"></div>
+        <div class="sentence">Der Roboter mag nicht machen, was Wolfgang ihm sagt. (machen): <input type="text" class="input-box" id="answer7"></div>
+        <div class="sentence">Er mag Pfefsi sehr. (trinken): <input type="text" class="input-box" id="answer8"></div>
         <button onclick="checkAnswers()">Antworten überprüfen</button>
         <button onclick="resetExercise()">Neu starten</button>
         <button onclick="showAnswers()">Lösungen anzeigen</button>
@@ -139,48 +135,53 @@
     <script>
         function checkAnswers() {
             const correctAnswers = [
-                ["gern", "am liebsten"],
-                ["gern", "am liebsten"],
-                ["gern", "am liebsten"],
-                ["gern", "lieber", "am liebsten"],
-                ["gern"],
-                ["gern", "lieber"]
+                "Maroona macht gern Sport. / Maroona macht Sport gern.",
+                "Aber sie lernt nicht gern. / Aber sie lernt Lernen nicht gern.",
+                "Wolfgang hat gern Mathematik. / Wolfgang hat Mathematik gern.",
+                "Fred macht nicht gern Hausaufgaben. / Fred macht Hausaufgaben nicht gern.",
+                "Rita hat gern Waschbären. / Rita hat Waschbären gern.",
+                "Siegfried geht gern in das Restaurant 1390. / Siegfried geht in das Restaurant 1390 gern.",
+                "Der Roboter macht nicht gern, was Wolfgang ihm sagt. / Der Roboter macht, was Wolfgang ihm sagt, nicht gern.",
+                "Er trinkt gern Pfefsi. / Er trinkt Pfefsi gern."
             ];
             let score = 0;
             const total = correctAnswers.length;
-            document.querySelectorAll('.dropzone').forEach((dropzone, index) => {
-                dropzone.classList.remove('correct', 'incorrect');
-                if (dropzone.value === correctAnswers[Math.floor(index / 2)][index % 2]) {
+            document.querySelectorAll('.input-box').forEach((inputBox, index) => {
+                inputBox.classList.remove('correct', 'incorrect');
+                const answers = correctAnswers[index].split(" / ");
+                if (answers.includes(inputBox.value.trim())) {
                     score++;
-                    dropzone.classList.add('correct');
+                    inputBox.classList.add('correct');
                 } else {
-                    dropzone.classList.add('incorrect');
+                    inputBox.classList.add('incorrect');
                 }
             });
             document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
         }
 
         function resetExercise() {
-            document.querySelectorAll('.dropzone').forEach(dropzone => {
-                dropzone.classList.remove('correct', 'incorrect');
-                dropzone.selectedIndex = 0;
+            document.querySelectorAll('.input-box').forEach(inputBox => {
+                inputBox.classList.remove('correct', 'incorrect');
+                inputBox.value = '';
             });
             document.getElementById('feedback').innerText = '';
         }
 
         function showAnswers() {
             const correctAnswers = [
-                ["gern", "am liebsten"],
-                ["gern", "am liebsten"],
-                ["gern", "am liebsten"],
-                ["gern", "lieber", "am liebsten"],
-                ["gern"],
-                ["gern", "lieber"]
+                "Maroona macht gern Sport. / Maroona macht Sport gern.",
+                "Aber sie lernt nicht gern. / Aber sie lernt Lernen nicht gern.",
+                "Wolfgang hat gern Mathematik. / Wolfgang hat Mathematik gern.",
+                "Fred macht nicht gern Hausaufgaben. / Fred macht Hausaufgaben nicht gern.",
+                "Rita hat gern Waschbären. / Rita hat Waschbären gern.",
+                "Siegfried geht gern in das Restaurant 1390. / Siegfried geht in das Restaurant 1390 gern.",
+                "Der Roboter macht nicht gern, was Wolfgang ihm sagt. / Der Roboter macht, was Wolfgang ihm sagt, nicht gern.",
+                "Er trinkt gern Pfefsi. / Er trinkt Pfefsi gern."
             ];
-            document.querySelectorAll('.dropzone').forEach((dropzone, index) => {
-                dropzone.classList.remove('correct', 'incorrect');
-                dropzone.value = correctAnswers[Math.floor(index / 2)][index % 2];
-                dropzone.classList.add('correct');
+            document.querySelectorAll('.input-box').forEach((inputBox, index) => {
+                inputBox.classList.remove('correct', 'incorrect');
+                inputBox.value = correctAnswers[index].split(" / ")[0];
+                inputBox.classList.add('correct');
             });
             document.getElementById('feedback').innerText = "Lösungen angezeigt.";
         }
