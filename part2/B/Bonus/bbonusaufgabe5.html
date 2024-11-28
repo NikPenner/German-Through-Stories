@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -218,23 +219,44 @@
             document.getElementById('feedback').innerText = `${score} von ${total} sind richtig.`;
         }
 
-        function resetExercise() {
-            document.querySelectorAll('.dropzone').forEach(zone => {
-                if (zone.firstChild) {
-                    document.getElementById("origin").appendChild(zone.firstChild);
-                }
-                zone.classList.remove('correct', 'incorrect');
-            });
-            document.getElementById('feedback').innerText = "";
+  function resetExercise() {
+    // Clear all dropzones
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        if (zone.firstChild) {
+            document.getElementById("origin").appendChild(zone.firstChild); // Move back to origin
         }
+        zone.innerHTML = ''; // Clear any answers left by showAnswers
+        zone.classList.remove('correct', 'incorrect'); // Reset styles
+    });
 
-        function showAnswers() {
-            document.querySelectorAll('.dropzone').forEach(zone => {
-                const answer = zone.getAttribute('data-answer');
-                zone.innerHTML = `<span class="correct">${answer}</span>`;
-            });
-            document.getElementById('feedback').innerText = "Lösungen angezeigt.";
-        }
+    // Clear feedback text
+    document.getElementById('feedback').innerText = "";
+
+    // Reset the origin area
+    const origin = document.getElementById('origin');
+    origin.innerHTML = ''; // Clear current origin
+    // Recreate draggable elements
+    const draggableItems = ['hat', 'ist', 'war', 'wollte', 'hatte'];
+    draggableItems.forEach(item => {
+        const newDraggable = document.createElement('div');
+        newDraggable.id = item;
+        newDraggable.textContent = item;
+        newDraggable.setAttribute('draggable', 'true');
+        newDraggable.classList.add('draggable');
+        newDraggable.addEventListener('dragstart', dragStart);
+        origin.appendChild(newDraggable);
+    });
+}
+
+
+ function showAnswers() {
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        const answer = zone.getAttribute('data-answer');
+        zone.innerHTML = ''; // Clear current content before showing the answer
+        zone.innerHTML = `<span class="correct">${answer}</span>`;
+    });
+    document.getElementById('feedback').innerText = "Lösungen angezeigt.";
+}
     </script>
 </body>
 </html>
